@@ -1,0 +1,7 @@
+---
+title: "Past events"
+listing: past events
+---
+
+Here are some details of past talks:
+

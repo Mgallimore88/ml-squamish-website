@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+We are a group of Squamish residents connected over a common interest in machine learning, data science and AI. 
+
+We aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.
+
+To get involved, come along on Wednesday evenings to meet the group!

@@ -1,0 +1,15 @@
+---
+title: "Numpy deep dive"
+author: "Peter O'Connor"
+date: "2022-12-21"
+categories: [numpy, talk]
+image: "numpy.png"
+---
+
+![numpylogo](numpy.png)
+
+This evening Peter hosted a talk on NumPy, a python numeric processing package which runs on C under the hood. 
+
+![](thumbnail.jpg)
+
+Peter made a notebook accompanying this talk.

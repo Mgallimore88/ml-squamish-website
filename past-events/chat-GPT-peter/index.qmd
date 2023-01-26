@@ -1,0 +1,9 @@
+---
+title: "Chat-GPT: The architecture behind the model"
+author: "Peter O'Connor"
+date: "2023-01-11"
+categories: [chat-GPT, NLP, Talk]
+image: "slide-intro.png"
+---
+
+There is a slideshow accompanying this section. 

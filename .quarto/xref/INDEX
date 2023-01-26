@@ -1,0 +1,53 @@
+{
+  "index.qmd": {
+    "index.html": "d54e344d"
+  },
+  "about.qmd": {
+    "about.html": "2912a124"
+  },
+  "blog/posts/post-with-code/index.qmd": {
+    "index.html": "78a90daf"
+  },
+  "blog/posts/welcome/index.qmd": {
+    "index.html": "d76d427c"
+  },
+  "blog/index.qmd": {
+    "index.html": "8979e586"
+  },
+  "blog/about.qmd": {
+    "about.html": "c8a97515"
+  },
+  "past events.qmd": {
+    "past events.html": "50c753be"
+  },
+  "past events/post-with-code/index.qmd": {
+    "index.html": "37664985"
+  },
+  "past events/welcome/index.qmd": {
+    "index.html": "dfe592f1"
+  },
+  "past-events/post-with-code/index.qmd": {
+    "index.html": "d98b58d3"
+  },
+  "past-events/welcome/index.qmd": {
+    "index.html": "7ac8d91f"
+  },
+  "past-events.qmd": {
+    "past-events.html": "24b24b37"
+  },
+  "past-events/past-events.qmd": {
+    "past-events.html": "4ef570be"
+  },
+  "past-events/chat-GPT-peter/index.qmd": {
+    "index.html": "994695ec"
+  },
+  "past-events/numpy-peter/index.qmd": {
+    "index.html": "44104795"
+  },
+  "past-events/site-test/index.qmd": {
+    "index.html": "270c99e2"
+  },
+  "past-events/site-test/nb_with_code.ipynb": {
+    "nb_with_code.html": "a201adb2"
+  }
+}
