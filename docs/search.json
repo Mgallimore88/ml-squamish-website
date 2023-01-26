@@ -2,7 +2,7 @@
   {
     "objectID": "past-events/site-test/index.html",
     "href": "past-events/site-test/index.html",
-    "title": "My Notebook",
+    "title": "Test post linking to a notebook",
     "section": "",
     "text": "Testing the site’s ability to display jupyter notebooks.\nnotebook"
   },
@@ -32,7 +32,7 @@
     "href": "past-events/past-events.html",
     "title": "Past events",
     "section": "",
-    "text": "Here are some details of past talks:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample notebook with code\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Notebook\n\n\n\n\n\n\n\n\n\n\n\n\nApr 5, 2023\n\n\nMike\n\n\n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\nNo matching items"
+    "text": "Here are some details of past talks:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample notebook with code\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTest post linking to a notebook\n\n\n\n\n\n\n\n\n\n\n\n\nApr 5, 2023\n\n\nMike\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -47,5 +47,12 @@
     "title": "Home",
     "section": "",
     "text": "Welcome to our landing page.\nPast Events"
+  },
+  {
+    "objectID": "past-events/site-test2/index.html",
+    "href": "past-events/site-test2/index.html",
+    "title": "testing python code content",
+    "section": "",
+    "text": "Testing the site’s ability to display python code.\npython"
   }
 ]

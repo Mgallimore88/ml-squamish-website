@@ -1,6 +1,6 @@
 ---
 title: "Past events"
-listing: past events
+listing: default
 ---
 
 Here are some details of past talks:

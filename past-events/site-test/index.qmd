@@ -1,8 +1,8 @@
 ---
-title: "My Notebook"
+title: "Test post linking to a notebook"
 author: "Mike"
 date: "2023-02-36"
-categories: [code]
+categories: [site test]
 image: ""
 execute:
     enabled: false
