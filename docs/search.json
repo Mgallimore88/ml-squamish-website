@@ -18,7 +18,7 @@
     "href": "past-events/numpy-peter/index.html",
     "title": "Numpy deep dive",
     "section": "",
-    "text": "numpylogo\n\n\nThis evening Peter hosted a talk on NumPy, a python numeric processing package which runs on C under the hood.\n\nPeter made a notebook accompanying this talk."
+    "text": "numpylogo\n\n\nThis evening Peter hosted a talk on NumPy, a python numeric processing package which runs on C under the hood.\nPeter made a notebook accompanying this talk: notebook"
   },
   {
     "objectID": "past-events/site-test/nb_with_code.html",
@@ -54,5 +54,12 @@
     "title": "testing python code content",
     "section": "",
     "text": "Testing the site’s ability to display python code.\npython"
+  },
+  {
+    "objectID": "past-events/numpy-peter/numpy-tutorial.html",
+    "href": "past-events/numpy-peter/numpy-tutorial.html",
+    "title": "ML Squamish",
+    "section": "",
+    "text": "A low level intro to the use of numerical libraries (mainly Pytorch but also Numpy and Tensorflow) for machine learning.\n\n\n\nGet everyone familiar with the basics of array-manipulation.\nMake sure even those people already familiar learn something new.\nIntroduce pytorch from the bottom-up.\n\n\n\n\nLibraries like Numpy, PyTorch, and Tensorflow use N-dimensional arrays as a basic datatype. They allow you to manipulate arrays much more compactily and faster than if you were to use native python. Behind the scenes, they do all the looping in C - which will typically be around 20-100x faster than doing it in python.\n\nfrom timeit import timeit\nt1=timeit(\"sum(ai*bi for ai, bi in zip(a, b))\", setup=\"import random; N=10000000; a=[random.gauss(0, 1) for _ in range(N)]; b=[random.gauss(0, 1) for _ in range(N)]\", number = 10)\nt2=timeit(\"(a*b).sum()\", setup=\"import numpy as np; N=10000000; a, b = np.random.randn(2, N)\", number = 10)\nprint(f\"With python looping: t={t1:.3f}, with numpy looping: t={t2:.3f}.  Speedup factor: {t1/t2:.0f}x\")\n\nWith python looping: t=9.208, with numpy looping: t=0.352.  Speedup factor: 26x"
   }
 ]

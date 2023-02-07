@@ -52,5 +52,8 @@
   },
   "past-events/site-test2/index.qmd": {
     "index.html": "bcfd1314"
+  },
+  "past-events/numpy-peter/numpy-tutorial.ipynb": {
+    "numpy-tutorial.html": "186c041a"
   }
 }

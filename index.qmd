@@ -1,6 +1,7 @@
 ---
 title: "Home"
 ---
+![](logo.png)
 
 # Welcome to our landing page.
 

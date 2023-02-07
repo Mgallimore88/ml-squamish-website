@@ -5,10 +5,14 @@ project:
 website:
   title: "ML Squamish"
   navbar:
+    background: primary
+    search: true
+    logo: logo.png
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      
 
 format:
   html:
