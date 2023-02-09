@@ -6,3 +6,5 @@ title: "Home"
 # Welcome to our landing page.
 
 [Past Events](past-events/past-events.qmd)
+
+[Resources](resources/paperspace-tutorial/index.qmd)

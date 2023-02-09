@@ -18,7 +18,7 @@
     "href": "past-events/numpy-peter/index.html",
     "title": "Numpy deep dive",
     "section": "",
-    "text": "numpylogo\n\n\nThis evening Peter hosted a talk on NumPy, a python numeric processing package which runs on C under the hood.\nPeter made a notebook accompanying this talk: notebook"
+    "text": "numpylogo\n\n\nThis evening Peter hosted a talk on NumPy, a python numeric processing package which runs on C under the hood.\nPeter made a notebook accompanying this talk; check it out here! notebook"
   },
   {
     "objectID": "past-events/site-test/nb_with_code.html",
@@ -32,21 +32,21 @@
     "href": "past-events/past-events.html",
     "title": "Past events",
     "section": "",
-    "text": "Here are some details of past talks:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample notebook with code\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTest post linking to a notebook\n\n\n\n\n\n\n\n\n\n\n\n\nApr 5, 2023\n\n\nMike\n\n\n\n\n\n\nNo matching items"
+    "text": "Here are some details of past talks:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s this all about?\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "We are a group of Squamish residents connected over a common interest in machine learning, data science and AI.\nWe aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.\nTo get involved, come along on Wednesday evenings to meet the group!"
+    "text": "We are a group of Squamish residents connected over a common interest in machine learning, data science and AI.\nWe aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.\nTo get involved, come along on Wednesday evenings to meet the group!\nWe host our meets at The Common - a community workspace on Cleveland. Check out their website and definitely consider them if you’re a remote worker."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "Welcome to our landing page.\nPast Events"
+    "text": "Welcome to our landing page.\nPast Events\nResources"
   },
   {
     "objectID": "past-events/site-test2/index.html",
@@ -61,5 +61,68 @@
     "title": "ML Squamish",
     "section": "",
     "text": "A low level intro to the use of numerical libraries (mainly Pytorch but also Numpy and Tensorflow) for machine learning.\n\n\n\nGet everyone familiar with the basics of array-manipulation.\nMake sure even those people already familiar learn something new.\nIntroduce pytorch from the bottom-up.\n\n\n\n\nLibraries like Numpy, PyTorch, and Tensorflow use N-dimensional arrays as a basic datatype. They allow you to manipulate arrays much more compactily and faster than if you were to use native python. Behind the scenes, they do all the looping in C - which will typically be around 20-100x faster than doing it in python.\n\nfrom timeit import timeit\nt1=timeit(\"sum(ai*bi for ai, bi in zip(a, b))\", setup=\"import random; N=10000000; a=[random.gauss(0, 1) for _ in range(N)]; b=[random.gauss(0, 1) for _ in range(N)]\", number = 10)\nt2=timeit(\"(a*b).sum()\", setup=\"import numpy as np; N=10000000; a, b = np.random.randn(2, N)\", number = 10)\nprint(f\"With python looping: t={t1:.3f}, with numpy looping: t={t2:.3f}.  Speedup factor: {t1/t2:.0f}x\")\n\nWith python looping: t=9.208, with numpy looping: t=0.352.  Speedup factor: 26x"
+  },
+  {
+    "objectID": "past-events/paperspace-tutorial/index.html",
+    "href": "past-events/paperspace-tutorial/index.html",
+    "title": "Getting set up with cloud computing on Paperspace Gradient",
+    "section": "",
+    "text": "Walkthrough on getting set up with paperspace.\nnotebook"
+  },
+  {
+    "objectID": "past-events/paperspace-tutorial/paperspace.html",
+    "href": "past-events/paperspace-tutorial/paperspace.html",
+    "title": "ML Squamish",
+    "section": "",
+    "text": "import numpy as np\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\n: \n\n\n\n\nThe following function describes a straight line , where m is the gradient and c is the y intercept:\n\\[\n\\large y = mx + c\n\\]\nWe can show that this equation plots a straight line by experiment: making a set of inputs x, and calculating the corresponding values of y, a function of x:\n\nx = np.linspace(0,49)\nm = 2\nc = -4\nprint(f'm = {m}, c = {c}')\n\nm = 2, c = -4\n\n\n\nx\n\narray([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10., 11., 12.,\n       13., 14., 15., 16., 17., 18., 19., 20., 21., 22., 23., 24., 25.,\n       26., 27., 28., 29., 30., 31., 32., 33., 34., 35., 36., 37., 38.,\n       39., 40., 41., 42., 43., 44., 45., 46., 47., 48., 49.])\n\n\n\ny = m*x+c\ny\n\narray([-4., -2.,  0.,  2.,  4.,  6.,  8., 10., 12., 14., 16., 18., 20.,\n       22., 24., 26., 28., 30., 32., 34., 36., 38., 40., 42., 44., 46.,\n       48., 50., 52., 54., 56., 58., 60., 62., 64., 66., 68., 70., 72.,\n       74., 76., 78., 80., 82., 84., 86., 88., 90., 92., 94.])\n\n\n\nplt.plot(x,y)\nplt.plot(x,x)\nplt.ylim(0,50)\nplt.xlim(0,50)\nplt.title('example linear plots')\nplt.legend(['y=2x-4', 'y=x'])\nplt.grid()\nplt.show()\n\n\n\n\nThe orange line is where y = x\nThe blue line is where y = 2x - 4"
+  },
+  {
+    "objectID": "resources/paperspace-tutorial/index.html",
+    "href": "resources/paperspace-tutorial/index.html",
+    "title": "Getting set up with cloud computing on Paperspace Gradient",
+    "section": "",
+    "text": "Walkthrough on getting set up with paperspace.\nPaperspace Setup\nTraining a model"
+  },
+  {
+    "objectID": "resources/resources.html",
+    "href": "resources/resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Some resources for you:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nGetting set up with cloud computing on Paperspace Gradient\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resources/paperspace-tutorial/boats-example.html",
+    "href": "resources/paperspace-tutorial/boats-example.html",
+    "title": "ML Squamish",
+    "section": "",
+    "text": "type ? or ?? next to a function then shift + return to execute the cell to get the source code.\nPress shift + tab inside function’s parentheses to get function signature and docstring\nType the name of a module and hit enter to get info about its type and location."
+  },
+  {
+    "objectID": "resources/paperspace-tutorial/boats-example.html#change-your-code-to-reflect-the-categories-youre-using.",
+    "href": "resources/paperspace-tutorial/boats-example.html#change-your-code-to-reflect-the-categories-youre-using.",
+    "title": "ML Squamish",
+    "section": "Change your code to reflect the categories you’re using.",
+    "text": "Change your code to reflect the categories you’re using.\n\nboat_types = 'canoe', 'kayak', 'sailboat'\n\n\npath = Path('boats')\n\nDownload images from chosen categories.\nThis cell may take a few minutes to run\n\nif not path.exists():\n    path.mkdir()\n    for boat in boat_types:\n        dest = (path/boat)\n        dest.mkdir(exist_ok=True)\n        results = search_images(boat)\n        download_images(dest, urls=results)\n\n\n!ls {path}\npath\n\ncanoe  kayak  sailboat\n\n\nPath('boats')\n\n\n\nfilenames = get_image_files(path)\nfilenames\n\n(#554) [Path('boats/sailboat/3b873c96-0d1f-4404-9aae-af25d3805177.jpg'),Path('boats/sailboat/6336c57d-8ad9-4318-836c-fba58b5357be.jpg'),Path('boats/sailboat/d2a981d0-0d3e-4b0e-a077-a5cbda1a41b0.JPG'),Path('boats/sailboat/da7dc60e-7c83-4807-9fc1-a0f5061a5080.jpg'),Path('boats/sailboat/168643af-803b-4783-8c6b-a785157c481e.jpeg'),Path('boats/sailboat/f4055206-199c-42a8-bf74-8ed6c4dc7e08.jpg'),Path('boats/sailboat/d5883260-5325-41cb-a645-016051c37819.jpg'),Path('boats/sailboat/4b44e5d8-75e1-413b-a9b9-bd3f19b63df4.jpg'),Path('boats/sailboat/86d8f1b9-b75b-467f-8476-2d91805a150b.jpg'),Path('boats/sailboat/e07b4c1d-a717-4c10-9059-005016798081.jpeg')...]\n\n\n\nfailed = verify_images(filenames)\n\n\nfailed\n\n(#0) []\n\n\n\nfailed.map(Path.unlink)\n\n(#0) []\n\n\n\nfailed\n\n(#0) []"
+  },
+  {
+    "objectID": "resources/paperspace-tutorial/boats-example.html#create-a-way-to-load-datasets-and-dataloaders",
+    "href": "resources/paperspace-tutorial/boats-example.html#create-a-way-to-load-datasets-and-dataloaders",
+    "title": "ML Squamish",
+    "section": "Create a way to load datasets and dataloaders",
+    "text": "Create a way to load datasets and dataloaders\n\nboats = DataBlock(\n    blocks=(ImageBlock, CategoryBlock),\n    get_items=get_image_files,\n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=Resize(128)\n)\n\n\ndataloaders = boats.dataloaders(path)\n\n\ndataloaders.device\n\ndevice(type='cuda', index=0)\n\n\nIf the device type is ‘cuda’ that means we’ve got the model on the GPU. If device type is ‘cpu’ then now’s a good time to see if there is a free GPU instance available. The data you downloaded earlier won’t be lost since Paperspace has persistent storage.\n\n# Docs for some modules. Uncomment as required. \n# DataLoader?\n# DataLoaders?\n# Datasets?\n# torch.utils.data.Dataset?\n# torch.utils.data.DataLoader?"
+  },
+  {
+    "objectID": "resources/paperspace-tutorial/boats-example.html#training-and-validation-sets",
+    "href": "resources/paperspace-tutorial/boats-example.html#training-and-validation-sets",
+    "title": "ML Squamish",
+    "section": "Training and validation sets",
+    "text": "Training and validation sets\nOur data is split into training and validation batches. 20% of the data is in the validation set, and 80% is in the training set.\nDataset: an iterable over tuples containing images with their corresponding category.  DataLoader: a PyTorch iterable returning a batch of datasets. DataLoaders: a fastai iterable which splits dataloaders into training and validation datasets.\n\ndataloaders.train.show_batch()"
+  },
+  {
+    "objectID": "resources/paperspace-tutorial/boats-example.html#train-a-model",
+    "href": "resources/paperspace-tutorial/boats-example.html#train-a-model",
+    "title": "ML Squamish",
+    "section": "Train a model",
+    "text": "Train a model\n\nlearn = vision_learner(dataloaders, resnet18, metrics=error_rate)\nlearn.fine_tune(4)\nlearn.recorder.plot_loss()\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      1.512921\n      0.358238\n      0.145455\n      00:13\n    \n  \n\n\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      0.609499\n      0.233965\n      0.100000\n      00:13\n    \n    \n      1\n      0.459157\n      0.267047\n      0.118182\n      00:13\n    \n    \n      2\n      0.373013\n      0.286165\n      0.118182\n      00:13\n    \n    \n      3\n      0.338020\n      0.260390\n      0.109091\n      00:13"
   }
 ]

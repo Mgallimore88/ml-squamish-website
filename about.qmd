@@ -7,3 +7,5 @@ We are a group of Squamish residents connected over a common interest in machine
 We aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.
 
 To get involved, come along on Wednesday evenings to meet the group!
+
+We host our meets at [The Common](http://thecommon.io) - a community workspace on Cleveland. Check out their website and definitely check them out if you work from home. 

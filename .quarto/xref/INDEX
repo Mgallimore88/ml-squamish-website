@@ -55,5 +55,23 @@
   },
   "past-events/numpy-peter/numpy-tutorial.ipynb": {
     "numpy-tutorial.html": "186c041a"
+  },
+  "past-events/paperspace-tutorial/index.qmd": {
+    "index.html": "35ffd141"
+  },
+  "past-events/paperspace-tutorial/paperspace.ipynb": {
+    "paperspace.html": "5a91c9d8"
+  },
+  "resources/paperspace-tutorial/index.qmd": {
+    "index.html": "1a17b1bb"
+  },
+  "resources/paperspace-tutorial/paperspace.ipynb": {
+    "paperspace.html": "a8f749d1"
+  },
+  "resources/resources.qmd": {
+    "resources.html": "52305e1e"
+  },
+  "resources/paperspace-tutorial/boats-example.ipynb": {
+    "boats-example.html": "ebc2b4cd"
   }
 }

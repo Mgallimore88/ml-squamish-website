@@ -1,0 +1,15 @@
+---
+title: "Getting set up with cloud computing on Paperspace Gradient"
+author: "Mike"
+date: "2023-02-08"
+categories: [tutorial beginner]
+image: "images/logo.png"
+execute:
+    enabled: false
+---
+
+Walkthrough on getting set up with paperspace. 
+
+[Paperspace Setup](paperspace.ipynb)
+
+[Training a model](boats-example.ipynb)
