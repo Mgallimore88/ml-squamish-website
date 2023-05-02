@@ -11,7 +11,7 @@
     "href": "past-events/chat-GPT-peter/index.html",
     "title": "Chat-GPT: The architecture behind the model",
     "section": "",
-    "text": "There is a slideshow accompanying this section."
+    "text": "There is a slideshow accompanying this section.\nSlideshow"
   },
   {
     "objectID": "past-events/numpy-peter/index.html",
@@ -32,21 +32,21 @@
     "href": "past-events/past-events.html",
     "title": "Past events",
     "section": "",
-    "text": "Here are some details of past talks:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s this all about?\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Here are some details of past talks:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning a model on GPU in Jupyter Notebook.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s this all about?\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "We are a group of Squamish residents connected over a common interest in machine learning, data science and AI.\nWe aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.\nTo get involved, come along on Wednesday evenings to meet the group!\nWe host our meets at The Common - a community workspace on Cleveland. Check out their website and definitely consider them if you’re a remote worker."
+    "text": "We are a group of Squamish residents connected over a common interest in machine learning, data science and AI.\nWe aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.\nTo get involved, come along on Wednesday evenings to meet the group!\nYou can shoot us an email here: mlsquamish@gmail.com\nWe host our meets at The Common - a community workspace on Cleveland. Check out their website and definitely give them a try if you have a remote job and want an office space."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "Welcome to our landing page.\nPast Events\nResources"
+    "text": "Welcome to our landing page.\nPast Events"
   },
   {
     "objectID": "past-events/site-test2/index.html",
@@ -88,7 +88,7 @@
     "href": "resources/resources.html",
     "title": "Resources",
     "section": "",
-    "text": "Some resources for you:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nGetting set up with cloud computing on Paperspace Gradient\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike\n\n\n\n\n\n\nNo matching items"
+    "text": "Some resources for you:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nGetting set up with cloud computing on Paperspace Gradient\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning a model on GPU in Jupyter Notebook.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resources/paperspace-tutorial/boats-example.html",
@@ -124,5 +124,152 @@
     "title": "ML Squamish",
     "section": "Train a model",
     "text": "Train a model\n\nlearn = vision_learner(dataloaders, resnet18, metrics=error_rate)\nlearn.fine_tune(4)\nlearn.recorder.plot_loss()\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      1.512921\n      0.358238\n      0.145455\n      00:13\n    \n  \n\n\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      0.609499\n      0.233965\n      0.100000\n      00:13\n    \n    \n      1\n      0.459157\n      0.267047\n      0.118182\n      00:13\n    \n    \n      2\n      0.373013\n      0.286165\n      0.118182\n      00:13\n    \n    \n      3\n      0.338020\n      0.260390\n      0.109091\n      00:13"
+  },
+  {
+    "objectID": "past-events/model-from-scratch-mike/paperspace-tutorial/index.html",
+    "href": "past-events/model-from-scratch-mike/paperspace-tutorial/index.html",
+    "title": "Getting set up with cloud computing on Paperspace Gradient",
+    "section": "",
+    "text": "Walkthrough on getting set up with paperspace.\nPaperspace Setup\nTraining a model"
+  },
+  {
+    "objectID": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html",
+    "href": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html",
+    "title": "ML Squamish",
+    "section": "",
+    "text": "type ? or ?? next to a function then shift + return to execute the cell to get the source code.\nPress shift + tab inside function’s parentheses to get function signature and docstring\nType the name of a module and hit enter to get info about its type and location."
+  },
+  {
+    "objectID": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html#change-your-code-to-reflect-the-categories-youre-using.",
+    "href": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html#change-your-code-to-reflect-the-categories-youre-using.",
+    "title": "ML Squamish",
+    "section": "Change your code to reflect the categories you’re using.",
+    "text": "Change your code to reflect the categories you’re using.\n\nboat_types = 'canoe', 'kayak', 'sailboat'\n\n\npath = Path('boats')\n\nDownload images from chosen categories.\nThis cell may take a few minutes to run\n\nif not path.exists():\n    path.mkdir()\n    for boat in boat_types:\n        dest = (path/boat)\n        dest.mkdir(exist_ok=True)\n        results = search_images(boat)\n        download_images(dest, urls=results)\n\n\n!ls {path}\npath\n\ncanoe  kayak  sailboat\n\n\nPath('boats')\n\n\n\nfilenames = get_image_files(path)\nfilenames\n\n(#554) [Path('boats/sailboat/3b873c96-0d1f-4404-9aae-af25d3805177.jpg'),Path('boats/sailboat/6336c57d-8ad9-4318-836c-fba58b5357be.jpg'),Path('boats/sailboat/d2a981d0-0d3e-4b0e-a077-a5cbda1a41b0.JPG'),Path('boats/sailboat/da7dc60e-7c83-4807-9fc1-a0f5061a5080.jpg'),Path('boats/sailboat/168643af-803b-4783-8c6b-a785157c481e.jpeg'),Path('boats/sailboat/f4055206-199c-42a8-bf74-8ed6c4dc7e08.jpg'),Path('boats/sailboat/d5883260-5325-41cb-a645-016051c37819.jpg'),Path('boats/sailboat/4b44e5d8-75e1-413b-a9b9-bd3f19b63df4.jpg'),Path('boats/sailboat/86d8f1b9-b75b-467f-8476-2d91805a150b.jpg'),Path('boats/sailboat/e07b4c1d-a717-4c10-9059-005016798081.jpeg')...]\n\n\n\nfailed = verify_images(filenames)\n\n\nfailed\n\n(#0) []\n\n\n\nfailed.map(Path.unlink)\n\n(#0) []\n\n\n\nfailed\n\n(#0) []"
+  },
+  {
+    "objectID": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html#create-a-way-to-load-datasets-and-dataloaders",
+    "href": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html#create-a-way-to-load-datasets-and-dataloaders",
+    "title": "ML Squamish",
+    "section": "Create a way to load datasets and dataloaders",
+    "text": "Create a way to load datasets and dataloaders\n\nboats = DataBlock(\n    blocks=(ImageBlock, CategoryBlock),\n    get_items=get_image_files,\n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=Resize(128)\n)\n\n\ndataloaders = boats.dataloaders(path)\n\n\ndataloaders.device\n\ndevice(type='cuda', index=0)\n\n\nIf the device type is ‘cuda’ that means we’ve got the model on the GPU. If device type is ‘cpu’ then now’s a good time to see if there is a free GPU instance available. The data you downloaded earlier won’t be lost since Paperspace has persistent storage.\n\n# Docs for some modules. Uncomment as required. \n# DataLoader?\n# DataLoaders?\n# Datasets?\n# torch.utils.data.Dataset?\n# torch.utils.data.DataLoader?"
+  },
+  {
+    "objectID": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html#training-and-validation-sets",
+    "href": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html#training-and-validation-sets",
+    "title": "ML Squamish",
+    "section": "Training and validation sets",
+    "text": "Training and validation sets\nOur data is split into training and validation batches. 20% of the data is in the validation set, and 80% is in the training set.\nDataset: an iterable over tuples containing images with their corresponding category.  DataLoader: a PyTorch iterable returning a batch of datasets. DataLoaders: a fastai iterable which splits dataloaders into training and validation datasets.\n\ndataloaders.train.show_batch()"
+  },
+  {
+    "objectID": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html#train-a-model",
+    "href": "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html#train-a-model",
+    "title": "ML Squamish",
+    "section": "Train a model",
+    "text": "Train a model\n\nlearn = vision_learner(dataloaders, resnet18, metrics=error_rate)\nlearn.fine_tune(4)\nlearn.recorder.plot_loss()\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      1.512921\n      0.358238\n      0.145455\n      00:13\n    \n  \n\n\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      0.609499\n      0.233965\n      0.100000\n      00:13\n    \n    \n      1\n      0.459157\n      0.267047\n      0.118182\n      00:13\n    \n    \n      2\n      0.373013\n      0.286165\n      0.118182\n      00:13\n    \n    \n      3\n      0.338020\n      0.260390\n      0.109091\n      00:13"
+  },
+  {
+    "objectID": "past-events/model-from-scratch-mike/resources.html",
+    "href": "past-events/model-from-scratch-mike/resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Some resources for you:\n\n\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nGetting set up with cloud computing on Paperspace Gradient\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning a model on GPU in Jupyter Notebook.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "past-events/boats-example.html",
+    "href": "past-events/boats-example.html",
+    "title": "ML Squamish",
+    "section": "",
+    "text": "type ? or ?? next to a function then shift + return to execute the cell to get the source code.\nPress shift + tab inside function’s parentheses to get function signature and docstring\nType the name of a module and hit enter to get info about its type and location."
+  },
+  {
+    "objectID": "past-events/boats-example.html#change-your-code-to-reflect-the-categories-youre-using.",
+    "href": "past-events/boats-example.html#change-your-code-to-reflect-the-categories-youre-using.",
+    "title": "ML Squamish",
+    "section": "Change your code to reflect the categories you’re using.",
+    "text": "Change your code to reflect the categories you’re using.\n\nboat_types = 'canoe', 'kayak', 'sailboat'\n\n\npath = Path('boats')\n\nDownload images from chosen categories.\nThis cell may take a few minutes to run\n\nif not path.exists():\n    path.mkdir()\n    for boat in boat_types:\n        dest = (path/boat)\n        dest.mkdir(exist_ok=True)\n        results = search_images(boat)\n        download_images(dest, urls=results)\n\n\n!ls {path}\npath\n\ncanoe  kayak  sailboat\n\n\nPath('boats')\n\n\n\nfilenames = get_image_files(path)\nfilenames\n\n(#554) [Path('boats/sailboat/3b873c96-0d1f-4404-9aae-af25d3805177.jpg'),Path('boats/sailboat/6336c57d-8ad9-4318-836c-fba58b5357be.jpg'),Path('boats/sailboat/d2a981d0-0d3e-4b0e-a077-a5cbda1a41b0.JPG'),Path('boats/sailboat/da7dc60e-7c83-4807-9fc1-a0f5061a5080.jpg'),Path('boats/sailboat/168643af-803b-4783-8c6b-a785157c481e.jpeg'),Path('boats/sailboat/f4055206-199c-42a8-bf74-8ed6c4dc7e08.jpg'),Path('boats/sailboat/d5883260-5325-41cb-a645-016051c37819.jpg'),Path('boats/sailboat/4b44e5d8-75e1-413b-a9b9-bd3f19b63df4.jpg'),Path('boats/sailboat/86d8f1b9-b75b-467f-8476-2d91805a150b.jpg'),Path('boats/sailboat/e07b4c1d-a717-4c10-9059-005016798081.jpeg')...]\n\n\n\nfailed = verify_images(filenames)\n\n\nfailed\n\n(#0) []\n\n\n\nfailed.map(Path.unlink)\n\n(#0) []\n\n\n\nfailed\n\n(#0) []"
+  },
+  {
+    "objectID": "past-events/boats-example.html#create-a-way-to-load-datasets-and-dataloaders",
+    "href": "past-events/boats-example.html#create-a-way-to-load-datasets-and-dataloaders",
+    "title": "ML Squamish",
+    "section": "Create a way to load datasets and dataloaders",
+    "text": "Create a way to load datasets and dataloaders\n\nboats = DataBlock(\n    blocks=(ImageBlock, CategoryBlock),\n    get_items=get_image_files,\n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=Resize(128)\n)\n\n\ndataloaders = boats.dataloaders(path)\n\n\ndataloaders.device\n\ndevice(type='cuda', index=0)\n\n\nIf the device type is ‘cuda’ that means we’ve got the model on the GPU. If device type is ‘cpu’ then now’s a good time to see if there is a free GPU instance available. The data you downloaded earlier won’t be lost since Paperspace has persistent storage.\n\n# Docs for some modules. Uncomment as required. \n# DataLoader?\n# DataLoaders?\n# Datasets?\n# torch.utils.data.Dataset?\n# torch.utils.data.DataLoader?"
+  },
+  {
+    "objectID": "past-events/boats-example.html#training-and-validation-sets",
+    "href": "past-events/boats-example.html#training-and-validation-sets",
+    "title": "ML Squamish",
+    "section": "Training and validation sets",
+    "text": "Training and validation sets\nOur data is split into training and validation batches. 20% of the data is in the validation set, and 80% is in the training set.\nDataset: an iterable over tuples containing images with their corresponding category.  DataLoader: a PyTorch iterable returning a batch of datasets. DataLoaders: a fastai iterable which splits dataloaders into training and validation datasets.\n\ndataloaders.train.show_batch()"
+  },
+  {
+    "objectID": "past-events/boats-example.html#train-a-model",
+    "href": "past-events/boats-example.html#train-a-model",
+    "title": "ML Squamish",
+    "section": "Train a model",
+    "text": "Train a model\n\nlearn = vision_learner(dataloaders, resnet18, metrics=error_rate)\nlearn.fine_tune(4)\nlearn.recorder.plot_loss()\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      1.512921\n      0.358238\n      0.145455\n      00:13\n    \n  \n\n\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      0.609499\n      0.233965\n      0.100000\n      00:13\n    \n    \n      1\n      0.459157\n      0.267047\n      0.118182\n      00:13\n    \n    \n      2\n      0.373013\n      0.286165\n      0.118182\n      00:13\n    \n    \n      3\n      0.338020\n      0.260390\n      0.109091\n      00:13"
+  },
+  {
+    "objectID": "past-events/from-scratch-model-mike/index.html",
+    "href": "past-events/from-scratch-model-mike/index.html",
+    "title": "From scratch model part 2: training an image recognition model using fastai",
+    "section": "",
+    "text": "In this presentation Mike walked us through how to train an image classifier using the fastai library. This was a group coding session from no-code to a working model.\nnotebook"
+  },
+  {
+    "objectID": "past-events/from-scratch-model-mike/boats-example.html",
+    "href": "past-events/from-scratch-model-mike/boats-example.html",
+    "title": "ML Squamish",
+    "section": "",
+    "text": "type ? or ?? next to a function then shift + return to execute the cell to get the source code.\nPress shift + tab inside function’s parentheses to get function signature and docstring\nType the name of a module and hit enter to get info about its type and location."
+  },
+  {
+    "objectID": "past-events/from-scratch-model-mike/boats-example.html#change-your-code-to-reflect-the-categories-youre-using.",
+    "href": "past-events/from-scratch-model-mike/boats-example.html#change-your-code-to-reflect-the-categories-youre-using.",
+    "title": "ML Squamish",
+    "section": "Change your code to reflect the categories you’re using.",
+    "text": "Change your code to reflect the categories you’re using.\n\nboat_types = 'canoe', 'kayak', 'sailboat'\n\n\npath = Path('boats')\n\nDownload images from chosen categories.\nThis cell may take a few minutes to run\n\nif not path.exists():\n    path.mkdir()\n    for boat in boat_types:\n        dest = (path/boat)\n        dest.mkdir(exist_ok=True)\n        results = search_images(boat)\n        download_images(dest, urls=results)\n\n\n!ls {path}\npath\n\ncanoe  kayak  sailboat\n\n\nPath('boats')\n\n\n\nfilenames = get_image_files(path)\nfilenames\n\n(#554) [Path('boats/sailboat/3b873c96-0d1f-4404-9aae-af25d3805177.jpg'),Path('boats/sailboat/6336c57d-8ad9-4318-836c-fba58b5357be.jpg'),Path('boats/sailboat/d2a981d0-0d3e-4b0e-a077-a5cbda1a41b0.JPG'),Path('boats/sailboat/da7dc60e-7c83-4807-9fc1-a0f5061a5080.jpg'),Path('boats/sailboat/168643af-803b-4783-8c6b-a785157c481e.jpeg'),Path('boats/sailboat/f4055206-199c-42a8-bf74-8ed6c4dc7e08.jpg'),Path('boats/sailboat/d5883260-5325-41cb-a645-016051c37819.jpg'),Path('boats/sailboat/4b44e5d8-75e1-413b-a9b9-bd3f19b63df4.jpg'),Path('boats/sailboat/86d8f1b9-b75b-467f-8476-2d91805a150b.jpg'),Path('boats/sailboat/e07b4c1d-a717-4c10-9059-005016798081.jpeg')...]\n\n\n\nfailed = verify_images(filenames)\n\n\nfailed\n\n(#0) []\n\n\n\nfailed.map(Path.unlink)\n\n(#0) []\n\n\n\nfailed\n\n(#0) []"
+  },
+  {
+    "objectID": "past-events/from-scratch-model-mike/boats-example.html#create-a-way-to-load-datasets-and-dataloaders",
+    "href": "past-events/from-scratch-model-mike/boats-example.html#create-a-way-to-load-datasets-and-dataloaders",
+    "title": "ML Squamish",
+    "section": "Create a way to load datasets and dataloaders",
+    "text": "Create a way to load datasets and dataloaders\n\nboats = DataBlock(\n    blocks=(ImageBlock, CategoryBlock),\n    get_items=get_image_files,\n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=Resize(128)\n)\n\n\ndataloaders = boats.dataloaders(path)\n\n\ndataloaders.device\n\ndevice(type='cuda', index=0)\n\n\nIf the device type is ‘cuda’ that means we’ve got the model on the GPU. If device type is ‘cpu’ then now’s a good time to see if there is a free GPU instance available. The data you downloaded earlier won’t be lost since Paperspace has persistent storage.\n\n# Docs for some modules. Uncomment as required. \n# DataLoader?\n# DataLoaders?\n# Datasets?\n# torch.utils.data.Dataset?\n# torch.utils.data.DataLoader?"
+  },
+  {
+    "objectID": "past-events/from-scratch-model-mike/boats-example.html#training-and-validation-sets",
+    "href": "past-events/from-scratch-model-mike/boats-example.html#training-and-validation-sets",
+    "title": "ML Squamish",
+    "section": "Training and validation sets",
+    "text": "Training and validation sets\nOur data is split into training and validation batches. 20% of the data is in the validation set, and 80% is in the training set.\nDataset: an iterable over tuples containing images with their corresponding category.  DataLoader: a PyTorch iterable returning a batch of datasets. DataLoaders: a fastai iterable which splits dataloaders into training and validation datasets.\n\ndataloaders.train.show_batch()"
+  },
+  {
+    "objectID": "past-events/from-scratch-model-mike/boats-example.html#train-a-model",
+    "href": "past-events/from-scratch-model-mike/boats-example.html#train-a-model",
+    "title": "ML Squamish",
+    "section": "Train a model",
+    "text": "Train a model\n\nlearn = vision_learner(dataloaders, resnet18, metrics=error_rate)\nlearn.fine_tune(4)\nlearn.recorder.plot_loss()\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      1.512921\n      0.358238\n      0.145455\n      00:13\n    \n  \n\n\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      0.609499\n      0.233965\n      0.100000\n      00:13\n    \n    \n      1\n      0.459157\n      0.267047\n      0.118182\n      00:13\n    \n    \n      2\n      0.373013\n      0.286165\n      0.118182\n      00:13\n    \n    \n      3\n      0.338020\n      0.260390\n      0.109091\n      00:13"
+  },
+  {
+    "objectID": "past-events/paperspace-setup-mike/index.html",
+    "href": "past-events/paperspace-setup-mike/index.html",
+    "title": "From Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps",
+    "section": "",
+    "text": "This is part 1 of Mike’s model from scratch presentation. This was a group coding session from no-code to a working model. This notebook walks through how to get set up with a free cloud computer capable of running machine learning code on a GPU.\nnotebook"
+  },
+  {
+    "objectID": "past-events/eric-quantum-ml/index.html",
+    "href": "past-events/eric-quantum-ml/index.html",
+    "title": "Eric’s talk on Quantum ML",
+    "section": "",
+    "text": "This was a fascinating talk on quantum physics, quantum computing and some applications of machine learning within all of this. Check out the slideshow here:\npdf slides"
+  },
+  {
+    "objectID": "past-events/elliot-geospatial/index.html",
+    "href": "past-events/elliot-geospatial/index.html",
+    "title": "Geospatial 101",
+    "section": "",
+    "text": "Elliot gave an excellent 101 class on processing geospatial data for data scientists who haven’t worked on that kind of data before.\nHe outlined some of the things you should be aware of, so if and when you deal with that kind of data yourself, you know how to diagnose the problems and search for what you need to solve the issues you’re facing.\nThanks for putting this together Elliot!\nslides\nCheck out the notebook from this talk!"
   }
 ]

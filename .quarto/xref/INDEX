@@ -73,5 +73,42 @@
   },
   "resources/paperspace-tutorial/boats-example.ipynb": {
     "boats-example.html": "ebc2b4cd"
+  },
+  "past-events/model-from-scratch-mike/paperspace-tutorial/index.qmd": {
+    "index.html": "24f21eb4"
+  },
+  "past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.ipynb": {
+    "boats-example.html": "44fdd321"
+  },
+  "past-events/model-from-scratch-mike/paperspace-tutorial/paperspace.ipynb": {
+    "paperspace.html": "2528edeb"
+  },
+  "past-events/model-from-scratch-mike/resources.qmd": {
+    "resources.html": "5ff04297"
+  },
+  "past-events/boats-example.ipynb": {
+    "boats-example.html": "46d9c460"
+  },
+  "past-events/paperspace.ipynb": {
+    "paperspace.html": "33dc87b8"
+  },
+  "past-events/from-scratch-model-mike/index.qmd": {
+    "index.html": "dca56dcc"
+  },
+  "past-events/from-scratch-model-mike/boats-example.ipynb": {
+    "boats-example.html": "469b0e5f"
+  },
+  "past-events/paperspace-setup-mike/paperspace.ipynb": {
+    "paperspace.html": "17806728"
+  },
+  "past-events/paperspace-setup-mike/index.qmd": {
+    "index.html": "e2ebede5"
+  },
+  "past-events/eric-quantum-ml/index.qmd": {
+    "index.html": "e03840b3",
+    "index.tex": "e1a1fe4c"
+  },
+  "past-events/elliot-geospatial/index.qmd": {
+    "index.html": "59f74189"
   }
 }

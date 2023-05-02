@@ -6,4 +6,6 @@ categories: [chat-GPT, NLP, Talk]
 image: "slide-intro.png"
 ---
 
-There is a slideshow accompanying this section. 
+There is a slideshow accompanying this section.
+
+[Slideshow](ChatGPT.pptx)

@@ -3,7 +3,13 @@
     "listing": "/past-events/past-events.html",
     "items": [
       "/past-events/chat-GPT-peter/index.html",
+      "/past-events/eric-quantum-ml/index.html",
+      "/past-events/paperspace-setup-mike/index.html",
+      "/past-events/from-scratch-model-mike/index.html",
+      "/past-events/elliot-geospatial/index.html",
+      "/past-events/paperspace-setup-mike/paperspace.html",
       "/past-events/numpy-peter/index.html",
+      "/past-events/from-scratch-model-mike/boats-example.html",
       "/past-events/numpy-peter/numpy-tutorial.html"
     ]
   },
@@ -11,7 +17,29 @@
     "listing": "/resources/resources.html",
     "items": [
       "/resources/paperspace-tutorial/paperspace.html",
-      "/resources/paperspace-tutorial/index.html"
+      "/resources/paperspace-tutorial/index.html",
+      "/resources/paperspace-tutorial/boats-example.html"
+    ]
+  },
+  {
+    "listing": "/past-events/model-from-scratch-mike/resources.html",
+    "items": [
+      "/past-events/model-from-scratch-mike/paperspace-tutorial/paperspace.html",
+      "/past-events/model-from-scratch-mike/paperspace-tutorial/index.html",
+      "/past-events/model-from-scratch-mike/paperspace-tutorial/boats-example.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/about.html",
+      "/past-events/paperspace-setup-mike/index.html",
+      "/past-events/from-scratch-model-mike/index.html",
+      "/past-events/paperspace-setup-mike/paperspace.html",
+      "/past-events/numpy-peter/index.html",
+      "/past-events/past-events.html",
+      "/past-events/from-scratch-model-mike/boats-example.html",
+      "/past-events/numpy-peter/numpy-tutorial.html"
     ]
   }
 ]

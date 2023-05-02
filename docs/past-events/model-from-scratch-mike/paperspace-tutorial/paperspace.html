@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ML Squamish – paperspace</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">ML Squamish</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#getting-set-up-with-paperspace-gradient-in-six-easy-steps" id="toc-getting-set-up-with-paperspace-gradient-in-six-easy-steps" class="nav-link active" data-scroll-target="#getting-set-up-with-paperspace-gradient-in-six-easy-steps">Getting set up with Paperspace Gradient in six easy steps</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#gpu-vs.-cpu" id="toc-gpu-vs.-cpu" class="nav-link" data-scroll-target="#gpu-vs.-cpu">GPU vs.&nbsp;CPU <br></a></li>
+  <li><a href="#why-do-we-need-a-gpu-to-run-deep-learning-models" id="toc-why-do-we-need-a-gpu-to-run-deep-learning-models" class="nav-link" data-scroll-target="#why-do-we-need-a-gpu-to-run-deep-learning-models">Why do we need a GPU to run deep learning models? <br></a></li>
+  <li><a href="#why-process-information-on-the-cloud-vs-on-local-machine" id="toc-why-process-information-on-the-cloud-vs-on-local-machine" class="nav-link" data-scroll-target="#why-process-information-on-the-cloud-vs-on-local-machine">Why process information on the cloud vs on local machine?</a></li>
+  <li><a href="#why-paperspace-gradient" id="toc-why-paperspace-gradient" class="nav-link" data-scroll-target="#why-paperspace-gradient">Why paperspace gradient?</a></li>
+  </ul></li>
+  <li><a href="#set-up-an-account-at-paperspace" id="toc-set-up-an-account-at-paperspace" class="nav-link" data-scroll-target="#set-up-an-account-at-paperspace">1. Set up an account at paperspace</a></li>
+  <li><a href="#sign-in-and-click-create-a-project" id="toc-sign-in-and-click-create-a-project" class="nav-link" data-scroll-target="#sign-in-and-click-create-a-project">2. Sign in and click ‘Create A Project’</a>
+  <ul class="collapse">
+  <li><a href="#choose-any-name" id="toc-choose-any-name" class="nav-link" data-scroll-target="#choose-any-name">Choose any name</a></li>
+  </ul></li>
+  <li><a href="#create-a-notebook" id="toc-create-a-notebook" class="nav-link" data-scroll-target="#create-a-notebook">3. Create A Notebook</a></li>
+  <li><a href="#choose-a-runtime-and-a-gpu-instance" id="toc-choose-a-runtime-and-a-gpu-instance" class="nav-link" data-scroll-target="#choose-a-runtime-and-a-gpu-instance">4. Choose a runtime and a GPU instance</a></li>
+  <li><a href="#switch-over-to-jupyter-lab-by-clicking-the-orange-circle-on-the-left." id="toc-switch-over-to-jupyter-lab-by-clicking-the-orange-circle-on-the-left." class="nav-link" data-scroll-target="#switch-over-to-jupyter-lab-by-clicking-the-orange-circle-on-the-left.">5. Switch over to Jupyter Lab by clicking the orange circle on the left.</a></li>
+  <li><a href="#then-choose-a-python-3-notebook" id="toc-then-choose-a-python-3-notebook" class="nav-link" data-scroll-target="#then-choose-a-python-3-notebook">6. Then choose a Python 3 Notebook</a></li>
+  <li><a href="#great-youve-just-set-up-a-remote-machine-on-a-cloud-server-with-access-to-powerful-gpu-processors-for-free" id="toc-great-youve-just-set-up-a-remote-machine-on-a-cloud-server-with-access-to-powerful-gpu-processors-for-free" class="nav-link" data-scroll-target="#great-youve-just-set-up-a-remote-machine-on-a-cloud-server-with-access-to-powerful-gpu-processors-for-free">Great! You’ve just set up a remote machine on a cloud server, with access to powerful GPU processors, for free!</a>
+  <ul class="collapse">
+  <li><a href="#ipython" id="toc-ipython" class="nav-link" data-scroll-target="#ipython">IPython</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
+  <li><a href="#explore-the-environment" id="toc-explore-the-environment" class="nav-link" data-scroll-target="#explore-the-environment">Explore the environment:</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="getting-set-up-with-paperspace-gradient-in-six-easy-steps" class="level2">
+<h2 class="anchored" data-anchor-id="getting-set-up-with-paperspace-gradient-in-six-easy-steps">Getting set up with Paperspace Gradient in six easy steps</h2>
+<!-- ![gradient]() -->
+<p><img src="images/logo-gr-2.png" width="500"></p>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<section id="gpu-vs.-cpu" class="level3">
+<h3 class="anchored" data-anchor-id="gpu-vs.-cpu">GPU vs.&nbsp;CPU <br></h3>
+<ul>
+<li>CPUs process information in series, and are very powerful. GPUs divide tasks across multiple processing units, and process them in parallel.</li>
+<li>On a GPU, each processing unit is less powerful than a single processing unit of a typical CPU.</li>
+<li>Some operations such as displaying pixels on a screen can run faster on a GPU if they are easily divided into a parallel process.</li>
+</ul>
+<p><img src="images/A100.jpg" width="300"></p>
+</section>
+<section id="why-do-we-need-a-gpu-to-run-deep-learning-models" class="level3">
+<h3 class="anchored" data-anchor-id="why-do-we-need-a-gpu-to-run-deep-learning-models">Why do we need a GPU to run deep learning models? <br></h3>
+<p>(Short answer: You don’t! but it’s much faster because of parallel processing on a GPU)<br> - Deep learning models are built using neural networks. Training of a neural network involves calculating parameters and activations at each node of the network. Since each of these operations is fairly small, they’re self similar,and there are many of them, it is more efficient to run these operations in parallel on the GPU.</p>
+</section>
+<section id="why-process-information-on-the-cloud-vs-on-local-machine" class="level3">
+<h3 class="anchored" data-anchor-id="why-process-information-on-the-cloud-vs-on-local-machine">Why process information on the cloud vs on local machine?</h3>
+<ul>
+<li>Your machine may or may not have a GPU.</li>
+<li>If you do have a GPU, it is likely that the free GPUs offered by cloud computing platforms are more powerful.</li>
+<li>Deep learning can require large amounts of data, and transferring this data across internet connections and storing locally can be problematic.</li>
+<li>Cloud computing lets you get set up and running code more quickly. Personal computers with Linux, windows and Mac would all have different install requirements, which takes a while to work through.</li>
+</ul>
+<p><img src="images/gpus.png" width="400"></p>
+</section>
+<section id="why-paperspace-gradient" class="level3">
+<h3 class="anchored" data-anchor-id="why-paperspace-gradient">Why paperspace gradient?</h3>
+<ul>
+<li>There are other options including Google Colab, Kagggle, and running locally on your machine. This is just one option. One of the advantages of Gradient is that it lets you run jupyter notebooks in their native form, whereas other platforms modify the user interface a little.</li>
+</ul>
+</section>
+</section>
+<section id="set-up-an-account-at-paperspace" class="level1">
+<h1>1. Set up an account at <a href="http://www.paperspace.com">paperspace</a></h1>
+<p>http://www.paperspace.com</p>
+</section>
+<section id="sign-in-and-click-create-a-project" class="level1">
+<h1>2. Sign in and click ‘Create A Project’</h1>
+<p><img src="images/create-project.png" width="400"> <br></p>
+<section id="choose-any-name" class="level3">
+<h3 class="anchored" data-anchor-id="choose-any-name">Choose any name</h3>
+</section>
+</section>
+<section id="create-a-notebook" class="level1">
+<h1>3. Create A Notebook</h1>
+<p><img src="images/create-nb.png" width="400"></p>
+</section>
+<section id="choose-a-runtime-and-a-gpu-instance" class="level1">
+<h1>4. Choose a runtime and a GPU instance</h1>
+<ul>
+<li>We’ll be choosing <strong>Start From Scratch</strong>.</li>
+</ul>
+<p><em>This will create a jupyter notebook with some machine learning specific libraries already installed. All of the other runtimes you can see can still be installed if we select ‘start from scratch’, and we’ll see how to do this for the fast.ai runtime which we’ll use to train our model.</em></p>
+<ul>
+<li>Under <em>select a machine</em> choose <strong>Free-GPU</strong></li>
+</ul>
+<p><em>If this option isn’t available then choose free CPU - we can always change it later</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/choose-instance.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">screenshot</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="switch-over-to-jupyter-lab-by-clicking-the-orange-circle-on-the-left." class="level1">
+<h1>5. Switch over to Jupyter Lab by clicking the orange circle on the left.</h1>
+</section>
+<section id="then-choose-a-python-3-notebook" class="level1">
+<h1>6. Then choose a Python 3 Notebook</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/j-lab.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">jupyter lab</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="great-youve-just-set-up-a-remote-machine-on-a-cloud-server-with-access-to-powerful-gpu-processors-for-free" class="level1">
+<h1>Great! You’ve just set up a remote machine on a cloud server, with access to powerful GPU processors, for free!</h1>
+<section id="ipython" class="level3">
+<h3 class="anchored" data-anchor-id="ipython">IPython</h3>
+<ul>
+<li>You’re now in an interactive shell.</li>
+<li>The file you’re in is called Untitled.ipynb.</li>
+<li>ipynb means interactive python notebook.</li>
+<li>Commands typed into the cell will be interpreted by a python interpreter if you press <strong>SHIFT + RETURN</strong>. Try it!</li>
+<li>Try typing some of the following commands then executing them using shift + enter:</li>
+</ul>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>2</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>8</code></pre>
+</div>
+</div>
+<p>The above cells executed python code using a python interpreter.</p>
+<p>We can also execute code on the computer’s bash terminal: try these</p>
+<p><code>!ls</code> <br></p>
+<p>The ! sends the code to the computer’s bash shell interpreter instead of the python interpreter.</p>
+<p><code>!ls ..</code><br> <code>!ls ../..</code></p>
+</section>
+<section id="markdown" class="level3">
+<h3 class="anchored" data-anchor-id="markdown">Markdown</h3>
+<p>The type of cell can be changed from a code cell into a markdown cell where we can write notes, display images, links etc.</p>
+<p>Try hitting esc, then pressing m. Cell contents will now be displayed as markdown.</p>
+<p>To get back to code mode, hit esc, then press y</p>
+</section>
+<section id="explore-the-environment" class="level3">
+<h3 class="anchored" data-anchor-id="explore-the-environment">Explore the environment:</h3>
+<p>Try some of the following commands one by one to see what happens.</p>
+<p><code>!ls</code><br> <code>!ls ..</code><br> <code>!python --version</code> <code>!pip install torch</code><br> <code>!pip list</code><br></p>
+<p><code>import numpy as np</code></p>
+<p><code>np.random.randn(6)</code></p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Getting set up with cloud computing services can seem daunting at first, but it’s actually pretty straightforward.</p>
+<p>You can run all the same code on your laptop or on any other notebook hosting service.</p>
+<p>In the next section we’ll write code in python and take advantage of some libraries which will let us train a deep learning model using the GPU we now have access to.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

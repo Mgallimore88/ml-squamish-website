@@ -1,7 +1,0 @@
----
-title: "Resources"
-listing: default
----
-
-Some resources for you:
-

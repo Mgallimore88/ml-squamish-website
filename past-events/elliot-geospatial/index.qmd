@@ -1,0 +1,19 @@
+---
+title: "Geospatial 101"
+author: "Elliot Salisbury"
+date: "2023-03-22"
+categories: [Geospatial, Geopandas, Data Science]
+image: "heatmap.png"
+---
+
+Elliot gave an excellent 101 class on processing geospatial data for data scientists who haven’t worked on that kind of data before.
+
+He outlined some of the things you should be aware of, so if and when you deal with that kind of data yourself, you know how to diagnose the problems and search for what you need to  solve the issues you’re facing.
+
+
+Thanks for putting this together Elliot!
+
+[slides](geospatial_101.pptx)
+
+
+[Check out the notebook from this talk!](geospatial_notebook.html)

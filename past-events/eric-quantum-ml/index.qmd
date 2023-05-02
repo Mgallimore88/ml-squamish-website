@@ -1,0 +1,12 @@
+---
+title: "Eric's talk on Quantum ML"
+author: "Eric Drechsler"
+date: "2023-02-15"
+categories: [Quantum computing, machine learning, CERN, quantum physics]
+image: "ed-first-page.png"
+
+---
+
+This was a fascinating talk on quantum physics, quantum computing and some applications of machine learning within all of this. Check out the slideshow here:
+
+[pdf slides](quantum-ml.pdf)

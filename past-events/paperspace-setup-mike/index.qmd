@@ -1,0 +1,11 @@
+---
+title: "From Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps"
+author: "Mike Gallimore"
+date: "2023-02-08"
+categories: [paperspace gradient, cloud computing, beginner]
+image: "logo-gr-2.png"
+---
+
+This is part 1 of Mike's model from scratch presentation. This was a group coding session from no-code to a working model. This notebook walks through how to get set up with a free cloud computer capable of running machine learning code on a GPU. 
+
+[notebook](paperspace.ipynb)
