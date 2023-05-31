@@ -327,5 +327,68 @@
     "title": "ML Squamish",
     "section": "Let’s try a git merge:",
     "text": "Let’s try a git merge:\n\nGit status gives us more info on the merge conflict - both the branches being merged attempt to modify the same file."
+  },
+  {
+    "objectID": "index.html#git-github-and-github-co-pilot-tutorial-evening",
+    "href": "index.html#git-github-and-github-co-pilot-tutorial-evening",
+    "title": "Home",
+    "section": "Git, GitHub and GitHub Co-Pilot tutorial evening",
+    "text": "Git, GitHub and GitHub Co-Pilot tutorial evening\nCommunity coding event. This Wednesday 7th June to The Common, Cleveland Ave.\nCome along at 6:30 if you already have Git installed, or 6pm if you don’t and would like some help getting set up.\nPast Events\nGit walkthrough"
+  },
+  {
+    "objectID": "resources/git-walkthrough.html",
+    "href": "resources/git-walkthrough.html",
+    "title": "ML Squamish",
+    "section": "",
+    "text": "Community coding event. This Wednesday 7th June to The Common, Cleveland Ave.\nCome along at 6:30 if you already have Git installed, or 6pm if you don’t and would like some help getting set up."
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#get-online",
+    "href": "resources/git-walkthrough.html#get-online",
+    "title": "ML Squamish",
+    "section": "Get online",
+    "text": "Get online\nusername:\npassword:"
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#install-git",
+    "href": "resources/git-walkthrough.html#install-git",
+    "title": "ML Squamish",
+    "section": "install git",
+    "text": "install git\n\nLinux:\nhead to terminal and enter sudo dnf install git-all\n\n\nMac OS:\nopen Terminal and enter $ git --version then follow prompts to install.\nIf you don’t have XCode tools installed, you might need to install homebrew, then once that’s setup type brew install git\n\n\nWindows:\ndownload and install from https://git-scm.com/download/win\nHaving trouble?\nPoke around here https://git-scm.com/book/en/v2/Getting-Started-Installing-Git\nGoogle or check stack overflow\nAsk for help if someone is free!"
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#making-a-different-branch",
+    "href": "resources/git-walkthrough.html#making-a-different-branch",
+    "title": "ML Squamish",
+    "section": "Making a different branch",
+    "text": "Making a different branch\nWe’re currently on the master branch. We could make some changes on a different branch and the original branch will remain unchanged until we merge the brances back together later. Let’s try this! \ngit branch ellys-edit\ngit checkout ellys-edit\n\ngit branch \nThe green text indicates the branch we’re currently on\nNow we’re on the new branch, let’s make some changes.\nIn this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.\nWhile she’s at it, she realizes that the forecast is for cloud and rain, so she removes sunscreen and sunglasses from the original packing list.\nFinally, she renames the README file to gear.txt \nHere’s what the changes look like in the terminal \nTo commit these changes to the master branch, we can run git add . then commit the changes."
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#switching-between-branches",
+    "href": "resources/git-walkthrough.html#switching-between-branches",
+    "title": "ML Squamish",
+    "section": "Switching between branches",
+    "text": "Switching between branches\nBy typing git checkout master and git checkout ellys-branch we can switch between branches. This changes the contents of the directory - have a play with it with the directory open."
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#merging-two-branches",
+    "href": "resources/git-walkthrough.html#merging-two-branches",
+    "title": "ML Squamish",
+    "section": "Merging two branches",
+    "text": "Merging two branches\nTo merge the changes from another branch, into the one we’re currently on, we can use git merge ellys-edit from the master branch."
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#merge-conflict",
+    "href": "resources/git-walkthrough.html#merge-conflict",
+    "title": "ML Squamish",
+    "section": "merge conflict",
+    "text": "merge conflict\nMaking edits like this works most of the time, but sometimes we have a conflict, for example when someone edits the same line as code as you - and it isn’t obvious how to merge these edits. In this case we’ll see an error message and we’ll be asked which edit to keep.\nLet’s check this out by supposing that I want to save weight by replacing the beer with an empty water bottle, and Elly wants to take it to the next level by ditching the burgers, and adding more beer…\nI’ve changed to the respective branches and made the edits to this, and committed the changes on each branch.\nLook at the git log on each branch to see what was done. \nand on ellys-edit:"
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#lets-try-a-git-merge",
+    "href": "resources/git-walkthrough.html#lets-try-a-git-merge",
+    "title": "ML Squamish",
+    "section": "Let’s try a git merge:",
+    "text": "Let’s try a git merge:\n\nGit status gives us more info on the merge conflict - both the branches being merged attempt to modify the same file."
   }
 ]

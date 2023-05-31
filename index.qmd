@@ -5,6 +5,14 @@ title: "Home"
 
 # Welcome to our landing page.
 
+# Next event:
+# Version Control 101. 
+## Git, GitHub and GitHub Co-Pilot tutorial evening
+
+Community coding event. This Wednesday 7th June to The Common, Cleveland Ave.
+
+Come along at 6:30 if you already have Git installed, or 6pm if you don't and would like some help getting set up. 
+
 [Past Events](past-events/past-events.qmd)
 
 [Git walkthrough](resources/notebook.ipynb)

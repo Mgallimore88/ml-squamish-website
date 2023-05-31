@@ -113,5 +113,8 @@
   },
   "resources/notebook.ipynb": {
     "notebook.html": "dc16147f"
+  },
+  "resources/git-walkthrough.ipynb": {
+    "git-walkthrough.html": "22ebdb2f"
   }
 }
