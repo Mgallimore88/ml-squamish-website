@@ -86,9 +86,9 @@
   {
     "objectID": "resources/resources.html",
     "href": "resources/resources.html",
-    "title": "Past events",
+    "title": "resources",
     "section": "",
-    "text": "Here’s the notebook tutorial for the Git talk\n\n\n\nnotebook\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nGit, GitHub and GitHub Pages tutorial\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Version Control 101\nHere’s some information on the upcoming tutorial on Git, GitHub and Github Co-Pilot.\nWe’ll start by going through some of the most common Git commands in the terminal, then we’ll move on to using\nIf you are totally new to Git and you don’thave Git set up on your computer, then come along at 6:00 instead of 6:30 to get set up.\n\n\n\nnotebook\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nGit, GitHub and GitHub Pages tutorial\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resources/paperspace-tutorial/boats-example.html",
@@ -298,7 +298,7 @@
     "href": "resources/notebook.html#making-a-different-branch",
     "title": "ML Squamish",
     "section": "Making a different branch",
-    "text": "Making a different branch\nWe’re currently on the master branch. We could make some changes on a different branch and the original branch will remain unchanged until we merge the brances back together later. Let’s try this! \ngit branch ellys-edit\ngit checkout ellys-edit\n\n\n\nScreenshot%202023-05-30%20at%2016.59.14.png\n\n\ngit branch \nThe green text indicates the branch we’re currently on\nNow we’re on the new branch, let’s make some changes.\nIn this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.\nWhile she’s at it, she realises that the forecast is for cloud and rain, so she removes sunscreen and sunglasses from the original packing list.\nFinally, she renames the README file to gear.txt \nHere’s what the changes look like in the terminal \nTo commit these changes to the master branch, we can run git add . then commit the changes.\n\n\n\nScreenshot%202023-05-30%20at%2017.08.27.png"
+    "text": "Making a different branch\nWe’re currently on the master branch. We could make some changes on a different branch and the original branch will remain unchanged until we merge the brances back together later. Let’s try this! \ngit branch ellys-edit\ngit checkout ellys-edit\n\ngit branch \nThe green text indicates the branch we’re currently on\nNow we’re on the new branch, let’s make some changes.\nIn this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.\nWhile she’s at it, she realizes that the forecast is for cloud and rain, so she removes sunscreen and sunglasses from the original packing list.\nFinally, she renames the README file to gear.txt \nHere’s what the changes look like in the terminal \nTo commit these changes to the master branch, we can run git add . then commit the changes."
   },
   {
     "objectID": "resources/notebook.html#switching-between-branches",
@@ -312,7 +312,7 @@
     "href": "resources/notebook.html#merging-two-branches",
     "title": "ML Squamish",
     "section": "Merging two branches",
-    "text": "Merging two branches\nTo merge the changes from another branch, into the one we’re currently on, we can use git merge ellys-edit from the master branch.\n\n\n\nScreenshot%202023-05-30%20at%2018.33.31.png"
+    "text": "Merging two branches\nTo merge the changes from another branch, into the one we’re currently on, we can use git merge ellys-edit from the master branch."
   },
   {
     "objectID": "resources/notebook.html#merge-conflict",
@@ -326,6 +326,6 @@
     "href": "resources/notebook.html#lets-try-a-git-merge",
     "title": "ML Squamish",
     "section": "Let’s try a git merge:",
-    "text": "Let’s try a git merge:\n\n\n\nScreenshot%202023-05-30%20at%2018.47.32.png\n\n\nGit status gives us more info on the merge conflict - both the branches being merged attempt to modify the same file."
+    "text": "Let’s try a git merge:\n\nGit status gives us more info on the merge conflict - both the branches being merged attempt to modify the same file."
   }
 ]

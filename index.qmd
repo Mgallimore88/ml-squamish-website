@@ -1,10 +1,11 @@
 ---
 title: "Home"
 ---
-![logo](logo.png)
+![](logo.png)
 
 # Welcome to our landing page.
 
 [Past Events](past-events/past-events.qmd)
 
 [Git walkthrough](resources/notebook.ipynb)
+
