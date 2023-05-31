@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ML Squamish – notebook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ML Squamish</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#git-github-and-github-pages-tutorial" id="toc-git-github-and-github-pages-tutorial" class="nav-link active" data-scroll-target="#git-github-and-github-pages-tutorial">Git, GitHub and GitHub Pages tutorial</a>
+  <ul class="collapse">
+  <li><a href="#in-this-tutorial-well-get-set-up-using-git-create-a-simple-website-and-host-it-on-github-pages." id="toc-in-this-tutorial-well-get-set-up-using-git-create-a-simple-website-and-host-it-on-github-pages." class="nav-link" data-scroll-target="#in-this-tutorial-well-get-set-up-using-git-create-a-simple-website-and-host-it-on-github-pages.">In this tutorial we’ll get set up using Git, create a simple website and host it on GitHub Pages.</a></li>
+  <li><a href="#git-github-and-github-pages-are-three-separate-but-related-tools-and-well-try-to-introduce-them-separately-to-avoid-confusion." id="toc-git-github-and-github-pages-are-three-separate-but-related-tools-and-well-try-to-introduce-them-separately-to-avoid-confusion." class="nav-link" data-scroll-target="#git-github-and-github-pages-are-three-separate-but-related-tools-and-well-try-to-introduce-them-separately-to-avoid-confusion."><strong>Git, GitHub and GitHub Pages</strong> are three separate but related tools, and we’ll try to introduce them separately to avoid confusion.</a></li>
+  </ul></li>
+  <li><a href="#section-1-welcome-to-git" id="toc-section-1-welcome-to-git" class="nav-link" data-scroll-target="#section-1-welcome-to-git">Section 1: Welcome to Git!</a></li>
+  <li><a href="#what-is-version-control" id="toc-what-is-version-control" class="nav-link" data-scroll-target="#what-is-version-control">What is version control?</a></li>
+  <li><a href="#getting-git-set-up-on-your-machine" id="toc-getting-git-set-up-on-your-machine" class="nav-link" data-scroll-target="#getting-git-set-up-on-your-machine">1. Getting Git set up on your machine</a>
+  <ul class="collapse">
+  <li><a href="#get-online" id="toc-get-online" class="nav-link" data-scroll-target="#get-online">Get online</a></li>
+  <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">install git</a>
+  <ul class="collapse">
+  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux">Linux:</a></li>
+  <li><a href="#mac-os" id="toc-mac-os" class="nav-link" data-scroll-target="#mac-os">Mac OS:</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#configure-git-on-your-machine" id="toc-configure-git-on-your-machine" class="nav-link" data-scroll-target="#configure-git-on-your-machine">2. configure Git on your machine</a></li>
+  <li><a href="#initialize-a-git-repository" id="toc-initialize-a-git-repository" class="nav-link" data-scroll-target="#initialize-a-git-repository">3. Initialize a git repository</a></li>
+  <li><a href="#edit-the-contents-of-the-git-repo" id="toc-edit-the-contents-of-the-git-repo" class="nav-link" data-scroll-target="#edit-the-contents-of-the-git-repo">4. Edit the contents of the git repo</a>
+  <ul class="collapse">
+  <li><a href="#making-a-different-branch" id="toc-making-a-different-branch" class="nav-link" data-scroll-target="#making-a-different-branch">Making a different branch</a></li>
+  <li><a href="#switching-between-branches" id="toc-switching-between-branches" class="nav-link" data-scroll-target="#switching-between-branches">Switching between branches</a></li>
+  <li><a href="#merging-two-branches" id="toc-merging-two-branches" class="nav-link" data-scroll-target="#merging-two-branches">Merging two branches</a></li>
+  </ul></li>
+  <li><a href="#when-things-go-wrong." id="toc-when-things-go-wrong." class="nav-link" data-scroll-target="#when-things-go-wrong.">When things go wrong.</a>
+  <ul class="collapse">
+  <li><a href="#merge-conflict" id="toc-merge-conflict" class="nav-link" data-scroll-target="#merge-conflict">merge conflict</a></li>
+  <li><a href="#lets-try-a-git-merge" id="toc-lets-try-a-git-merge" class="nav-link" data-scroll-target="#lets-try-a-git-merge">Let’s try a git merge:</a></li>
+  </ul></li>
+  <li><a href="#git-diff" id="toc-git-diff" class="nav-link" data-scroll-target="#git-diff">Git diff</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="git-github-and-github-pages-tutorial" class="level1">
+<h1>Git, GitHub and GitHub Pages tutorial</h1>
+<p><img src="notebook_files/figure-html/16281bf8-1-logo-mls.png" class="img-fluid"></p>
+<section id="in-this-tutorial-well-get-set-up-using-git-create-a-simple-website-and-host-it-on-github-pages." class="level3">
+<h3 class="anchored" data-anchor-id="in-this-tutorial-well-get-set-up-using-git-create-a-simple-website-and-host-it-on-github-pages.">In this tutorial we’ll get set up using Git, create a simple website and host it on GitHub Pages.</h3>
+</section>
+<section id="git-github-and-github-pages-are-three-separate-but-related-tools-and-well-try-to-introduce-them-separately-to-avoid-confusion." class="level3">
+<h3 class="anchored" data-anchor-id="git-github-and-github-pages-are-three-separate-but-related-tools-and-well-try-to-introduce-them-separately-to-avoid-confusion."><strong>Git, GitHub and GitHub Pages</strong> are three separate but related tools, and we’ll try to introduce them separately to avoid confusion.</h3>
+</section>
+</section>
+<section id="section-1-welcome-to-git" class="level1">
+<h1>Section 1: Welcome to Git!</h1>
+</section>
+<section id="what-is-version-control" class="level1">
+<h1>What is version control?</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/0c411c7e-1-Screenshot 2023-05-30 at 14.35.56.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2014.35.56.png</figcaption><p></p>
+</figure>
+</div>
+<p>During a project, you’re likely to encounter the above tasks. - Maintaining multiple versions and revisions of files gets really messy when done by hand. - Moreover, when multiple people work on the same document, saving their independent changes to the same file can be difficult. - In a complex project with multiple files, things could get really cumbersome.</p>
+<p>Git is version control software which handles these issues by keeping track of the changes from one version to the next. Past versions of the project are still present, but they are hidden from the user.</p>
+<p>Git allows multiple users to edit the same document, and save their changes remotely. Conflicts are handled in a neat way by merging changes together.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/6bbe63cf-1-Screenshot 2023-05-30 at 14.38.28.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2014.38.28.png</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="getting-git-set-up-on-your-machine" class="level1">
+<h1>1. Getting Git set up on your machine</h1>
+<section id="get-online" class="level2">
+<h2 class="anchored" data-anchor-id="get-online">Get online</h2>
+<p>username:</p>
+<p>password:</p>
+</section>
+<section id="install-git" class="level2">
+<h2 class="anchored" data-anchor-id="install-git">install git</h2>
+<section id="linux" class="level3">
+<h3 class="anchored" data-anchor-id="linux">Linux:</h3>
+<p>head to terminal and enter <code>sudo dnf install git-all</code></p>
+</section>
+<section id="mac-os" class="level3">
+<h3 class="anchored" data-anchor-id="mac-os">Mac OS:</h3>
+<p>open Terminal and enter <code>$ git --version</code> then follow prompts to install.</p>
+<p>If you don’t have XCode tools installed, you might need to install homebrew, then once that’s setup type <code>brew install git</code></p>
+</section>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows:</h3>
+<p>download and install from https://git-scm.com/download/win</p>
+<p>Having trouble?</p>
+<p>Poke around here https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</p>
+<p>Google or check stack overflow</p>
+<p>Ask for help if someone is free!</p>
+</section>
+</section>
+</section>
+<section id="configure-git-on-your-machine" class="level1">
+<h1>2. configure Git on your machine</h1>
+<p><code>git config --global user.name "Mona Lisa"</code></p>
+</section>
+<section id="initialize-a-git-repository" class="level1">
+<h1>3. Initialize a git repository</h1>
+<p>Once we’ve all got git running on our computer, we can move on on to the next Choose a location on your computer for the project folder to reside, then type</p>
+<p><code>git init myproject</code><img src="notebook_files/figure-html/1595c937-1-Screenshot 2023-05-30 at 16.25.59.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2016.25.59.png"></p>
+<p>This will create a folder called <strong>myproject</strong>, within which any changes will be tracked by git. You can confirm the existance of this by typing <code>ls</code> into the terminal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/6bce2907-1-Screenshot 2023-05-30 at 16.27.03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2016.27.03.png</figcaption><p></p>
+</figure>
+</div>
+<p>Once you’ve initialized a git project, there are a few useful commands to learn:</p>
+<p><code>cd myproject</code> will change into the directory named ‘myproject’. You should do this if you haven’t already.</p>
+<p><code>touch README.txt</code> will add a readme file to the current directory. You can also just save a .txt file using notepad.</p>
+<p><code>git status</code> will show you which files are present, what’s been changed since you last worked on the project, and which changes will be in the next <strong>commit</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachment:Screenshot%202023-05-30%20at%2016.28.14.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2016.28.14.png</figcaption><p></p>
+</figure>
+</div>
+<p><code>git add .</code>adds new and modified files to the staging area, where they are ready to commit. Try running <code>git status</code> again to see the changes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/c47b2359-1-Screenshot 2023-05-30 at 16.30.19.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2016.30.19.png</figcaption><p></p>
+</figure>
+</div>
+<p><code>git commit -m'initial commit'</code> saves (commits) the changes which were added to the staging area.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/69cf8aec-1-Screenshot 2023-05-30 at 16.34.23.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2016.34.23.png</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="edit-the-contents-of-the-git-repo" class="level1">
+<h1>4. Edit the contents of the git repo</h1>
+<p>You can use any text editor.</p>
+<p>If you have a preferred one then use that.</p>
+<p>Otherwise install VS Code from https://code.visualstudio.com/</p>
+<p>I edited the contents of the readme file to include contents for a packing list.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/a6777a4f-1-Screenshot 2023-05-30 at 16.41.46.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2016.41.46.png</figcaption><p></p>
+</figure>
+</div>
+<p>The new changes are not in the staging area on the master branch yet.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/5674f82a-1-Screenshot 2023-05-30 at 16.48.45.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2016.48.45.png</figcaption><p></p>
+</figure>
+</div>
+<p>Running <code>git add .</code> adds the changes to the staing area on the master branch <img src="notebook_files/figure-html/8df08daa-1-Screenshot 2023-05-30 at 16.50.12.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2016.50.12.png"></p>
+<p>Now we can commit the changes by typing `git commit -m ‘add hiking gear’ <img src="notebook_files/figure-html/95cb7266-1-Screenshot 2023-05-30 at 16.52.31.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2016.52.31.png"></p>
+<section id="making-a-different-branch" class="level2">
+<h2 class="anchored" data-anchor-id="making-a-different-branch">Making a different branch</h2>
+<p>We’re currently on the master branch. We could make some changes on a different branch and the original branch will remain unchanged until we merge the brances back together later. Let’s try this! <img src="https://i2.wp.com/digitalvarys.com/wp-content/uploads/2019/06/GIT-Branchand-its-Operations.png?fit=1921%2C1057&amp;ssl=1" class="img-fluid" alt="img"></p>
+<p><code>git branch ellys-edit</code></p>
+<p><code>git checkout ellys-edit</code></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/8701be05-1-Screenshot 2023-05-30 at 16.59.14.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2016.59.14.png</figcaption><p></p>
+</figure>
+</div>
+<p><code>git branch</code> <img src="notebook_files/figure-html/28f6ee63-1-Screenshot 2023-05-30 at 17.15.22.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2017.15.22.png"></p>
+<p>The green text indicates the branch we’re currently on</p>
+<p>Now we’re on the new branch, let’s make some changes.</p>
+<p>In this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.</p>
+<p>While she’s at it, she realises that the forecast is for cloud and rain, so she removes sunscreen and sunglasses from the original packing list.</p>
+<p>Finally, she renames the README file to gear.txt <img src="notebook_files/figure-html/05bcb179-1-Screenshot 2023-05-30 at 17.25.06.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2017.25.06.png"></p>
+<p>Here’s what the changes look like in the terminal <img src="notebook_files/figure-html/1d92aa3b-1-Screenshot 2023-05-30 at 17.06.53.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2017.06.53.png"></p>
+<p>To commit these changes to the master branch, we can run <code>git add .</code> then commit the changes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/c9e49da7-1-Screenshot 2023-05-30 at 17.08.27.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2017.08.27.png</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="switching-between-branches" class="level2">
+<h2 class="anchored" data-anchor-id="switching-between-branches">Switching between branches</h2>
+<p>By typing <code>git checkout master</code> and <code>git checkout ellys-branch</code> we can switch between branches. This changes the contents of the directory - have a play with it with the directory open.</p>
+</section>
+<section id="merging-two-branches" class="level2">
+<h2 class="anchored" data-anchor-id="merging-two-branches">Merging two branches</h2>
+<p>To merge the changes from another branch, into the one we’re currently on, we can use <code>git merge ellys-edit</code> from the master branch.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/9bb3a0e0-1-Screenshot 2023-05-30 at 18.33.31.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2018.33.31.png</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="when-things-go-wrong." class="level1">
+<h1>When things go wrong.</h1>
+<section id="merge-conflict" class="level2">
+<h2 class="anchored" data-anchor-id="merge-conflict">merge conflict</h2>
+<p>Making edits like this works most of the time, but sometimes we have a conflict, for example when someone edits the same line as code as you - and it isn’t obvious how to merge these edits. In this case we’ll see an error message and we’ll be asked which edit to keep.</p>
+<p>Let’s check this out by supposing that I want to save weight by replacing the beer with an empty water bottle, and Elly wants to take it to the next level by ditching the burgers, and adding more beer…</p>
+<p>I’ve changed to the respective branches and made the edits to this, and committed the changes on each branch.</p>
+<p>Look at the <code>git log</code> on each branch to see what was done. <img src="notebook_files/figure-html/ac895d54-1-Screenshot 2023-05-30 at 18.44.48.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2018.44.48.png"></p>
+<p>and on ellys-edit: <img src="notebook_files/figure-html/02f7d143-1-Screenshot 2023-05-30 at 18.45.47.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2018.45.47.png"></p>
+</section>
+<section id="lets-try-a-git-merge" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-a-git-merge">Let’s try a git merge:</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/bd4d4059-1-Screenshot 2023-05-30 at 18.47.32.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2018.47.32.png</figcaption><p></p>
+</figure>
+</div>
+<p><code>Git status</code> gives us more info on the merge conflict - both the branches being merged attempt to modify the same file. <img src="notebook_files/figure-html/5a5820b1-1-Screenshot 2023-05-30 at 18.49.09.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2018.49.09.png"></p>
+</section>
+</section>
+<section id="git-diff" class="level1">
+<h1>Git diff</h1>
+<p><code>git diff</code> shows us the difference between the commits, and where the conflict exists. <img src="notebook_files/figure-html/222666c1-1-Screenshot 2023-05-30 at 18.50.45.png" class="img-fluid" alt="Screenshot%202023-05-30%20at%2018.50.45.png"></p>
+<ol type="1">
+<li>We have a couple of ways to deal with this - we can abort the merge using <code>git merge --abort</code> and use a new command such as <code>git merge --strategy-option ours</code></li>
+<li>Or we can edit the conflicting file partway through the merge. To do this, head to the file in conflict, and remove all the &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, ======= and &gt;&gt;&gt;&gt;&gt;&gt;&gt; ellys-edit sections, then leave the file as you’d like it in the final merged version.</li>
+</ol>
+<p>At this point I’ve gone ahead and opened up food.txt in a text editor, and left it how I’d like the final version to be. Let’s see how things look in the terminal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notebook_files/figure-html/e630e6c3-1-Screenshot 2023-05-30 at 19.08.28.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Screenshot%202023-05-30%20at%2019.08.28.png</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Great! We’ve installed Git, made a project, edited the project on different branches, done a git merge, and learnt to resolve merge conflicts.</p>
+<p>Let’s see what to do when things go even more wrong in the next section.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -110,5 +110,8 @@
   },
   "past-events/elliot-geospatial/index.qmd": {
     "index.html": "59f74189"
+  },
+  "resources/notebook.ipynb": {
+    "notebook.html": "dc16147f"
   }
 }

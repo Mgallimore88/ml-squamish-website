@@ -1,0 +1,8 @@
+---
+title: "Past events"
+listing: default
+---
+
+Here's the notebook tutorial for the Git talk
+ 
+ ![notebook](notebook.ipynb)
