@@ -86,9 +86,9 @@
   {
     "objectID": "resources/resources.html",
     "href": "resources/resources.html",
-    "title": "resources",
+    "title": "Resources",
     "section": "",
-    "text": "Version Control 101\nHere’s some information on the upcoming tutorial on Git, GitHub and Github Co-Pilot.\nWe’ll start by going through some of the most common Git commands in the terminal, then we’ll move on to using\nIf you are totally new to Git and you don’thave Git set up on your computer, then come along at 6:00 instead of 6:30 to get set up.\n\n\n\nnotebook\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nGit, GitHub and GitHub Pages tutorial\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Here’s part 1 of the Git tutorial\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resources/paperspace-tutorial/boats-example.html",
@@ -333,7 +333,7 @@
     "href": "index.html#git-github-and-github-co-pilot-tutorial-evening",
     "title": "Home",
     "section": "Git, GitHub and GitHub Co-Pilot tutorial evening",
-    "text": "Git, GitHub and GitHub Co-Pilot tutorial evening\nCommunity coding event. This Wednesday 7th June to The Common, Cleveland Ave.\nCome along at 6:30 if you already have Git installed, or 6pm if you don’t and would like some help getting set up.\nPast Events\nGit walkthrough"
+    "text": "Git, GitHub and GitHub Co-Pilot tutorial evening\nCommunity coding event. This Wednesday 7th June at The Common, Cleveland Ave.\nCome along at 6:30 if you already have Git installed, or 6pm if you don’t and would like some help getting set up.\nBring your laptops!\nPast Events\nGit walkthrough"
   },
   {
     "objectID": "resources/git-walkthrough.html",
