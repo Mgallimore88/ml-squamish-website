@@ -151,7 +151,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ssh-keys" id="toc-ssh-keys" class="nav-link" data-scroll-target="#ssh-keys">SSH Keys</a></li>
   <li><a href="#cloning-an-existing-project-on-github" id="toc-cloning-an-existing-project-on-github" class="nav-link" data-scroll-target="#cloning-an-existing-project-on-github">Cloning an existing project on GitHub</a></li>
   </ul></li>
+  <li><a href="#using-vs-code-with-git-and-github" id="toc-using-vs-code-with-git-and-github" class="nav-link" data-scroll-target="#using-vs-code-with-git-and-github">Using VS Code with Git and GitHub</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." id="toc-in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." class="nav-link" data-scroll-target="#in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github.">In the next section we’ll look at GitHub Copilot, which is largely unrelated to what we’ve learned already, except that it is owned by GitHub.</a></li>
   </ul>
 </nav>
     </div>
@@ -376,8 +378,17 @@ ul.task-list li input[type="checkbox"] {
 <p>Any changes you make will be local changes, until you commit and <code>push</code> the changes. Pushing the changes will attempt to push back to the repository which was cloned - so if you want to keep your own version of the project separate, you’ll want to <strong>fork</strong> the repository before cloning it.</p>
 </section>
 </section>
+<section id="using-vs-code-with-git-and-github" class="level1">
+<h1>Using VS Code with Git and GitHub</h1>
+<p>Microsoft VS Code is excellently integrated with Git and GitHub. Setup is quick and easy. All of the commands we’ve seen here are implemented via a GUI in VS Code.</p>
+</section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
+<p>We’ve looked at the terminal interface for Git, and learned concepts on how to - Initialise a repo using <code>git init</code> - <code>git add .</code> to add files to the staging area ready to be added to the next commit - <code>git commit -m'message'</code> to commit the changes to the current branch - <code>git branch branchname</code> to create a new branch in the project - <code>git checkout branch</code> to see details on which branch we’re on, and which files are staged for the next commit. - <code>git merge branch</code> to merge another branch with the current one. - <code>git merge --strategy-option ours</code> to resolve merge conflicts - or by editing the file directly and removing the decorators. - <code>git revert head</code> to overwrite the effects of the previous commit with a new ‘anti-commit’ - <code>git log --all --decorate --oneline</code> to show a compact log of all the commits and their hashes - <code>git rebase -i hash</code> to systematically go through and re-commit each commit from a past point.</p>
+<p>then had a quick look over GitHub and how we can use it to collaborate with others, edit opensource codebases, and create a backup of our work.</p>
+</section>
+<section id="in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." class="level1">
+<h1>In the next section we’ll look at GitHub Copilot, which is largely unrelated to what we’ve learned already, except that it is owned by GitHub.</h1>
 
 
 </section>
