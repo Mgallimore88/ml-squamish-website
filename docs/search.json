@@ -390,5 +390,40 @@
     "title": "ML Squamish",
     "section": "Let’s try a git merge:",
     "text": "Let’s try a git merge:\n\nGit status gives us more info on the merge conflict - both the branches being merged attempt to modify the same file."
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#git-revert",
+    "href": "resources/git-walkthrough.html#git-revert",
+    "title": "ML Squamish",
+    "section": "git revert",
+    "text": "git revert\n\nmakes a new commit which is the inverse operation of an existing commit.\nIt allows you to undo the effect of a commit, but still keeps the data which broke your code in case you need to go back.\nthis is also useful to avoid undoing history which other people may have branched off of.\nIf applying the inverse operation of a commit creates merge conflicts, the revert method will fail.\n\nto use git revert, you can either use\ngit revert head\nto rewind by 1 commit.\nor\ngit revert # where the # is the commit hash.\ngit log"
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#interactive-rebase",
+    "href": "resources/git-walkthrough.html#interactive-rebase",
+    "title": "ML Squamish",
+    "section": "interactive rebase",
+    "text": "interactive rebase\nSometimes a git-revert isn’t what you need: I once had an issue when trying to push very large files to GitHub. I was a few commits ahead before I decided to sync my project with the company’s github repo, at which point I found that some files exceeded the remote server’s maximum filesize. I used git revert to selectively remove these large files, adding them to a .gitignore as I went.\ninteractive rebase allows you to cycle through multiple commits, picking and choosing which parts of which commits are applied:\n\nTo see the hashes of the commits:\n\ngit log --all --decorate --oneline\n\nand find the commit hash of the last good commit hash before mistake was made.\nthen do an interactive rebase from that point on: let’s say we’re wanting to edit the July 4th commit:\ngit rebase -i 6fae677\na prompt will pop up asking which commits you want to edit and which ones you want to keep unchanged.\nNote on vim: If this opens up in vim, you’ll need to be in Insert mode by pressing esc I, then once you finish editing using esc : wq then hit return.\nAt first all of the commits will say pick in front of them. Change this to edit for the ones you want to modify.\nSave the file first then follow the prompts to cycle through the commits one by one.\nFrom here you’ll need to create a series of commits using\ngit status\nthen edit, add, remove any files which you need in that commit\nAlso resolve any merge conflicts as you go through\nOnce everything is correct for that commit, use\ngit rebase --continue\nto move on to the next commit.\nOnce you’ve cycled through to the last commit, the git rebase is finished."
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#cloning-and-pull-requests",
+    "href": "resources/git-walkthrough.html#cloning-and-pull-requests",
+    "title": "ML Squamish",
+    "section": "cloning and pull requests",
+    "text": "cloning and pull requests\nUsing Git and GitHub we can easily copy (pull) an enitre code repository to our local machine, make an edit, then create a request for our edit to be merged back into the original codebase. This is called a Pull Request."
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#ssh-keys",
+    "href": "resources/git-walkthrough.html#ssh-keys",
+    "title": "ML Squamish",
+    "section": "SSH Keys",
+    "text": "SSH Keys\nOne of the things you’ll encounter getting your computer talking to GitHub, is setting up an SSH key. This can be quite fiddly, and we don’t have time to go into it in this tutorial - but if you encounter this then here’s a guide on setting up an SSH key on the GitHub website: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#cloning-an-existing-project-on-github",
+    "href": "resources/git-walkthrough.html#cloning-an-existing-project-on-github",
+    "title": "ML Squamish",
+    "section": "Cloning an existing project on GitHub",
+    "text": "Cloning an existing project on GitHub\nOnce you’ve got SSH keys setup and working, this is as easy as typing\ngit clone followed by the address of the repo on GitHub\n\nAny changes you make will be local changes, until you commit and push the changes. Pushing the changes will attempt to push back to the repository which was cloned - so if you want to keep your own version of the project separate, you’ll want to fork the repository before cloning it."
   }
 ]

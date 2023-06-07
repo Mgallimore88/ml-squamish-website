@@ -139,7 +139,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#merge-conflict" id="toc-merge-conflict" class="nav-link" data-scroll-target="#merge-conflict">merge conflict</a></li>
   <li><a href="#lets-try-a-git-merge" id="toc-lets-try-a-git-merge" class="nav-link" data-scroll-target="#lets-try-a-git-merge">Let’s try a git merge:</a></li>
   </ul></li>
-  <li><a href="#git-diff" id="toc-git-diff" class="nav-link" data-scroll-target="#git-diff">Git diff</a></li>
+  <li><a href="#git-diff" id="toc-git-diff" class="nav-link" data-scroll-target="#git-diff">Git diff</a>
+  <ul class="collapse">
+  <li><a href="#git-revert" id="toc-git-revert" class="nav-link" data-scroll-target="#git-revert">git revert</a></li>
+  <li><a href="#interactive-rebase" id="toc-interactive-rebase" class="nav-link" data-scroll-target="#interactive-rebase">interactive rebase</a></li>
+  </ul></li>
+  <li><a href="#gitgnore" id="toc-gitgnore" class="nav-link" data-scroll-target="#gitgnore">.gitgnore</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a>
+  <ul class="collapse">
+  <li><a href="#cloning-and-pull-requests" id="toc-cloning-and-pull-requests" class="nav-link" data-scroll-target="#cloning-and-pull-requests">cloning and pull requests</a></li>
+  <li><a href="#ssh-keys" id="toc-ssh-keys" class="nav-link" data-scroll-target="#ssh-keys">SSH Keys</a></li>
+  <li><a href="#cloning-an-existing-project-on-github" id="toc-cloning-an-existing-project-on-github" class="nav-link" data-scroll-target="#cloning-an-existing-project-on-github">Cloning an existing project on GitHub</a></li>
+  </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
@@ -289,11 +300,84 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>At this point I’ve gone ahead and opened up food.txt in a text editor, and left it how I’d like the final version to be. Let’s see how things look in the terminal.</p>
 <p><img src="git-imgs/img22.png" alt="image" width="100%"></p>
+<p>Great! We’ve installed Git, made a project, edited the project on different branches, done a git merge, and learnt to resolve merge conflicts.</p>
+<p>What if we made one or more commits, and later realize that the commit broke a section of code? This is where <strong>git revert</strong> comes to the rescue.</p>
+<section id="git-revert" class="level2">
+<h2 class="anchored" data-anchor-id="git-revert">git revert</h2>
+<ul>
+<li>makes a new commit which is the inverse operation of an existing commit.</li>
+<li>It allows you to undo the effect of a commit, but still keeps the data which broke your code in case you need to go back.</li>
+<li>this is also useful to avoid undoing history which other people may have branched off of.</li>
+<li>If applying the inverse operation of a commit creates merge conflicts, the revert method will fail.</li>
+</ul>
+<p>to use git revert, you can either use</p>
+<p><code>git revert head</code></p>
+<p>to rewind by 1 commit.</p>
+<p>or</p>
+<p><code>git revert #</code> where the # is the commit hash.</p>
+<p><code>git log</code></p>
+</section>
+<section id="interactive-rebase" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-rebase">interactive rebase</h2>
+<p>Sometimes a git-revert isn’t what you need: I once had an issue when trying to push very large files to GitHub. I was a few commits ahead before I decided to sync my project with the company’s github repo, at which point I found that some files exceeded the remote server’s maximum filesize. I used git revert to selectively remove these large files, adding them to a .gitignore as I went.</p>
+<p>interactive rebase allows you to cycle through multiple commits, picking and choosing which parts of which commits are applied:</p>
+<ol type="1">
+<li>To see the hashes of the commits:</li>
+</ol>
+<p><code>git log --all --decorate --oneline</code></p>
+<p><img src="git-imgs/img25.png" alt="image" width="100%"></p>
+<p>and find the commit hash of the last good commit hash before mistake was made.</p>
+<p>then do an interactive rebase from that point on: let’s say we’re wanting to edit the July 4th commit:</p>
+<p><code>git rebase -i 6fae677</code></p>
+<p>a prompt will pop up asking which commits you want to edit and which ones you want to keep unchanged.</p>
+<p><em>Note on vim: If this opens up in vim, you’ll need to be in Insert mode by pressing <code>esc I</code>, then once you finish editing using <code>esc : wq</code> then hit return.</em></p>
+<p>At first all of the commits will say <code>pick</code> in front of them. Change this to <code>edit</code> for the ones you want to modify.</p>
+<p>Save the file first then follow the prompts to cycle through the commits one by one.</p>
+<p>From here you’ll need to create a series of commits using</p>
+<p><code>git status</code></p>
+<p>then edit, add, remove any files which you need in that commit</p>
+<p>Also resolve any merge conflicts as you go through</p>
+<p>Once everything is correct for that commit, use</p>
+<p><code>git rebase --continue</code></p>
+<p>to move on to the next commit.</p>
+<p>Once you’ve cycled through to the last commit, the git rebase is finished.</p>
+</section>
+</section>
+<section id="gitgnore" class="level1">
+<h1>.gitgnore</h1>
+<p>If there are files in your project which you don’t want to be tracked by git, just add the filenames or directory names to a folder called .gitignore in the root of the repo.</p>
+<p>You can choose to use a template for yor project type: https://github.com/github/gitignore</p>
+<p>Or create your own from scratch: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files</p>
+</section>
+<section id="github" class="level1">
+<h1><a href="https://www.howtogeek.com/180167/htg-explains-what-is-github-and-what-do-geeks-use-it-for/">GitHub</a></h1>
+<section id="github-is-a-remote-server-implementation-of-git.-it-provides-powerful-collaboration-features-and-provides-a-place-to-host-projects." class="level4">
+<h4 class="anchored" data-anchor-id="github-is-a-remote-server-implementation-of-git.-it-provides-powerful-collaboration-features-and-provides-a-place-to-host-projects.">GitHub is a remote server implementation of Git. It provides powerful collaboration features and provides a place to host projects.</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://bitemycoin.com/wp-content/uploads/2018/06/GitHub-Logo.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">logo</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="cloning-and-pull-requests" class="level2">
+<h2 class="anchored" data-anchor-id="cloning-and-pull-requests">cloning and pull requests</h2>
+<p>Using Git and GitHub we can easily copy (pull) an enitre code repository to our local machine, make an edit, then create a request for our edit to be merged back into the original codebase. This is called a Pull Request.</p>
+</section>
+<section id="ssh-keys" class="level2">
+<h2 class="anchored" data-anchor-id="ssh-keys">SSH Keys</h2>
+<p>One of the things you’ll encounter getting your computer talking to GitHub, is setting up an SSH key. This can be quite fiddly, and we don’t have time to go into it in this tutorial - but if you encounter this then here’s a guide on setting up an SSH key on the GitHub website: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account</p>
+</section>
+<section id="cloning-an-existing-project-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="cloning-an-existing-project-on-github">Cloning an existing project on GitHub</h2>
+<p>Once you’ve got SSH keys setup and working, this is as easy as typing</p>
+<p><code>git clone</code> followed by the address of the repo on GitHub</p>
+<p><img src="git-imgs/img27.png" alt="image" width="100%"></p>
+<p>Any changes you make will be local changes, until you commit and <code>push</code> the changes. Pushing the changes will attempt to push back to the repository which was cloned - so if you want to keep your own version of the project separate, you’ll want to <strong>fork</strong> the repository before cloning it.</p>
+</section>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>Great! We’ve installed Git, made a project, edited the project on different branches, done a git merge, and learnt to resolve merge conflicts.</p>
-<p>Let’s see what to do when things go even more wrong in the next section.</p>
 
 
 </section>
