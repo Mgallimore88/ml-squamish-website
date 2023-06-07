@@ -172,11 +172,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="what-is-version-control" class="level1">
 <h1>What is version control?</h1>
-<p><img src="git-imgs/img1.png" alt="image"></p>
+<p><img src="git-imgs/img1.png" alt="image" width="90%"></p>
 <p>During a project, you’re likely to encounter the above tasks. - Maintaining multiple versions and revisions of files gets really messy when done by hand. - Moreover, when multiple people work on the same document, saving their independent changes to the same file can be difficult. - In a complex project with multiple files, things could get really cumbersome.</p>
 <p>Git is version control software which handles these issues by keeping track of the changes from one version to the next. Past versions of the project are still present, but they are hidden from the user.</p>
 <p>Git allows multiple users to edit the same document, and save their changes remotely. Conflicts are handled in a neat way by merging changes together.</p>
-<p><img src="git-imgs/img2.png" alt="image"></p>
+<p><img src="git-imgs/img2.png" alt="image" width="100%"></p>
 </section>
 <section id="getting-git-set-up-on-your-machine" class="level1">
 <h1>1. Getting Git set up on your machine</h1>
@@ -213,17 +213,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="initialize-a-git-repository" class="level1">
 <h1>3. Initialize a git repository</h1>
 <p>Once we’ve all got git running on our computer, we can move on on to the next Choose a location on your computer for the project folder to reside, then type</p>
-<p><img src="git-imgs/img3.png" alt="image"></p>
+<p><img src="git-imgs/img3.png" alt="image" width="100%"></p>
 <p>This will create a folder called <strong>myproject</strong>, within which any changes will be tracked by git. You can confirm the existance of this by typing <code>ls</code> into the terminal.</p>
-<p><img src="git-imgs/img4.png" alt="image"></p>
+<p><img src="git-imgs/img4.png" alt="image" width="100%"></p>
 <p>Once you’ve initialized a git project, there are a few useful commands to learn:</p>
 <p><code>cd myproject</code> will change into the directory named ‘myproject’. You should do this if you haven’t already.</p>
 <p><code>touch README.txt</code> will add a readme file to the current directory. You can also just save a .txt file using notepad.</p>
 <p><code>git status</code> will show you which files are present, what’s been changed since you last worked on the project, and which changes will be in the next <strong>commit</strong></p>
 <p><code>git add .</code>adds new and modified files to the staging area, where they are ready to commit. Try running <code>git status</code> again to see the changes.</p>
-<p><img src="git-imgs/img5.png" alt="image"></p>
+<p><img src="git-imgs/img5.png" alt="image" width="100%"></p>
 <p><code>git commit -m'initial commit'</code> saves (commits) the changes which were added to the staging area.</p>
-<p><img src="git-imgs/img6.png" alt="image"></p>
+<p><img src="git-imgs/img6.png" alt="image" width="100%"></p>
 </section>
 <section id="edit-the-contents-of-the-git-repo" class="level1">
 <h1>4. Edit the contents of the git repo</h1>
@@ -231,26 +231,26 @@ ul.task-list li input[type="checkbox"] {
 <p>If you have a preferred one then use that.</p>
 <p>Otherwise install VS Code from https://code.visualstudio.com/</p>
 <p>I edited the contents of the readme file to include contents for a packing list.</p>
-<p><img src="git-imgs/img7.png" alt="image"></p>
+<p><img src="git-imgs/img7.png" alt="image" width="100%"></p>
 <p>The new changes are not in the staging area on the master branch yet.</p>
-<p><img src="git-imgs/img8.png" alt="image"></p>
-<p>Running <code>git add .</code> adds the changes to the staing area on the master branch <img src="git-imgs/img9.png" alt="image"></p>
-<p>Now we can commit the changes by typing `git commit -m ‘add hiking gear’ <img src="git-imgs/img10.png" alt="image"></p>
+<p><img src="git-imgs/img8.png" alt="image" width="100%"></p>
+<p>Running <code>git add .</code> adds the changes to the staing area on the master branch <img src="git-imgs/img9.png" alt="image" width="100%"></p>
+<p>Now we can commit the changes by typing `git commit -m ‘add hiking gear’ <img src="git-imgs/img10.png" alt="image" width="100%"></p>
 <section id="making-a-different-branch" class="level2">
 <h2 class="anchored" data-anchor-id="making-a-different-branch">Making a different branch</h2>
 <p>We’re currently on the master branch. We could make some changes on a different branch and the original branch will remain unchanged until we merge the brances back together later. Let’s try this! <img src="https://i2.wp.com/digitalvarys.com/wp-content/uploads/2019/06/GIT-Branchand-its-Operations.png?fit=1921%2C1057&amp;ssl=1" class="img-fluid" alt="img"></p>
 <p><code>git branch ellys-edit</code></p>
 <p><code>git checkout ellys-edit</code></p>
-<p><img src="git-imgs/img11.png" alt="image"></p>
-<p><code>git branch</code> <img src="git-imgs/img12.png" alt="image"></p>
+<p><img src="git-imgs/img11.png" alt="image" width="50%"></p>
+<p><code>git branch</code> <img src="git-imgs/img12.png" alt="image" width="50%"></p>
 <p>The green text indicates the branch we’re currently on</p>
 <p>Now we’re on the new branch, let’s make some changes.</p>
 <p>In this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.</p>
 <p>While she’s at it, she realizes that the forecast is for cloud and rain, so she removes sunscreen and sunglasses from the original packing list.</p>
-<p>Finally, she renames the README file to gear.txt <img src="git-imgs/img13.png" alt="image"></p>
-<p>Here’s what the changes look like in the terminal <img src="git-imgs/img14.png" alt="image"></p>
+<p>Finally, she renames the README file to gear.txt <img src="git-imgs/img13.png" alt="image" width="100%"></p>
+<p>Here’s what the changes look like in the terminal <img src="git-imgs/img14.png" alt="image" width="100%"></p>
 <p>To commit these changes to the master branch, we can run <code>git add .</code> then commit the changes.</p>
-<p><img src="git-imgs/img15.png" alt="image"></p>
+<p><img src="git-imgs/img15.png" alt="image" width="100%"></p>
 </section>
 <section id="switching-between-branches" class="level2">
 <h2 class="anchored" data-anchor-id="switching-between-branches">Switching between branches</h2>
@@ -259,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="merging-two-branches" class="level2">
 <h2 class="anchored" data-anchor-id="merging-two-branches">Merging two branches</h2>
 <p>To merge the changes from another branch, into the one we’re currently on, we can use <code>git merge ellys-edit</code> from the master branch.</p>
-<p><img src="git-imgs/img16.png" alt="image"></p>
+<p><img src="git-imgs/img16.png" alt="image" width="100%"></p>
 </section>
 </section>
 <section id="when-things-go-wrong." class="level1">
@@ -269,24 +269,26 @@ ul.task-list li input[type="checkbox"] {
 <p>Making edits like this works most of the time, but sometimes we have a conflict, for example when someone edits the same line as code as you - and it isn’t obvious how to merge these edits. In this case we’ll see an error message and we’ll be asked which edit to keep.</p>
 <p>Let’s check this out by supposing that I want to save weight by replacing the beer with an empty water bottle, and Elly wants to take it to the next level by ditching the burgers, and adding more beer…</p>
 <p>I’ve changed to the respective branches and made the edits to this, and committed the changes on each branch.</p>
-<p>Look at the <code>git log</code> on each branch to see what was done. <img src="git-imgs/img17.png" alt="image"></p>
-<p>and on ellys-edit: <img src="git-imgs/img18.png" alt="image"></p>
+<p>Look at the <code>git log</code> on each branch to see what was done. <img src="git-imgs/img17.png" alt="image" width="100%"></p>
+<p>and on ellys-edit:</p>
+<p><img src="git-imgs/img18.png" alt="image" width="50%"></p>
 </section>
 <section id="lets-try-a-git-merge" class="level2">
 <h2 class="anchored" data-anchor-id="lets-try-a-git-merge">Let’s try a git merge:</h2>
-<p><img src="git-imgs/img19.png" alt="image"></p>
-<p><code>Git status</code> gives us more info on the merge conflict - both the branches being merged attempt to modify the same file. <img src="git-imgs/img20.png" alt="image"></p>
+<p><img src="git-imgs/img19.png" alt="image" width="100%"></p>
+<p><code>Git status</code> gives us more info on the merge conflict - both the branches being merged attempt to modify the same file.</p>
+<p><img src="git-imgs/img20.png" alt="image" width="100%"></p>
 </section>
 </section>
 <section id="git-diff" class="level1">
 <h1>Git diff</h1>
-<p><code>git diff</code> shows us the difference between the commits, and where the conflict exists. !<img src="git-imgs/img21.png" alt="image"></p>
+<p><code>git diff</code> shows us the difference between the commits, and where the conflict exists. !<img src="git-imgs/img21.png" alt="image" width="100%"></p>
 <ol type="1">
 <li>We have a couple of ways to deal with this - we can abort the merge using <code>git merge --abort</code> and use a new command such as <code>git merge --strategy-option ours</code></li>
 <li>Or we can edit the conflicting file partway through the merge. To do this, head to the file in conflict, and remove all the &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, ======= and &gt;&gt;&gt;&gt;&gt;&gt;&gt; ellys-edit sections, then leave the file as you’d like it in the final merged version.</li>
 </ol>
 <p>At this point I’ve gone ahead and opened up food.txt in a text editor, and left it how I’d like the final version to be. Let’s see how things look in the terminal.</p>
-<p><img src="git-imgs/img22.png" alt="image"></p>
+<p><img src="git-imgs/img22.png" alt="image" width="100%"></p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
