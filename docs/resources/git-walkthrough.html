@@ -134,25 +134,23 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#switching-between-branches" id="toc-switching-between-branches" class="nav-link" data-scroll-target="#switching-between-branches">Switching between branches</a></li>
   <li><a href="#merging-two-branches" id="toc-merging-two-branches" class="nav-link" data-scroll-target="#merging-two-branches">Merging two branches</a></li>
   </ul></li>
-  <li><a href="#when-things-go-wrong." id="toc-when-things-go-wrong." class="nav-link" data-scroll-target="#when-things-go-wrong.">When things go wrong.</a>
+  <li><a href="#when-things-go-wrong." id="toc-when-things-go-wrong." class="nav-link" data-scroll-target="#when-things-go-wrong.">5. When things go wrong.</a>
   <ul class="collapse">
   <li><a href="#merge-conflict" id="toc-merge-conflict" class="nav-link" data-scroll-target="#merge-conflict">merge conflict</a></li>
   <li><a href="#lets-try-a-git-merge" id="toc-lets-try-a-git-merge" class="nav-link" data-scroll-target="#lets-try-a-git-merge">Let’s try a git merge:</a></li>
-  </ul></li>
-  <li><a href="#git-diff" id="toc-git-diff" class="nav-link" data-scroll-target="#git-diff">Git diff</a>
-  <ul class="collapse">
+  <li><a href="#git-diff" id="toc-git-diff" class="nav-link" data-scroll-target="#git-diff">Git diff</a></li>
   <li><a href="#git-revert" id="toc-git-revert" class="nav-link" data-scroll-target="#git-revert">git revert</a></li>
   <li><a href="#interactive-rebase" id="toc-interactive-rebase" class="nav-link" data-scroll-target="#interactive-rebase">interactive rebase</a></li>
   </ul></li>
-  <li><a href="#gitgnore" id="toc-gitgnore" class="nav-link" data-scroll-target="#gitgnore">.gitgnore</a></li>
-  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a>
+  <li><a href="#gitgnore" id="toc-gitgnore" class="nav-link" data-scroll-target="#gitgnore">6. .gitgnore</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">7. GitHub</a>
   <ul class="collapse">
   <li><a href="#cloning-and-pull-requests" id="toc-cloning-and-pull-requests" class="nav-link" data-scroll-target="#cloning-and-pull-requests">cloning and pull requests</a></li>
   <li><a href="#ssh-keys" id="toc-ssh-keys" class="nav-link" data-scroll-target="#ssh-keys">SSH Keys</a></li>
   <li><a href="#cloning-an-existing-project-on-github" id="toc-cloning-an-existing-project-on-github" class="nav-link" data-scroll-target="#cloning-an-existing-project-on-github">Cloning an existing project on GitHub</a></li>
   </ul></li>
   <li><a href="#using-vs-code-with-git-and-github" id="toc-using-vs-code-with-git-and-github" class="nav-link" data-scroll-target="#using-vs-code-with-git-and-github">Using VS Code with Git and GitHub</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">8. Conclusion</a></li>
   <li><a href="#in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." id="toc-in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." class="nav-link" data-scroll-target="#in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github.">In the next section we’ll look at GitHub Copilot, which is largely unrelated to what we’ve learned already, except that it is owned by GitHub.</a></li>
   </ul>
 </nav>
@@ -255,7 +253,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>git branch ellys-edit</code></p>
 <p><code>git checkout ellys-edit</code></p>
 <p><img src="git-imgs/img11.png" alt="image" width="50%"></p>
-<p><code>git branch</code> <img src="git-imgs/img12.png" alt="image" width="50%"></p>
+<p><code>git branch</code></p>
+<p><img src="git-imgs/img12.png" alt="image" width="50%"></p>
 <p>The green text indicates the branch we’re currently on</p>
 <p>Now we’re on the new branch, let’s make some changes.</p>
 <p>In this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.</p>
@@ -276,7 +275,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="when-things-go-wrong." class="level1">
-<h1>When things go wrong.</h1>
+<h1>5. When things go wrong.</h1>
 <section id="merge-conflict" class="level2">
 <h2 class="anchored" data-anchor-id="merge-conflict">merge conflict</h2>
 <p>Making edits like this works most of the time, but sometimes we have a conflict, for example when someone edits the same line as code as you - and it isn’t obvious how to merge these edits. In this case we’ll see an error message and we’ll be asked which edit to keep.</p>
@@ -292,9 +291,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>Git status</code> gives us more info on the merge conflict - both the branches being merged attempt to modify the same file.</p>
 <p><img src="git-imgs/img20.png" alt="image" width="100%"></p>
 </section>
-</section>
-<section id="git-diff" class="level1">
-<h1>Git diff</h1>
+<section id="git-diff" class="level2">
+<h2 class="anchored" data-anchor-id="git-diff">Git diff</h2>
 <p><code>git diff</code> shows us the difference between the commits, and where the conflict exists. !<img src="git-imgs/img21.png" alt="image" width="100%"></p>
 <ol type="1">
 <li>We have a couple of ways to deal with this - we can abort the merge using <code>git merge --abort</code> and use a new command such as <code>git merge --strategy-option ours</code></li>
@@ -304,6 +302,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="git-imgs/img22.png" alt="image" width="100%"></p>
 <p>Great! We’ve installed Git, made a project, edited the project on different branches, done a git merge, and learnt to resolve merge conflicts.</p>
 <p>What if we made one or more commits, and later realize that the commit broke a section of code? This is where <strong>git revert</strong> comes to the rescue.</p>
+</section>
 <section id="git-revert" class="level2">
 <h2 class="anchored" data-anchor-id="git-revert">git revert</h2>
 <ul>
@@ -346,13 +345,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="gitgnore" class="level1">
-<h1>.gitgnore</h1>
+<h1>6. .gitgnore</h1>
 <p>If there are files in your project which you don’t want to be tracked by git, just add the filenames or directory names to a folder called .gitignore in the root of the repo.</p>
 <p>You can choose to use a template for yor project type: https://github.com/github/gitignore</p>
 <p>Or create your own from scratch: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files</p>
 </section>
 <section id="github" class="level1">
-<h1><a href="https://www.howtogeek.com/180167/htg-explains-what-is-github-and-what-do-geeks-use-it-for/">GitHub</a></h1>
+<h1>7. <a href="https://www.howtogeek.com/180167/htg-explains-what-is-github-and-what-do-geeks-use-it-for/">GitHub</a></h1>
 <section id="github-is-a-remote-server-implementation-of-git.-it-provides-powerful-collaboration-features-and-provides-a-place-to-host-projects." class="level4">
 <h4 class="anchored" data-anchor-id="github-is-a-remote-server-implementation-of-git.-it-provides-powerful-collaboration-features-and-provides-a-place-to-host-projects.">GitHub is a remote server implementation of Git. It provides powerful collaboration features and provides a place to host projects.</h4>
 <div class="quarto-figure quarto-figure-center">
@@ -383,9 +382,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Microsoft VS Code is excellently integrated with Git and GitHub. Setup is quick and easy. All of the commands we’ve seen here are implemented via a GUI in VS Code.</p>
 </section>
 <section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>We’ve looked at the terminal interface for Git, and learned concepts on how to - Initialise a repo using <code>git init</code> - <code>git add .</code> to add files to the staging area ready to be added to the next commit - <code>git commit -m'message'</code> to commit the changes to the current branch - <code>git branch branchname</code> to create a new branch in the project - <code>git checkout branch</code> to see details on which branch we’re on, and which files are staged for the next commit. - <code>git merge branch</code> to merge another branch with the current one. - <code>git merge --strategy-option ours</code> to resolve merge conflicts - or by editing the file directly and removing the decorators. - <code>git revert head</code> to overwrite the effects of the previous commit with a new ‘anti-commit’ - <code>git log --all --decorate --oneline</code> to show a compact log of all the commits and their hashes - <code>git rebase -i hash</code> to systematically go through and re-commit each commit from a past point.</p>
-<p>then had a quick look over GitHub and how we can use it to collaborate with others, edit opensource codebases, and create a backup of our work.</p>
+<h1>8. Conclusion</h1>
+<p>We’ve looked at the terminal interface for Git, and learned concepts on how to <br> - Initialise a repo using <code>git init</code> <br> - <code>git add .</code> to add files to the staging area ready to be added to the next commit <br> - <code>git commit -m'message'</code> to commit the changes to the current branch <br> - <code>git branch branchname</code> to create a new branch in the project <br> - <code>git checkout branch</code> to see details on which branch we’re on, and which files are staged for the next commit. <br> - <code>git merge branch</code> to merge another branch with the current one. <br> - <code>git merge --strategy-option ours</code> to resolve merge conflicts - or by editing the file directly and removing the decorators. <br> - <code>git revert head</code> to overwrite the effects of the previous commit with a new ‘anti-commit’ <br> - <code>git log --all --decorate --oneline</code> to show a compact log of all the commits and their hashes <br> - <code>git rebase -i hash</code> to systematically go through and re-commit each commit from a past point. <br> <br> then had a quick look over GitHub and how we can use it to collaborate with others, edit opensource codebases, and create a backup of our work.</p>
 </section>
 <section id="in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." class="level1">
 <h1>In the next section we’ll look at GitHub Copilot, which is largely unrelated to what we’ve learned already, except that it is owned by GitHub.</h1>

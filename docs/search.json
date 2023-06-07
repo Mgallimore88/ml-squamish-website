@@ -361,7 +361,7 @@
     "href": "resources/git-walkthrough.html#making-a-different-branch",
     "title": "ML Squamish",
     "section": "Making a different branch",
-    "text": "Making a different branch\nWe’re currently on the master branch. We could make some changes on a different branch and the original branch will remain unchanged until we merge the brances back together later. Let’s try this! \ngit branch ellys-edit\ngit checkout ellys-edit\n\ngit branch \nThe green text indicates the branch we’re currently on\nNow we’re on the new branch, let’s make some changes.\nIn this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.\nWhile she’s at it, she realizes that the forecast is for cloud and rain, so she removes sunscreen and sunglasses from the original packing list.\nFinally, she renames the README file to gear.txt \nHere’s what the changes look like in the terminal \nTo commit these changes to the master branch, we can run git add . then commit the changes."
+    "text": "Making a different branch\nWe’re currently on the master branch. We could make some changes on a different branch and the original branch will remain unchanged until we merge the brances back together later. Let’s try this! \ngit branch ellys-edit\ngit checkout ellys-edit\n\ngit branch\n\nThe green text indicates the branch we’re currently on\nNow we’re on the new branch, let’s make some changes.\nIn this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.\nWhile she’s at it, she realizes that the forecast is for cloud and rain, so she removes sunscreen and sunglasses from the original packing list.\nFinally, she renames the README file to gear.txt \nHere’s what the changes look like in the terminal \nTo commit these changes to the master branch, we can run git add . then commit the changes."
   },
   {
     "objectID": "resources/git-walkthrough.html#switching-between-branches",
@@ -425,5 +425,12 @@
     "title": "ML Squamish",
     "section": "Cloning an existing project on GitHub",
     "text": "Cloning an existing project on GitHub\nOnce you’ve got SSH keys setup and working, this is as easy as typing\ngit clone followed by the address of the repo on GitHub\n\nAny changes you make will be local changes, until you commit and push the changes. Pushing the changes will attempt to push back to the repository which was cloned - so if you want to keep your own version of the project separate, you’ll want to fork the repository before cloning it."
+  },
+  {
+    "objectID": "resources/git-walkthrough.html#git-diff",
+    "href": "resources/git-walkthrough.html#git-diff",
+    "title": "ML Squamish",
+    "section": "Git diff",
+    "text": "Git diff\ngit diff shows us the difference between the commits, and where the conflict exists. !\n\nWe have a couple of ways to deal with this - we can abort the merge using git merge --abort and use a new command such as git merge --strategy-option ours\nOr we can edit the conflicting file partway through the merge. To do this, head to the file in conflict, and remove all the <<<<<<< HEAD, ======= and >>>>>>> ellys-edit sections, then leave the file as you’d like it in the final merged version.\n\nAt this point I’ve gone ahead and opened up food.txt in a text editor, and left it how I’d like the final version to be. Let’s see how things look in the terminal.\n\nGreat! We’ve installed Git, made a project, edited the project on different branches, done a git merge, and learnt to resolve merge conflicts.\nWhat if we made one or more commits, and later realize that the commit broke a section of code? This is where git revert comes to the rescue."
   }
 ]
