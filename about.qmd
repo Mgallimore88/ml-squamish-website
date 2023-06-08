@@ -6,6 +6,8 @@ We are a group of Squamish residents connected over a common interest in machine
 
 We aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.
 
+We aim to provide a place for people to share knowledge in the domains of data science, machine learning and artificial intelligence. We try to structure our talks to be as participatory as possible - rather than just a lecture on a topic, we encourage input and material from our members, and encourage debate in the hope that this stimulates learning and growth of our members.
+
 To get involved, come along on Wednesday evenings to meet the group!
 
 You can shoot us an email here: [mlsquamish@gmail.com](mlsquamish@gmail.com)
