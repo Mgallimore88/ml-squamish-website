@@ -11,6 +11,7 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - past-events/past-events.qmd
       - about.qmd
       
 
