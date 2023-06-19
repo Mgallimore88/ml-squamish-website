@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-past-events .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-past-events'] = new List('listing-past-events', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -155,175 +155,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Here are some details of past talks:</p>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-past-events">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="chat-GPT,NLP,Talk" data-listing-date-sort="1673424000000" data-listing-file-modified-sort="1683053353081" data-listing-reading-time-sort="0.035">
-<div class="thumbnail">
-<p><a href="../past-events/chat-GPT-peter/index.html"> <img src="../past-events/chat-GPT-peter/slide-intro.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../past-events/chat-GPT-peter/index.html">
-<h3 class="no-anchor listing-title">
-Chat-GPT: The architecture behind the model
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-There is a slideshow accompanying this section.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../past-events/chat-GPT-peter/index.html">
-<div class="listing-date">
-Jan 11, 2023
-</div>
-<div class="listing-author">
-Peter O’Connor
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Quantum computing,machine learning,CERN,quantum physics" data-listing-date-sort="1676448000000" data-listing-file-modified-sort="1683050952646" data-listing-reading-time-sort="0.13">
-<div class="thumbnail">
-<p><a href="../past-events/eric-quantum-ml/index.html"> <img src="../past-events/eric-quantum-ml/ed-first-page.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../past-events/eric-quantum-ml/index.html">
-<h3 class="no-anchor listing-title">
-Eric’s talk on Quantum ML
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-This was a fascinating talk on quantum physics, quantum computing and some applications of machine learning within all of this. Check out the slideshow here:
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../past-events/eric-quantum-ml/index.html">
-<div class="listing-date">
-Feb 15, 2023
-</div>
-<div class="listing-author">
-Eric Drechsler
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="paperspace gradient,cloud computing,beginner" data-listing-date-sort="1675843200000" data-listing-file-modified-sort="1683052739709" data-listing-reading-time-sort="0.23">
-<div class="thumbnail">
-<p><a href="../past-events/paperspace-setup-mike/index.html"> <img src="../past-events/paperspace-setup-mike/logo-gr-2.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../past-events/paperspace-setup-mike/index.html">
-<h3 class="no-anchor listing-title">
-From Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-This is part 1 of Mike’s model from scratch presentation. This was a…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../past-events/paperspace-setup-mike/index.html">
-<div class="listing-date">
-Feb 8, 2023
-</div>
-<div class="listing-author">
-Mike Gallimore
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="image recognition,CNN,fastai" data-listing-date-sort="1675843200000" data-listing-file-modified-sort="1683052729657" data-listing-reading-time-sort="0.155">
-<div class="thumbnail">
-<p><a href="../past-events/from-scratch-model-mike/index.html"> <img src="../past-events/from-scratch-model-mike/losses.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../past-events/from-scratch-model-mike/index.html">
-<h3 class="no-anchor listing-title">
-From scratch model part 2: training an image recognition model using fastai
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-In this presentation Mike walked us through how to train an image classifier using the fastai library. This was a group coding session from no-code to a working model.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../past-events/from-scratch-model-mike/index.html">
-<div class="listing-date">
-Feb 8, 2023
-</div>
-<div class="listing-author">
-Mike Gallimore
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Geospatial,Geopandas,Data Science" data-listing-date-sort="1679468400000" data-listing-file-modified-sort="1683051725532" data-listing-reading-time-sort="0.375">
-<div class="thumbnail">
-<p><a href="../past-events/elliot-geospatial/index.html"> <img src="../past-events/elliot-geospatial/heatmap.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../past-events/elliot-geospatial/index.html">
-<h3 class="no-anchor listing-title">
-Geospatial 101
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-Elliot gave an excellent 101 class on processing geospatial data for data scientists who haven’t worked on that kind of data before.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../past-events/elliot-geospatial/index.html">
-<div class="listing-date">
-Mar 22, 2023
-</div>
-<div class="listing-author">
-Elliot Salisbury
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1675892601841" data-listing-reading-time-sort="3.475">
-<div class="thumbnail">
-<p><a href="../past-events/paperspace-setup-mike/paperspace.html"> <img src="../past-events/paperspace-setup-mike" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../past-events/paperspace-setup-mike/paperspace.html">
-<h3 class="no-anchor listing-title">
-Getting set up with Paperspace Gradient in six easy steps
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-(Short answer: You don’t! but it’s much faster because of parallel processing on a GPU)<br> - Deep learning models are built using neural networks. Training of a neural network involves calculating parameters and activations at each node of the network. Since each…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../past-events/paperspace-setup-mike/paperspace.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="numpy,talk" data-listing-date-sort="1671609600000" data-listing-file-modified-sort="1675881512857" data-listing-reading-time-sort="0.155">
+<div class="quarto-post image-right" data-index="0" data-categories="numpy,talk" data-listing-date-sort="1671609600000" data-listing-file-modified-sort="1687210295717" data-listing-reading-time-sort="0.155">
 <div class="thumbnail">
 <p><a href="../past-events/numpy-peter/index.html"> <img src="../past-events/numpy-peter/numpy.png" class="thumnail-image"> </a></p>
 </div>
@@ -351,7 +189,252 @@ Peter O’Connor
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-listing-file-modified-sort="1684716256706" data-listing-reading-time-sort="1.425">
+<div class="quarto-post image-right" data-index="1" data-categories="chat-GPT,NLP,Talk" data-listing-date-sort="1673424000000" data-listing-file-modified-sort="1683053353081" data-listing-reading-time-sort="0.035">
+<div class="thumbnail">
+<p><a href="../past-events/chat-GPT-peter/index.html"> <img src="../past-events/chat-GPT-peter/slide-intro.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/chat-GPT-peter/index.html">
+<h3 class="no-anchor listing-title">
+Chat-GPT: The architecture behind the model
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+There is a slideshow accompanying this section.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/chat-GPT-peter/index.html">
+<div class="listing-date">
+Jan 11, 2023
+</div>
+<div class="listing-author">
+Peter O’Connor
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="ML,models,data leakage,overfitting,validation sets,loss functions" data-listing-date-sort="1675238400000" data-listing-file-modified-sort="1687212875042" data-listing-reading-time-sort="0.145">
+<div class="thumbnail">
+<p><a href="../past-events/intro-to-ml-mike/index.html"> <img src="../past-events/intro-to-ml-mike/intro.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/intro-to-ml-mike/index.html">
+<h3 class="no-anchor listing-title">
+Intro to machine learning
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+This evening was an overview of machine learning for the benefit of newcomers, or people working in related fields.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/intro-to-ml-mike/index.html">
+<div class="listing-date">
+Feb 1, 2023
+</div>
+<div class="listing-author">
+Mike Gallimore
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="paperspace gradient,cloud computing,beginner" data-listing-date-sort="1675843200000" data-listing-file-modified-sort="1683052739709" data-listing-reading-time-sort="0.23">
+<div class="thumbnail">
+<p><a href="../past-events/paperspace-setup-mike/index.html"> <img src="../past-events/paperspace-setup-mike/logo-gr-2.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/paperspace-setup-mike/index.html">
+<h3 class="no-anchor listing-title">
+From Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+This is part 1 of Mike’s model from scratch presentation. This was a…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/paperspace-setup-mike/index.html">
+<div class="listing-date">
+Feb 8, 2023
+</div>
+<div class="listing-author">
+Mike Gallimore
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="image recognition,CNN,fastai" data-listing-date-sort="1675843200000" data-listing-file-modified-sort="1683052729657" data-listing-reading-time-sort="0.155">
+<div class="thumbnail">
+<p><a href="../past-events/from-scratch-model-mike/index.html"> <img src="../past-events/from-scratch-model-mike/losses.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/from-scratch-model-mike/index.html">
+<h3 class="no-anchor listing-title">
+From scratch model part 2: training an image recognition model using fastai
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+In this presentation Mike walked us through how to train an image classifier using the fastai library. This was a group coding session from no-code to a working model.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/from-scratch-model-mike/index.html">
+<div class="listing-date">
+Feb 8, 2023
+</div>
+<div class="listing-author">
+Mike Gallimore
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Quantum computing,machine learning,CERN,quantum physics" data-listing-date-sort="1676448000000" data-listing-file-modified-sort="1683050952646" data-listing-reading-time-sort="0.13">
+<div class="thumbnail">
+<p><a href="../past-events/eric-quantum-ml/index.html"> <img src="../past-events/eric-quantum-ml/ed-first-page.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/eric-quantum-ml/index.html">
+<h3 class="no-anchor listing-title">
+Eric’s talk on Quantum ML
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+This was a fascinating talk on quantum physics, quantum computing and some applications of machine learning within all of this. Check out the slideshow here:
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/eric-quantum-ml/index.html">
+<div class="listing-date">
+Feb 15, 2023
+</div>
+<div class="listing-author">
+Eric Drechsler
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="Geospatial,Geopandas,Data Science" data-listing-date-sort="1679468400000" data-listing-file-modified-sort="1683051725532" data-listing-reading-time-sort="0.375">
+<div class="thumbnail">
+<p><a href="../past-events/elliot-geospatial/index.html"> <img src="../past-events/elliot-geospatial/heatmap.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/elliot-geospatial/index.html">
+<h3 class="no-anchor listing-title">
+Geospatial 101
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+Elliot gave an excellent 101 class on processing geospatial data for data scientists who haven’t worked on that kind of data before.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/elliot-geospatial/index.html">
+<div class="listing-date">
+Mar 22, 2023
+</div>
+<div class="listing-author">
+Elliot Salisbury
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Artificial Intelligence,Alignment,Openphilanthropy,discussion" data-listing-date-sort="1684911600000" data-listing-file-modified-sort="1687215569996" data-listing-reading-time-sort="0.34">
+<div class="thumbnail">
+<p><a href="../past-events/alignment/index.html"> <img src="../past-events/alignment/timelines.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/alignment/index.html">
+<h3 class="no-anchor listing-title">
+AI Alignment - why AI: might or might not kill us all
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+An accessible introduction to the worldview that informs Open Philanthropy’s long-term future grantmaking.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/alignment/index.html">
+<div class="listing-date">
+May 24, 2023
+</div>
+<div class="listing-author">
+Ilva Ravinska
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="Git,Version Control,GitHub,GitHub Co-pilot,Terminal,Tutorial" data-listing-date-sort="1686121200000" data-listing-file-modified-sort="1687209721056" data-listing-reading-time-sort="0.235">
+<div class="thumbnail">
+<p><a href="../past-events/git-walkthrough/index.html"> <img src="../past-events/git-walkthrough/git-icon.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/git-walkthrough/index.html">
+<h3 class="no-anchor listing-title">
+Version Control 101
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+In this double feature, Mike walked us through how to get set up using Git…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/git-walkthrough/index.html">
+<div class="listing-date">
+Jun 7, 2023
+</div>
+<div class="listing-author">
+Mike Gallimore &amp; Peter O’Connor
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-listing-file-modified-sort="1675892601841" data-listing-reading-time-sort="3.475">
+<div class="thumbnail">
+<p><a href="../past-events/paperspace-setup-mike/paperspace.html"> <img src="../past-events/paperspace-setup-mike" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/paperspace-setup-mike/paperspace.html">
+<h3 class="no-anchor listing-title">
+Getting set up with Paperspace Gradient in six easy steps
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+(Short answer: You don’t! but it’s much faster because of parallel processing on a GPU)<br> - Deep learning models are built using neural networks. Training of a neural network involves calculating parameters and activations at each node of the network. Since each…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/paperspace-setup-mike/paperspace.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-listing-file-modified-sort="1684716256706" data-listing-reading-time-sort="1.425">
 <div class="thumbnail">
 <a href="../past-events/from-scratch-model-mike/boats-example.html">
 <div class="thumbnail-image">
@@ -376,7 +459,28 @@ Download images from chosen categories.
 <a href="../past-events/from-scratch-model-mike/boats-example.html"> </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-listing-file-modified-sort="1675745735494" data-listing-reading-time-sort="8.61">
+<div class="quarto-post image-right" data-index="11" data-listing-file-modified-sort="1687208958100" data-listing-reading-time-sort="11.32">
+<div class="thumbnail">
+<p><a href="../past-events/git-walkthrough/git-walkthrough.html"> <img src="../past-events/git-walkthrough/attachment:logo-mls.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../past-events/git-walkthrough/git-walkthrough.html">
+<h3 class="no-anchor listing-title">
+Version Control 101.
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+Community coding event. This Wednesday 7th June to The Common, Cleveland Ave.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../past-events/git-walkthrough/git-walkthrough.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-listing-file-modified-sort="1675745735494" data-listing-reading-time-sort="8.61">
 <div class="thumbnail">
 <a href="../past-events/numpy-peter/numpy-tutorial.html">
 <div class="thumbnail-image">

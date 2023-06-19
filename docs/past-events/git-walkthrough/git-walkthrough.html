@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ML Squamish – git-walkthrough</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ML Squamish</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#version-control-101." id="toc-version-control-101." class="nav-link active" data-scroll-target="#version-control-101.">Version Control 101.</a>
+  <ul class="collapse">
+  <li><a href="#git-github-and-github-co-pilot-tutorial-evening" id="toc-git-github-and-github-co-pilot-tutorial-evening" class="nav-link" data-scroll-target="#git-github-and-github-co-pilot-tutorial-evening">Git, GitHub and GitHub Co-Pilot tutorial evening</a>
+  <ul class="collapse">
+  <li><a href="#in-this-tutorial-well-get-set-up-using-git-in-the-terminal-then-talk-about-how-to-fix-things-when-they-go-wrong." id="toc-in-this-tutorial-well-get-set-up-using-git-in-the-terminal-then-talk-about-how-to-fix-things-when-they-go-wrong." class="nav-link" data-scroll-target="#in-this-tutorial-well-get-set-up-using-git-in-the-terminal-then-talk-about-how-to-fix-things-when-they-go-wrong.">In this tutorial we’ll get set up using Git in the terminal then talk about how to fix things when they go wrong.</a></li>
+  <li><a href="#well-start-by-going-through-some-of-the-most-common-git-commands-in-the-terminal-then-well-move-on-to-using-github-and-co-pilot-later-in-the-evening." id="toc-well-start-by-going-through-some-of-the-most-common-git-commands-in-the-terminal-then-well-move-on-to-using-github-and-co-pilot-later-in-the-evening." class="nav-link" data-scroll-target="#well-start-by-going-through-some-of-the-most-common-git-commands-in-the-terminal-then-well-move-on-to-using-github-and-co-pilot-later-in-the-evening.">We’ll start by going through some of the most common Git commands in the terminal, then we’ll move on to using GitHub and Co-Pilot later in the evening.</a></li>
+  <li><a href="#if-you-are-totally-new-to-git-and-you-dont-have-git-set-up-on-your-computer-then-come-along-at-600-instead-of-630-to-get-set-up." id="toc-if-you-are-totally-new-to-git-and-you-dont-have-git-set-up-on-your-computer-then-come-along-at-600-instead-of-630-to-get-set-up." class="nav-link" data-scroll-target="#if-you-are-totally-new-to-git-and-you-dont-have-git-set-up-on-your-computer-then-come-along-at-600-instead-of-630-to-get-set-up.">If you are totally new to Git and you don’t have Git set up on your computer, then come along at 6:00 instead of 6:30 to get set up.</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#section-1-welcome" id="toc-section-1-welcome" class="nav-link" data-scroll-target="#section-1-welcome">Section 1: Welcome!</a></li>
+  <li><a href="#what-is-version-control" id="toc-what-is-version-control" class="nav-link" data-scroll-target="#what-is-version-control">What is version control?</a></li>
+  <li><a href="#getting-git-set-up-on-your-machine" id="toc-getting-git-set-up-on-your-machine" class="nav-link" data-scroll-target="#getting-git-set-up-on-your-machine">1. Getting Git set up on your machine</a>
+  <ul class="collapse">
+  <li><a href="#get-online" id="toc-get-online" class="nav-link" data-scroll-target="#get-online">Get online</a></li>
+  <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">install git</a>
+  <ul class="collapse">
+  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux">Linux:</a></li>
+  <li><a href="#mac-os" id="toc-mac-os" class="nav-link" data-scroll-target="#mac-os">Mac OS:</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#configure-git-on-your-machine" id="toc-configure-git-on-your-machine" class="nav-link" data-scroll-target="#configure-git-on-your-machine">2. configure Git on your machine</a></li>
+  <li><a href="#initialize-a-git-repository" id="toc-initialize-a-git-repository" class="nav-link" data-scroll-target="#initialize-a-git-repository">3. Initialize a git repository</a>
+  <ul class="collapse">
+  <li><a href="#in-this-example-well-create-a-packing-list-for-a-couple---mike-and-elly---who-are-going-on-a-trip.-the-project-will-consist-of-a-couple-of-text-files-which-are-modified-by-different-people-then-merged-together." id="toc-in-this-example-well-create-a-packing-list-for-a-couple---mike-and-elly---who-are-going-on-a-trip.-the-project-will-consist-of-a-couple-of-text-files-which-are-modified-by-different-people-then-merged-together." class="nav-link" data-scroll-target="#in-this-example-well-create-a-packing-list-for-a-couple---mike-and-elly---who-are-going-on-a-trip.-the-project-will-consist-of-a-couple-of-text-files-which-are-modified-by-different-people-then-merged-together.">In this example we’ll create a packing list for a couple - mike and elly - who are going on a trip. The project will consist of a couple of text files which are modified by different people then merged together.</a></li>
+  </ul></li>
+  <li><a href="#edit-the-contents-of-the-git-repo" id="toc-edit-the-contents-of-the-git-repo" class="nav-link" data-scroll-target="#edit-the-contents-of-the-git-repo">4. Edit the contents of the git repo</a>
+  <ul class="collapse">
+  <li><a href="#making-a-different-branch" id="toc-making-a-different-branch" class="nav-link" data-scroll-target="#making-a-different-branch">Making a different branch</a></li>
+  <li><a href="#switching-between-branches" id="toc-switching-between-branches" class="nav-link" data-scroll-target="#switching-between-branches">Switching between branches</a></li>
+  <li><a href="#merging-two-branches" id="toc-merging-two-branches" class="nav-link" data-scroll-target="#merging-two-branches">Merging two branches</a></li>
+  </ul></li>
+  <li><a href="#when-things-go-wrong." id="toc-when-things-go-wrong." class="nav-link" data-scroll-target="#when-things-go-wrong.">5. When things go wrong.</a>
+  <ul class="collapse">
+  <li><a href="#merge-conflict" id="toc-merge-conflict" class="nav-link" data-scroll-target="#merge-conflict">merge conflict</a></li>
+  <li><a href="#lets-try-a-git-merge" id="toc-lets-try-a-git-merge" class="nav-link" data-scroll-target="#lets-try-a-git-merge">Let’s try a git merge:</a></li>
+  <li><a href="#git-diff" id="toc-git-diff" class="nav-link" data-scroll-target="#git-diff">Git diff</a></li>
+  <li><a href="#git-revert" id="toc-git-revert" class="nav-link" data-scroll-target="#git-revert">git revert</a></li>
+  <li><a href="#interactive-rebase" id="toc-interactive-rebase" class="nav-link" data-scroll-target="#interactive-rebase">interactive rebase</a></li>
+  </ul></li>
+  <li><a href="#gitgnore" id="toc-gitgnore" class="nav-link" data-scroll-target="#gitgnore">6. .gitgnore</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">7. GitHub</a>
+  <ul class="collapse">
+  <li><a href="#cloning-and-pull-requests" id="toc-cloning-and-pull-requests" class="nav-link" data-scroll-target="#cloning-and-pull-requests">cloning and pull requests</a></li>
+  <li><a href="#ssh-keys" id="toc-ssh-keys" class="nav-link" data-scroll-target="#ssh-keys">SSH Keys</a></li>
+  <li><a href="#cloning-an-existing-project-on-github" id="toc-cloning-an-existing-project-on-github" class="nav-link" data-scroll-target="#cloning-an-existing-project-on-github">Cloning an existing project on GitHub</a></li>
+  </ul></li>
+  <li><a href="#using-vs-code-with-git-and-github" id="toc-using-vs-code-with-git-and-github" class="nav-link" data-scroll-target="#using-vs-code-with-git-and-github">Using VS Code with Git and GitHub</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">8. Conclusion</a></li>
+  <li><a href="#in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." id="toc-in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." class="nav-link" data-scroll-target="#in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github.">In the next section we’ll look at GitHub Copilot, which is largely unrelated to what we’ve learned already, except that it is owned by GitHub.</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="version-control-101." class="level1">
+<h1>Version Control 101.</h1>
+<section id="git-github-and-github-co-pilot-tutorial-evening" class="level2">
+<h2 class="anchored" data-anchor-id="git-github-and-github-co-pilot-tutorial-evening">Git, GitHub and GitHub Co-Pilot tutorial evening</h2>
+<p>Community coding event. This Wednesday 7th June to The Common, Cleveland Ave.</p>
+<p>Come along at 6:30 if you already have Git installed, or 6pm if you don’t and would like some help getting set up.</p>
+<p><img src="git-walkthrough_files/figure-html/16281bf8-1-logo-mls.png" class="img-fluid"></p>
+<section id="in-this-tutorial-well-get-set-up-using-git-in-the-terminal-then-talk-about-how-to-fix-things-when-they-go-wrong." class="level3">
+<h3 class="anchored" data-anchor-id="in-this-tutorial-well-get-set-up-using-git-in-the-terminal-then-talk-about-how-to-fix-things-when-they-go-wrong.">In this tutorial we’ll get set up using Git in the terminal then talk about how to fix things when they go wrong.</h3>
+</section>
+<section id="well-start-by-going-through-some-of-the-most-common-git-commands-in-the-terminal-then-well-move-on-to-using-github-and-co-pilot-later-in-the-evening." class="level3">
+<h3 class="anchored" data-anchor-id="well-start-by-going-through-some-of-the-most-common-git-commands-in-the-terminal-then-well-move-on-to-using-github-and-co-pilot-later-in-the-evening.">We’ll start by going through some of the most common Git commands in the terminal, then we’ll move on to using GitHub and Co-Pilot later in the evening.</h3>
+</section>
+<section id="if-you-are-totally-new-to-git-and-you-dont-have-git-set-up-on-your-computer-then-come-along-at-600-instead-of-630-to-get-set-up." class="level3">
+<h3 class="anchored" data-anchor-id="if-you-are-totally-new-to-git-and-you-dont-have-git-set-up-on-your-computer-then-come-along-at-600-instead-of-630-to-get-set-up.">If you are totally new to Git and you don’t have Git set up on your computer, then come along at 6:00 instead of 6:30 to get set up.</h3>
+</section>
+</section>
+</section>
+<section id="section-1-welcome" class="level1">
+<h1>Section 1: Welcome!</h1>
+<p>A few quick questions: - 30s intro about yourself - What are you hoping to get out of this evening? - Who has used Git before? - What’s your level of familiarity using the terminal?</p>
+</section>
+<section id="what-is-version-control" class="level1">
+<h1>What is version control?</h1>
+<p><img src="git-imgs/img1.png" alt="image" width="90%"></p>
+<p>During a project, you’re likely to encounter the above tasks. - Maintaining multiple versions and revisions of files gets really messy when done by hand. - Moreover, when multiple people work on the same document, saving their independent changes to the same file can be difficult. - In a complex project with multiple files, things could get really cumbersome.</p>
+<p>Git is version control software which handles these issues by keeping track of the changes from one version to the next. Past versions of the project are always maintained - never deleted or overwritten, but they are hidden from the user. Instead of overwriting or permanently deleting, git keeps track of the changes from one commit to the next, so recovery of past states is always possible.</p>
+<p>Git allows multiple users to edit the same document, and save their changes remotely. Different edits are handled in a neat way by automatically merging changes together where possible.</p>
+<p>If it’s not possible to <strong>merge</strong> these changes automatically, this is called a <strong>merge conflict</strong> and the software prompts a user to <strong>resolve</strong> the conflict.</p>
+<p><img src="git-imgs/img2.png" alt="image" width="100%"></p>
+</section>
+<section id="getting-git-set-up-on-your-machine" class="level1">
+<h1>1. Getting Git set up on your machine</h1>
+<section id="get-online" class="level2">
+<h2 class="anchored" data-anchor-id="get-online">Get online</h2>
+<p>username:</p>
+<p>password:</p>
+</section>
+<section id="install-git" class="level2">
+<h2 class="anchored" data-anchor-id="install-git">install git</h2>
+<section id="linux" class="level3">
+<h3 class="anchored" data-anchor-id="linux">Linux:</h3>
+<p>head to terminal and enter <code>sudo dnf install git-all</code></p>
+</section>
+<section id="mac-os" class="level3">
+<h3 class="anchored" data-anchor-id="mac-os">Mac OS:</h3>
+<p>open Terminal and enter <code>$ git --version</code> then follow prompts to install.</p>
+<p>If you don’t have XCode tools installed, you might need to install homebrew, then once that’s setup type <code>brew install git</code></p>
+</section>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows:</h3>
+<p>download and install from https://git-scm.com/download/win</p>
+<p>Having trouble?</p>
+<p>Poke around here https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</p>
+<p>Google or check stack overflow</p>
+<p>Ask for help if someone is free!</p>
+</section>
+</section>
+</section>
+<section id="configure-git-on-your-machine" class="level1">
+<h1>2. configure Git on your machine</h1>
+<p><code>git config --global user.name "Mona Lisa"</code></p>
+</section>
+<section id="initialize-a-git-repository" class="level1">
+<h1>3. Initialize a git repository</h1>
+<section id="in-this-example-well-create-a-packing-list-for-a-couple---mike-and-elly---who-are-going-on-a-trip.-the-project-will-consist-of-a-couple-of-text-files-which-are-modified-by-different-people-then-merged-together." class="level3">
+<h3 class="anchored" data-anchor-id="in-this-example-well-create-a-packing-list-for-a-couple---mike-and-elly---who-are-going-on-a-trip.-the-project-will-consist-of-a-couple-of-text-files-which-are-modified-by-different-people-then-merged-together.">In this example we’ll create a packing list for a couple - mike and elly - who are going on a trip. The project will consist of a couple of text files which are modified by different people then merged together.</h3>
+<p>Once we’ve all got git running on our computer, we can move on on to the next Choose a location on your computer for the project folder to reside, then type</p>
+<p><code>git init myproject</code></p>
+<p><img src="git-imgs/img3.png" alt="image" width="100%"></p>
+<p>This will create a folder called <strong>myproject</strong>, within which any changes will be tracked by git. You can confirm the existance of this by typing <code>ls</code> into the terminal.</p>
+<p><img src="git-imgs/img4.png" alt="image" width="100%"></p>
+<p>Once you’ve initialized a git project, there are a few useful commands to learn:</p>
+<p><code>cd myproject</code> will change into the directory named ‘myproject’. You should do this if you haven’t already.</p>
+<p><code>touch README.txt</code> will add a readme file to the current directory. You can also just save a .txt file using notepad or another text editor.</p>
+<p><code>git status</code> will show you which files are present, what’s been changed since you last worked on the project, and which changes will be in the next <strong>commit</strong></p>
+<p><code>git add .</code> adds new and modified files to the <strong>staging area</strong>, where they are ready to commit. Try running <code>git status</code> again to see the changes.</p>
+<p><img src="git-imgs/img5.png" alt="image" width="100%"></p>
+<p><code>git commit -m'initial commit'</code> saves (commits) the changes which were added to the staging area.</p>
+<p><img src="git-imgs/img6.png" alt="image" width="100%"></p>
+</section>
+</section>
+<section id="edit-the-contents-of-the-git-repo" class="level1">
+<h1>4. Edit the contents of the git repo</h1>
+<p>You can use any text editor.</p>
+<p>If you have a preferred one then use that.</p>
+<p>Otherwise install VS Code from https://code.visualstudio.com/</p>
+<p>I edited the contents of the readme file to include contents for a packing list.</p>
+<p><img src="git-imgs/img7.png" alt="image" width="100%"></p>
+<p>The new changes are not in the staging area on the master branch yet.</p>
+<p><img src="git-imgs/img8.png" alt="image" width="100%"></p>
+<p>Running <code>git add .</code> adds the changes to the staing area on the master branch <img src="git-imgs/img9.png" alt="image" width="100%"></p>
+<p>Now we can commit the changes by typing `git commit -m ‘add hiking gear’ <img src="git-imgs/img10.png" alt="image" width="100%"></p>
+<section id="making-a-different-branch" class="level2">
+<h2 class="anchored" data-anchor-id="making-a-different-branch">Making a different branch</h2>
+<p>We’re currently on the master branch. We could make some changes on a different branch and the original branch will remain unchanged until we merge the brances back together later. Let’s try this! <img src="https://i2.wp.com/digitalvarys.com/wp-content/uploads/2019/06/GIT-Branchand-its-Operations.png?fit=1921%2C1057&amp;ssl=1" class="img-fluid" alt="img"></p>
+<p><code>git branch ellys-edit</code></p>
+<p><code>git checkout ellys-edit</code></p>
+<p><img src="git-imgs/img11.png" alt="image" width="50%"></p>
+<p><code>git branch</code></p>
+<p><img src="git-imgs/img12.png" alt="image" width="50%"></p>
+<p>The green text indicates the branch we’re currently on</p>
+<p>Now we’re on the new branch, let’s make some changes.</p>
+<p>In this scenario, Elly has been given the task of arranging food for the trip. She creates a new file called food.txt and populates it with important food supplies.</p>
+<p>While she’s at it, she realizes that the forecast is for cloud and rain, so she removes sunscreen and sunglasses from the original packing list.</p>
+<p>Finally, she renames the README file to gear.txt <img src="git-imgs/img13.png" alt="image" width="100%"></p>
+<p>Here’s what the changes look like in the terminal <img src="git-imgs/img14.png" alt="image" width="100%"></p>
+<p>To commit these changes to the master branch, we can run <code>git add .</code> then commit the changes.</p>
+<p><img src="git-imgs/img15.png" alt="image" width="100%"></p>
+</section>
+<section id="switching-between-branches" class="level2">
+<h2 class="anchored" data-anchor-id="switching-between-branches">Switching between branches</h2>
+<p>By typing <code>git checkout master</code> and <code>git checkout ellys-branch</code> we can switch between branches. This changes the contents of the directory - have a play with it with the directory open.</p>
+</section>
+<section id="merging-two-branches" class="level2">
+<h2 class="anchored" data-anchor-id="merging-two-branches">Merging two branches</h2>
+<p>To merge the changes from another branch, into the one we’re currently on, we can use <code>git merge ellys-edit</code> from the master branch.</p>
+<p><img src="git-imgs/img16.png" alt="image" width="100%"></p>
+</section>
+</section>
+<section id="when-things-go-wrong." class="level1">
+<h1>5. When things go wrong.</h1>
+<section id="merge-conflict" class="level2">
+<h2 class="anchored" data-anchor-id="merge-conflict">merge conflict</h2>
+<p>Making edits like this works most of the time, but sometimes we have a conflict, for example when someone edits the same line as code as you - and it isn’t obvious how to merge these edits. In this case we’ll see an error message and we’ll be asked which edit to keep.</p>
+<p>Let’s check this out by supposing that I want to save weight by replacing the beer with an empty water bottle, and Elly wants to take it to the next level by ditching the burgers, and adding more beer…</p>
+<p>I’ve changed to the respective branches and made the edits to this, and committed the changes on each branch.</p>
+<p>Look at the <code>git log</code> on each branch to see what was done. <img src="git-imgs/img17.png" alt="image" width="100%"></p>
+<p>and on ellys-edit:</p>
+<p><img src="git-imgs/img18.png" alt="image" width="50%"></p>
+</section>
+<section id="lets-try-a-git-merge" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-a-git-merge">Let’s try a git merge:</h2>
+<p><img src="git-imgs/img19.png" alt="image" width="100%"></p>
+<p><code>Git status</code> gives us more info on the merge conflict - both the branches being merged attempt to modify the same file.</p>
+<p><img src="git-imgs/img20.png" alt="image" width="100%"></p>
+</section>
+<section id="git-diff" class="level2">
+<h2 class="anchored" data-anchor-id="git-diff">Git diff</h2>
+<p><code>git diff</code> shows us the difference between the commits, and where the conflict exists. !<img src="git-imgs/img21.png" alt="image" width="100%"></p>
+<ol type="1">
+<li>We have a couple of ways to deal with this - we can abort the merge using <code>git merge --abort</code> and use a new command such as <code>git merge --strategy-option ours</code></li>
+<li>Or we can edit the conflicting file partway through the merge. To do this, head to the file in conflict, and remove all the &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, ======= and &gt;&gt;&gt;&gt;&gt;&gt;&gt; ellys-edit sections, then leave the file as you’d like it in the final merged version.</li>
+</ol>
+<p>At this point I’ve gone ahead and opened up food.txt in a text editor, and left it how I’d like the final version to be. Let’s see how things look in the terminal.</p>
+<p><img src="git-imgs/img22.png" alt="image" width="100%"></p>
+<p>Great! We’ve installed Git, made a project, edited the project on different branches, done a git merge, and learnt to resolve merge conflicts.</p>
+<p>What if we made one or more commits, and later realize that the commit broke a section of code? This is where <strong>git revert</strong> comes to the rescue.</p>
+</section>
+<section id="git-revert" class="level2">
+<h2 class="anchored" data-anchor-id="git-revert">git revert</h2>
+<ul>
+<li>makes a new commit which is the inverse operation of an existing commit.</li>
+<li>It allows you to undo the effect of a commit, but still keeps the data which broke your code in case you need to go back.</li>
+<li>this is also useful to avoid undoing history which other people may have branched off of.</li>
+<li>If applying the inverse operation of a commit creates merge conflicts, the revert method will fail.</li>
+</ul>
+<p>to use git revert, you can either use</p>
+<p><code>git revert head</code></p>
+<p>to rewind by 1 commit.</p>
+<p>or</p>
+<p><code>git revert #</code> where the # is the commit hash.</p>
+<p><code>git log</code></p>
+</section>
+<section id="interactive-rebase" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-rebase">interactive rebase</h2>
+<p>Sometimes a git-revert isn’t what you need: I once had an issue when trying to push very large files to GitHub. I was a few commits ahead before I decided to sync my project with the company’s github repo, at which point I found that some files exceeded the remote server’s maximum filesize. I used git revert to selectively remove these large files, adding them to a .gitignore as I went.</p>
+<p>interactive rebase allows you to cycle through multiple commits, picking and choosing which parts of which commits are applied:</p>
+<ol type="1">
+<li>To see the hashes of the commits:</li>
+</ol>
+<p><code>git log --all --decorate --oneline</code></p>
+<p><img src="git-imgs/img25.png" alt="image" width="100%"></p>
+<p>and find the commit hash of the last good commit hash before mistake was made.</p>
+<p>then do an interactive rebase from that point on: let’s say we’re wanting to edit the July 4th commit:</p>
+<p><code>git rebase -i 6fae677</code></p>
+<p>a prompt will pop up asking which commits you want to edit and which ones you want to keep unchanged.</p>
+<p><em>Note on vim: If this opens up in vim, you’ll need to be in Insert mode by pressing <code>esc I</code>, then once you finish editing using <code>esc : wq</code> then hit return.</em></p>
+<p>At first all of the commits will say <code>pick</code> in front of them. Change this to <code>edit</code> for the ones you want to modify.</p>
+<p>Save the file first then follow the prompts to cycle through the commits one by one.</p>
+<p>From here you’ll need to create a series of commits using</p>
+<p><code>git status</code></p>
+<p>then edit, add, remove any files which you need in that commit</p>
+<p>Also resolve any merge conflicts as you go through</p>
+<p>Once everything is correct for that commit, use</p>
+<p><code>git rebase --continue</code></p>
+<p>to move on to the next commit.</p>
+<p>Once you’ve cycled through to the last commit, the git rebase is finished.</p>
+</section>
+</section>
+<section id="gitgnore" class="level1">
+<h1>6. .gitgnore</h1>
+<p>If there are files in your project which you don’t want to be tracked by git, just add the filenames or directory names to a folder called .gitignore in the root of the repo.</p>
+<p>You can choose to use a template for yor project type: https://github.com/github/gitignore</p>
+<p>Or create your own from scratch: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files</p>
+</section>
+<section id="github" class="level1">
+<h1>7. <a href="https://www.howtogeek.com/180167/htg-explains-what-is-github-and-what-do-geeks-use-it-for/">GitHub</a></h1>
+<section id="github-is-a-remote-server-implementation-of-git.-it-provides-powerful-collaboration-features-and-provides-a-place-to-host-projects." class="level4">
+<h4 class="anchored" data-anchor-id="github-is-a-remote-server-implementation-of-git.-it-provides-powerful-collaboration-features-and-provides-a-place-to-host-projects.">GitHub is a remote server implementation of Git. It provides powerful collaboration features and provides a place to host projects.</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://bitemycoin.com/wp-content/uploads/2018/06/GitHub-Logo.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">logo</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="cloning-and-pull-requests" class="level2">
+<h2 class="anchored" data-anchor-id="cloning-and-pull-requests">cloning and pull requests</h2>
+<p>Using Git and GitHub we can easily copy (pull) an enitre code repository to our local machine, make an edit, then create a request for our edit to be merged back into the original codebase. This is called a Pull Request.</p>
+</section>
+<section id="ssh-keys" class="level2">
+<h2 class="anchored" data-anchor-id="ssh-keys">SSH Keys</h2>
+<p>One of the things you’ll encounter getting your computer talking to GitHub, is setting up an SSH key. This can be quite fiddly, and we don’t have time to go into it in this tutorial - but if you encounter this then here’s a guide on setting up an SSH key on the GitHub website: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account</p>
+</section>
+<section id="cloning-an-existing-project-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="cloning-an-existing-project-on-github">Cloning an existing project on GitHub</h2>
+<p>Once you’ve got SSH keys setup and working, this is as easy as typing</p>
+<p><code>git clone</code> followed by the address of the repo on GitHub</p>
+<p><img src="git-imgs/img27.png" alt="image" width="100%"></p>
+<p>Any changes you make will be local changes, until you commit and <code>push</code> the changes. Pushing the changes will attempt to push back to the repository which was cloned - so if you want to keep your own version of the project separate, you’ll want to <strong>fork</strong> the repository before cloning it.</p>
+</section>
+</section>
+<section id="using-vs-code-with-git-and-github" class="level1">
+<h1>Using VS Code with Git and GitHub</h1>
+<p>Microsoft VS Code is excellently integrated with Git and GitHub. Setup is quick and easy. All of the commands we’ve seen here are implemented via a GUI in VS Code.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>8. Conclusion</h1>
+<p>We’ve looked at the terminal interface for Git, and learned concepts on how to <br> - Initialise a repo using <code>git init</code> <br> - <code>git add .</code> to add files to the staging area ready to be added to the next commit <br> - <code>git commit -m'message'</code> to commit the changes to the current branch <br> - <code>git branch branchname</code> to create a new branch in the project <br> - <code>git checkout branch</code> to see details on which branch we’re on, and which files are staged for the next commit. <br> - <code>git merge branch</code> to merge another branch with the current one. <br> - <code>git merge --strategy-option ours</code> to resolve merge conflicts - or by editing the file directly and removing the decorators. <br> - <code>git revert head</code> to overwrite the effects of the previous commit with a new ‘anti-commit’ <br> - <code>git log --all --decorate --oneline</code> to show a compact log of all the commits and their hashes <br> - <code>git rebase -i hash</code> to systematically go through and re-commit each commit from a past point. <br> <br> then had a quick look over GitHub and how we can use it to collaborate with others, edit opensource codebases, and create a backup of our work.</p>
+</section>
+<section id="in-the-next-section-well-look-at-github-copilot-which-is-largely-unrelated-to-what-weve-learned-already-except-that-it-is-owned-by-github." class="level1">
+<h1>In the next section we’ll look at GitHub Copilot, which is largely unrelated to what we’ve learned already, except that it is owned by GitHub.</h1>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

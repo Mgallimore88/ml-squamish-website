@@ -4,7 +4,7 @@ author: "Peter O'Connor"
 date: "2022-12-21"
 categories: [numpy, talk]
 image: "numpy.png"
-render: true
+render: false
 ---
 
 ![numpylogo](numpy.png)

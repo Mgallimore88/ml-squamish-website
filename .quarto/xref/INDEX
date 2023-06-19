@@ -116,5 +116,17 @@
   },
   "resources/git-walkthrough.ipynb": {
     "git-walkthrough.html": "22ebdb2f"
+  },
+  "past-events/git-walkthrough/git-walkthrough.ipynb": {
+    "git-walkthrough.html": "3326947d"
+  },
+  "past-events/git-walkthrough/index.qmd": {
+    "index.html": "633f3beb"
+  },
+  "past-events/intro-to-ml-mike/index.qmd": {
+    "index.html": "a94fc6de"
+  },
+  "past-events/alignment/index.qmd": {
+    "index.html": "6d83c9f1"
   }
 }

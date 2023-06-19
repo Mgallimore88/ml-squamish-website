@@ -1,0 +1,12 @@
+---
+title: "Intro to machine learning"
+author: "Mike Gallimore"
+date: "2023-02-01"
+categories: [ML, models, data leakage, overfitting, validation sets, loss functions]
+image: "intro.png"
+
+---
+
+This evening was an overview of machine learning  for the benefit of newcomers, or people working in related fields.
+
+[Click here to see the slideshow which accompanied the talk](https://docs.google.com/presentation/d/17wEGtoL4A4BniuZkdMNFvF_skLtNHsXFzGcbke8FcE4/edit#slide=id.g201612ba20e_0_11)

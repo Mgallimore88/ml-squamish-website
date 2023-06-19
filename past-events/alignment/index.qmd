@@ -1,0 +1,30 @@
+---
+title: "AI Alignment - why AI: might or might not kill us all"
+author: "Ilva Ravinska"
+date: "2023-05-24"
+categories: [Artificial Intelligence, Alignment, Openphilanthropy, discussion]
+image: "timelines.png"
+---
+
+# [Slideshow](https://docs.google.com/presentation/d/1_P5EDIuvsqJJxDs7RwOGYBSFHwFeMFY8hujh95gACOw/edit#slide=id.p)
+
+# [Notes](https://docs.google.com/document/d/1lV_2eQo5IthyTT_PPSN9ybK1L7hCJPYHI1aQr_AWzTg/edit)
+
+
+
+
+
+
+
+
+### Ilva also provided a list of  reading resources: 
+
+## [Cold Takes blog](https://www.cold-takes.com/most-important-century/) 
+An accessible introduction to the worldview that informs Open Philanthropy’s long-term future grantmaking.
+
+## AI Timelines: [Epoch](https://epochai.org/blog/literature-review-of-transformative-artificial-intelligence-timelines)
+An accessible intro to two compelling models and judgement-based forecasts.
+
+## AI Risk: [Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeover](https://www.alignmentforum.org/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to)
+An Open Philantrhopy senior research analyst contends that misalignment is our default trajectory.
+
