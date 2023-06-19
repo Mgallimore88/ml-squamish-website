@@ -7,3 +7,5 @@ image: "git-icon.png"
 ---
 
 In this double feature, Mike walked us through how to get set up using Git, then Peter showed us Github Co-pilot, an AI based code completion tool which runs in your editor. This was a group coding session with input from other members of the community. 
+
+[notebook](git-walkthrough.ipynb)
