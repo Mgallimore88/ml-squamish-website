@@ -17,5 +17,5 @@ An accessible introduction to the worldview that informs the philosophy of some 
 An accessible intro to two compelling models and judgement-based forecasts.
 
 ## AI Risk: [Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeover](https://www.alignmentforum.org/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to)
-An Open Philantrhopy senior research analyst contends that misalignment is our default trajectory.
+Research analyst Ajeya Cotra contends that misalignment is our default trajectory.
 
