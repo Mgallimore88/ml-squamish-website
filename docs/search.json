@@ -32,7 +32,7 @@
     "href": "past-events/past-events.html",
     "title": "Past events",
     "section": "",
-    "text": "Numpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nIntro to machine learning\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nAI Alignment - why AI: might or might not kill us all\n\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nIlva Ravinska\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101\n\n\n\n\n\n\n\n\n\n\n\n\nJun 7, 2023\n\n\nMike Gallimore & Peter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning a model on GPU in Jupyter Notebook.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nVersion Control 101.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s this all about?\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Numpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nIntro to machine learning\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nDeveloping Chatbots in an evolving AI landscape\n\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nGuillaumen Slevan-Tremblay\n\n\n\n\n\n\n  \n\n\n\n\nAI Alignment - why AI: might or might not kill us all\n\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nIlva Ravinska\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101\n\n\n\n\n\n\n\n\n\n\n\n\nJun 7, 2023\n\n\nMike Gallimore & Peter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning a model on GPU in Jupyter Notebook.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nVersion Control 101.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s this all about?\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -543,7 +543,7 @@
     "href": "past-events/git-walkthrough/index.html",
     "title": "Version Control 101",
     "section": "",
-    "text": "In this double feature, Mike walked us through how to get set up using Git, then Peter showed us Github Co-pilot, an AI based code completion tool which runs in your editor. This was a group coding session with input from other members of the community.\nnotebook"
+    "text": "In this double feature, Mike walked us through how to get set up using Git, then Peter showed us Github Co-pilot, an AI based code completion tool which runs in your editor. This was a group coding session with input from other members of the community.\ngit intro\npeter’s co-pilot presentation"
   },
   {
     "objectID": "past-events/intro-to-ml-mike/index.html",
@@ -557,7 +557,7 @@
     "href": "past-events/alignment/index.html",
     "title": "AI Alignment - why AI: might or might not kill us all",
     "section": "",
-    "text": "There is a slideshow accompanying this section.\nIlva also provided a list of further reading resources:"
+    "text": "Ilva gave a great introduction to the subject of AI alignment and some resources for further reading, providing an opportunity for our community to get together and share knowledge, speculate, and debate this topic."
   },
   {
     "objectID": "past-events/alignment/index.html#big-picture-recommendation",
@@ -599,6 +599,13 @@
     "href": "past-events/alignment/index.html#cold-takes-blog",
     "title": "AI Alignment - why AI: might or might not kill us all",
     "section": "Cold Takes blog",
-    "text": "Cold Takes blog\nAn accessible introduction to the worldview that informs Open Philanthropy’s long-term future grantmaking."
+    "text": "Cold Takes blog\nAn accessible introduction to the worldview that informs the philosophy of some of the people at the forefront of the effective altruism community."
+  },
+  {
+    "objectID": "past-events/chatbots-guil/index.html",
+    "href": "past-events/chatbots-guil/index.html",
+    "title": "Developing Chatbots in an evolving AI landscape",
+    "section": "",
+    "text": "In this presentation, Guillaume described his process to becoming a senior chatbot engineer, the historic development of the field up until now, some chatbot terminology, and an overview of the technical challenges chatbot engineers face.\nClick here to see the presentation"
   }
 ]

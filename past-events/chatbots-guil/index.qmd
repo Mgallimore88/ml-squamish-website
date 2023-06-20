@@ -1,0 +1,11 @@
+---
+title: "Developing Chatbots in an evolving AI landscape"
+author: "Guillaumen Slevan-Tremblay"
+date: "2023-05-10"
+categories: [chatbots, NLP, Presentation]
+image: "chatbang.png"
+---
+
+In this presentation, Guillaume described his process to becoming a senior chatbot engineer, the historic development of the field up until now, some chatbot terminology, and an overview of the technical challenges chatbot engineers face. 
+
+[Click here to see the presentation](chatbots.pdf)
