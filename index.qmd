@@ -5,20 +5,15 @@ title: "Home"
 
 # Welcome to our landing page.
 
-# Next event: Thursday June 22, 6:30pm at The Common
+# Next event: Thursday October 5th, 6:30pm at The Common
 
-# Eagle Eyes Search: 
-## Computer vision for drones for SAR
+We're starting up again after a summer break. 
+
+Come along to our next meetup The Common on Cleveland Thursday at 6:30.
+
+Details will be posted here shortly. 
 
 
-
-At first glance - drones seem like the perfect tool for Search and Rescue (SAR) - they can fly over impassable terrain, see body heat, and survey large swaths of land in minutes. But ask any operator what it is like using a drone for SAR, they'll tell you it is not easy. Many compare the task to finding the proverbial needle in a haystack.
-
-On Thursday June 22, 6:30pm at The Common, we'll dive into the problem and look inside one tool - Eagle Eyes (from a Squamish-based startup), that aims to find that needle.
-
-In this deep-dive, we'll go over the problem faced by SAR drone operators, and how to characterise it through the eyes of computer-vision / machine learning, and our approach to solving it so far. In a one-hour crash course, we'll learn about precision, recall, false-positives, false-negatives, and the science, and art, of anomaly detection.
-
-Finally, we'll open the floor for discussion. Feedback and ideas are most welcome! So whether you're interested in SAR, machine learning, drones, or new technologies in general, come to learn and contribute to an exciting discussion.
 
 # [Click to see past events](past-events/past-events.qmd)
 

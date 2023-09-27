@@ -32,7 +32,7 @@
     "href": "past-events/past-events.html",
     "title": "Past events",
     "section": "",
-    "text": "Numpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nIntro to machine learning\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nDeveloping Chatbots in an evolving AI landscape\n\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nGuillaumen Slevan-Tremblay\n\n\n\n\n\n\n  \n\n\n\n\nAI Alignment - why AI: might or might not kill us all\n\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nIlva Ravinska\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101\n\n\n\n\n\n\n\n\n\n\n\n\nJun 7, 2023\n\n\nMike Gallimore & Peter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning a model on GPU in Jupyter Notebook.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nVersion Control 101.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s this all about?\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Numpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nIntro to machine learning\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nDeveloping Chatbots in an evolving AI landscape\n\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nGuillaumen Slevan-Tremblay\n\n\n\n\n\n\n  \n\n\n\n\nAI Alignment - why AI: might or might not kill us all\n\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nIlva Ravinska\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101\n\n\n\n\n\n\n\n\n\n\n\n\nJun 7, 2023\n\n\nMike Gallimore & Peter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nEagle Eyes Search\n\n\n\n\n\nComputer vision for drones for SAR\n\n\n\n\n\n\nJun 22, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nGetting set up with Paperspace Gradient in six easy steps\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nRunning a model on GPU in Jupyter Notebook.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nVersion Control 101.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s this all about?\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -46,7 +46,7 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "Welcome to our landing page.\nPast Events\nGit walkthrough"
+    "text": "Welcome to our landing page.\n\n\nNext event: Thursday October 5th, 6:30pm at The Common\nWe’re starting up again after a summer break.\nCome along to our next meetup The Common on Cleveland Thursday at 6:30.\nDetails will be posted here shortly.\n\n\nClick to see past events"
   },
   {
     "objectID": "past-events/site-test2/index.html",
@@ -578,7 +578,7 @@
     "href": "past-events/alignment/index.html#ai-risk-without-specific-countermeasures-the-easiest-path-to-transformative-ai-likely-leads-to-ai-takeover",
     "title": "AI Alignment - why AI: might or might not kill us all",
     "section": "AI Risk: Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeover",
-    "text": "AI Risk: Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeover\nAn Open Philantrhopy senior research analyst contends that misalignment is our default trajectory."
+    "text": "AI Risk: Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeover\nResearch analyst Ajeya Cotra contends that misalignment is our default trajectory."
   },
   {
     "objectID": "past-events/alignment/index.html#ai-timelines-epoch",
@@ -607,5 +607,12 @@
     "title": "Developing Chatbots in an evolving AI landscape",
     "section": "",
     "text": "In this presentation, Guillaume described his process to becoming a senior chatbot engineer, the historic development of the field up until now, some chatbot terminology, and an overview of the technical challenges chatbot engineers face.\nClick here to see the presentation"
+  },
+  {
+    "objectID": "past-events/eagle-eyes-search/index.html",
+    "href": "past-events/eagle-eyes-search/index.html",
+    "title": "Eagle Eyes Search",
+    "section": "",
+    "text": "At first glance - drones seem like the perfect tool for Search and Rescue (SAR) - they can fly over impassable terrain, see body heat, and survey large swaths of land in minutes. But ask any operator what it is like using a drone for SAR, they’ll tell you it is not easy. Many compare the task to finding the proverbial needle in a haystack.\nOn Thursday June 22, 6:30pm at The Common, we’ll dive into the problem and look inside one tool - Eagle Eyes (from a Squamish-based startup), that aims to find that needle.\nIn this deep-dive, we’ll go over the problem faced by SAR drone operators, and how to characterise it through the eyes of computer-vision / machine learning, and our approach to solving it so far. In a one-hour crash course, we’ll learn about precision, recall, false-positives, false-negatives, and the science, and art, of anomaly detection.\nFinally, we’ll open the floor for discussion. Feedback and ideas are most welcome! So whether you’re interested in SAR, machine learning, drones, or new technologies in general, come to learn and contribute to an exciting discussion."
   }
 ]
