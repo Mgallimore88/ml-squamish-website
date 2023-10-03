@@ -7,11 +7,22 @@ title: "Home"
 
 # Next event: Thursday October 5th, 6:30pm at The Common
 
-We're starting up again after a summer break. 
+Hi! It's our first meet back since summer break. If you're working in machine learning, data science or AI, or just interested in those fields, then come along to our first social this season. It's pretty informal, and  welcoming to people from all backgrounds and abilities.
+<br>
+<br> 
+Here's the schedule for the evening:
+<br> 
+6:30 - 7:00: 	30 mins arrival and setup -get seated, meet people, get a beer, etc. 
+<br> 
+7:30 - 8:30: 	Peter O'Connor has a talk prepared. Subject TBA.
+<br> 
+8:30 - 8:40: 	Get another beer and break 10 mins.
+<br> 
+8:40 - 9:00: 	Mike will walk us through a blog on embeddings and collaborative filtering models (AKA Reccomender Systems).
+<br> 
+9:00 - end: 	        Social and clean up for remainder of the evening.
 
-Come along to our next meetup The Common on Cleveland Thursday at 6:30.
-
-Details will be posted here shortly. 
+Hope to see you there!
 
 
 
