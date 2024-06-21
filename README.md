@@ -2,7 +2,9 @@
 
 1. To install Quarto, head to vscode and install the quarto extension. 
 
-2. Fork this repo to grab the website. Once you're in the project, changes can be previewed in vscode using the render button. 
+2. Fork this repo to grab the website. Once you're in the project, changes can be previewed in vscode using the render button, or with shortcut CMD + Shift + P then choosing >quarto>render. 
+
+To preview the page, find the main index.qmd and preview with CMD + Shift + K
 
 The website is rendered to the docs directory, and this is the folder which github pages looks at for the website. 
 
