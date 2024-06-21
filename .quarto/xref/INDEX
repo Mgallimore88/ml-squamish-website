@@ -54,7 +54,8 @@
     "index.html": "bcfd1314"
   },
   "past-events/numpy-peter/numpy-tutorial.ipynb": {
-    "numpy-tutorial.html": "186c041a"
+    "numpy-tutorial.html": "186c041a",
+    "numpy-tutorial.out.ipynb": "98a1f3dc"
   },
   "past-events/paperspace-tutorial/index.qmd": {
     "index.html": "35ffd141"
@@ -134,5 +135,8 @@
   },
   "past-events/eagle-eyes-search/index.qmd": {
     "index.html": "9230c174"
+  },
+  "past-events/collaborative-filtering/embeddings.ipynb": {
+    "embeddings.html": "7fd9214d"
   }
 }

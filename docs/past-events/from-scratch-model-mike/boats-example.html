@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mike Gallimore">
+<meta name="dcterms.date" content="2023-02-08">
 
-<title>ML Squamish – boats-example</title>
+<title>ML Squamish - From scratch model part 2: training an image recognition model using fastai</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,6 +156,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../../past-events/past-events.html">
+ <span class="menu-text">Past events</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
@@ -200,8 +206,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">From scratch model part 2: training an image recognition model using fastai</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">image recognition</div>
+    <div class="quarto-category">CNN</div>
+    <div class="quarto-category">fastai</div>
+  </div>
+  </div>
 
 
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mike Gallimore </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 8, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this presentation Mike walked us through how to train an image classifier using the fastai library. This was a group coding session from no-code to a working model.</p>
 <section id="running-a-model-on-gpu-in-jupyter-notebook." class="level1">
 <h1>Running a model on GPU in Jupyter Notebook.</h1>
 <section id="most-of-this-notebook-is-adapted-from-the-fast.ai-course-material-link-here" class="level2">

@@ -1,50 +1,16 @@
 ---
-title: "Home"
+title: "Welcome to our landing page"
 ---
-![](logo.png)
 
-# Welcome to our landing page.
+![](logo-mls.png)
 
-# Next event: Thursday October 19th, 6:30pm at CF Howe Sound 
-### 1909 Maple Dr, Squamish BC V8B 0T1
+# Our next event is the [Whale Health Hackday](https://www.eventbrite.com/e/measure-whale-health-hackday-tickets-923157598227?aff=oddtdtcreator)
 
-<br>
-Squamish Machine Learning Meetup
-<br>
-Join us for an exciting in-person meetup on machine learning! Whether you're a newbie or an expert, this event is perfect for anyone interested in this fascinating field. We'll gather at 1909 Maple Dr, Squamish, BC V8B 0T1, Canada to discuss and share our knowledge about machine learning algorithms, data analysis, and more.
-<br>
-Our next meet will be at 6:30pm on Thursday 19th October, at the community futures office in valleycliffe (just across from the backyard brew pub).
-<br>
-The rundown:
-<br>
-Peter will give a short talk on Tranformers - the transformative neural architecture behind ChatGPT, freaky-image-generators, and a bunch of other things.
-<br>
-Mike will walk us through a blog on embeddings and collaborative filtering models (AKA Recommender Systems).
-<br>
-And then there will be boisterous discussion with optional trip to the pub after! Come to learn a little machine learning and get in touch with Squamish's nascent ML community!
-<br>
-Don't miss out on this opportunity to connect with like-minded individuals and expand your understanding of this cutting-edge technology. Mark your calendars and join us for an evening filled with learning, networking, and fun!
-<br>
+We'll be meeting at the Easy Expense offices after 6pm on Wednesday 26th June. 
 
-Hi! It's our first meet back since summer break. If you're working in machine learning, data science or AI, or just interested in those fields, then come along to our first social this season. It's pretty informal, and  welcoming to people from all backgrounds and abilities.
-<br>
-<br> 
-Here's the schedule for the evening:
-<br> 
-6:30 - 7:00: 	30 mins arrival and setup -get seated, meet people.
-<br> 
-7:00 - 8:00: 	Peter O'Connor has a talk prepared. Subject TBA.
-<br> 
-8:00 - 8:10: 	Break 10 mins.
-<br> 
-8:10 - 9:00: 	Mike will walk us through a blog on embeddings and collaborative filtering models (AKA Reccomender Systems).
-<br> 
-9:00 - end: 	        Social and clean up for remainder of the evening Option to head to backyard for a beer.
+Looking forward to seeing you there!
 
-Hope to see you there!
-
-
-
-# [Click to see past events](past-events/past-events.qmd)
+ 
+# [Click here to see past events](past-events/past-events.qmd)
 
 

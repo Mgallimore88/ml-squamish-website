@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mike Gallimore">
+<meta name="dcterms.date" content="2023-10-19">
+
+<title>ML Squamish - Collaborative Filtering (AKA recommender systems)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ML Squamish</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../past-events/past-events.html">
+ <span class="menu-text">Past events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-an-embedding-layer-and-how-does-it-work" id="toc-what-is-an-embedding-layer-and-how-does-it-work" class="nav-link active" data-scroll-target="#what-is-an-embedding-layer-and-how-does-it-work">What is an embedding layer and how does it work?</a></li>
+  <li><a href="#loading-the-data-into-pandas" id="toc-loading-the-data-into-pandas" class="nav-link" data-scroll-target="#loading-the-data-into-pandas">Loading the data into Pandas</a></li>
+  <li><a href="#scaling" id="toc-scaling" class="nav-link" data-scroll-target="#scaling">Scaling</a></li>
+  <li><a href="#now-weve-got-a-table-of-book-titles-ratings-and-user-ids.-lets-make-a-fastai-dataloaders-object" id="toc-now-weve-got-a-table-of-book-titles-ratings-and-user-ids.-lets-make-a-fastai-dataloaders-object" class="nav-link" data-scroll-target="#now-weve-got-a-table-of-book-titles-ratings-and-user-ids.-lets-make-a-fastai-dataloaders-object">Now we’ve got a table of book titles, ratings and user IDs. Let’s make a fastai Dataloaders object</a>
+  <ul class="collapse">
+  <li><a href="#embeddings" id="toc-embeddings" class="nav-link" data-scroll-target="#embeddings">Embeddings</a></li>
+  </ul></li>
+  <li><a href="#now-lets-make-a-dataloaders-object" id="toc-now-lets-make-a-dataloaders-object" class="nav-link" data-scroll-target="#now-lets-make-a-dataloaders-object">Now let’s make a dataloaders object</a>
+  <ul class="collapse">
+  <li><a href="#take-a-sample" id="toc-take-a-sample" class="nav-link" data-scroll-target="#take-a-sample">Take a sample</a></li>
+  </ul></li>
+  <li><a href="#crosstab" id="toc-crosstab" class="nav-link" data-scroll-target="#crosstab">Crosstab</a></li>
+  <li><a href="#creating-an-embedding-matrix" id="toc-creating-an-embedding-matrix" class="nav-link" data-scroll-target="#creating-an-embedding-matrix">Creating an embedding matrix</a></li>
+  <li><a href="#looking-at-the-features" id="toc-looking-at-the-features" class="nav-link" data-scroll-target="#looking-at-the-features">Looking at the features</a></li>
+  <li><a href="#dot-product-vectors-and-scalars" id="toc-dot-product-vectors-and-scalars" class="nav-link" data-scroll-target="#dot-product-vectors-and-scalars">Dot Product, Vectors and Scalars</a>
+  <ul class="collapse">
+  <li><a href="#this-is-just-the-sum-of-an-elementwise-multiplication-in-python-which-is-also-identical-to-a-matrix-multiplaction-of-two-vectors." id="toc-this-is-just-the-sum-of-an-elementwise-multiplication-in-python-which-is-also-identical-to-a-matrix-multiplaction-of-two-vectors." class="nav-link" data-scroll-target="#this-is-just-the-sum-of-an-elementwise-multiplication-in-python-which-is-also-identical-to-a-matrix-multiplaction-of-two-vectors.">This is just the sum of an elementwise multiplication in python, which is also identical to a matrix multiplaction of two vectors.</a></li>
+  </ul></li>
+  <li><a href="#whats-an-embedding-layer" id="toc-whats-an-embedding-layer" class="nav-link" data-scroll-target="#whats-an-embedding-layer">What’s an embedding layer?</a></li>
+  <li><a href="#making-a-pytorch-dot-product-model" id="toc-making-a-pytorch-dot-product-model" class="nav-link" data-scroll-target="#making-a-pytorch-dot-product-model">Making a PyTorch dot product model</a></li>
+  <li><a href="#making-the-training-process-more-efficient" id="toc-making-the-training-process-more-efficient" class="nav-link" data-scroll-target="#making-the-training-process-more-efficient">Making the training process more efficient</a>
+  <ul class="collapse">
+  <li><a href="#training-on-the-entire-dataset-took-3-mins-per-epoch." id="toc-training-on-the-entire-dataset-took-3-mins-per-epoch." class="nav-link" data-scroll-target="#training-on-the-entire-dataset-took-3-mins-per-epoch.">Training on the entire dataset took 3 mins per epoch.</a></li>
+  <li><a href="#sample-only-popular-books-and-users-with-lots-of-entries." id="toc-sample-only-popular-books-and-users-with-lots-of-entries." class="nav-link" data-scroll-target="#sample-only-popular-books-and-users-with-lots-of-entries.">Sample only popular books and users with lots of entries.</a></li>
+  <li><a href="#make-a-new-dataloaders-object-to-draw-training-and-validation-samples-from-this-new-dataframe." id="toc-make-a-new-dataloaders-object-to-draw-training-and-validation-samples-from-this-new-dataframe." class="nav-link" data-scroll-target="#make-a-new-dataloaders-object-to-draw-training-and-validation-samples-from-this-new-dataframe.">Make a new dataloaders object to draw training and validation samples from this new dataframe.</a></li>
+  <li><a href="#lets-see-how-the-model-trains-now" id="toc-lets-see-how-the-model-trains-now" class="nav-link" data-scroll-target="#lets-see-how-the-model-trains-now">Let’s see how the model trains now</a>
+  <ul class="collapse">
+  <li><a href="#great---the-training-only-takes-5s-per-epoch-and-were-still-seeing-convergence-after-5-epochs.-lets-try-to-improve-from-here" id="toc-great---the-training-only-takes-5s-per-epoch-and-were-still-seeing-convergence-after-5-epochs.-lets-try-to-improve-from-here" class="nav-link" data-scroll-target="#great---the-training-only-takes-5s-per-epoch-and-were-still-seeing-convergence-after-5-epochs.-lets-try-to-improve-from-here">Great - the training only takes 5s per epoch, and we’re still seeing convergence after 5 epochs. Let’s try to improve from here</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#adding-intentional-bias" id="toc-adding-intentional-bias" class="nav-link" data-scroll-target="#adding-intentional-bias">Adding intentional Bias</a>
+  <ul class="collapse">
+  <li><a href="#weight-decay" id="toc-weight-decay" class="nav-link" data-scroll-target="#weight-decay">Weight decay</a></li>
+  </ul></li>
+  <li><a href="#looking-at-the-factors-for-a-batch-of-users" id="toc-looking-at-the-factors-for-a-batch-of-users" class="nav-link" data-scroll-target="#looking-at-the-factors-for-a-batch-of-users">looking at the factors for a batch of users</a>
+  <ul class="collapse">
+  <li><a href="#thinking-about-latent-factors-as-components-of-a-vector-in-an-n-dimensional-feature-space" id="toc-thinking-about-latent-factors-as-components-of-a-vector-in-an-n-dimensional-feature-space" class="nav-link" data-scroll-target="#thinking-about-latent-factors-as-components-of-a-vector-in-an-n-dimensional-feature-space">Thinking about latent factors as components of a vector in an n-dimensional feature space</a></li>
+  </ul></li>
+  <li><a href="#using-the-trained-model" id="toc-using-the-trained-model" class="nav-link" data-scroll-target="#using-the-trained-model">Using the trained model</a>
+  <ul class="collapse">
+  <li><a href="#finding-the-books-with-the-highest-bias" id="toc-finding-the-books-with-the-highest-bias" class="nav-link" data-scroll-target="#finding-the-books-with-the-highest-bias">Finding the books with the highest bias</a></li>
+  </ul></li>
+  <li><a href="#making-recommendations-for-a-single-user." id="toc-making-recommendations-for-a-single-user." class="nav-link" data-scroll-target="#making-recommendations-for-a-single-user.">Making recommendations for a single user.</a></li>
+  <li><a href="#finding-book-buddies" id="toc-finding-book-buddies" class="nav-link" data-scroll-target="#finding-book-buddies">Finding ‘book buddies’</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Collaborative Filtering (AKA recommender systems)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">embeddings</div>
+    <div class="quarto-category">collaborative filtering</div>
+    <div class="quarto-category">reccomender systems</div>
+    <div class="quarto-category">talk</div>
+    <div class="quarto-category">neural nets</div>
+    <div class="quarto-category">deep learning</div>
+    <div class="quarto-category">presentation</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mike Gallimore </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 19, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="collaborative-filtering.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">collaborative filtering</figcaption><p></p>
+</figure>
+</div>
+<p><a href="https://docs.google.com/presentation/d/1iIenJ7EvGZ9eL78jrr2KaQrxJtQNCV-UuILmdFUISWs/edit?usp=sharing">Here’s a link to the accompanying slideshow for the embeddings section of the talk.</a></p>
+<p><br> This meet took place at 6:30pm on Thursday 19th October, at the community futures office in valleycliffe (just across from the Backyard brew pub). <br> The rundown: <br> Peter gave a short talk on Tranformers - the transformative neural architecture behind ChatGPT, freaky-image-generators, and a bunch of other things. <br> Mike walked us through a blog he wrote on embeddings and collaborative filtering models (AKA Recommender Systems). <br> Afterwards we had discussion and a trip to the pub!</p>
+<section id="what-is-an-embedding-layer-and-how-does-it-work" class="level1">
+<h1>What is an embedding layer and how does it work?</h1>
+<p>In this example I’ll make a collaborative filtering model (recommender system) which uses an entity embedding as part of a system for recommending books to users.</p>
+<p>Embeddings are a neat way to take a large number of individual items (users, products, locations for example), and represent each item using an n-dimensional vector instead of using its unique id. At first this might sound like it would increase the size and complexity of the model - since each item now needs an additional vector representation - but in fact this process reduces the number of individual inputs the model needs to see to be able to make predictions.</p>
+<p>For example, if we had an embedding for 1000 book titles, without an embedding layer the model would need to see each unique ID and learn the difference between them. An embedding vector for each of these book titles might be 2 dimensions deep, and might encode for each book’s sci-fi-ness and its length. This means we could feed this two dimensional embedding vector as input to the model rather than the 1000 individual titles. Since those inputs represent something real about the book, that might be enough information to make sensible predictions with. In a sense the embedding compresses information about each of the N inputs into an n dimensional vector.</p>
+<p>In this blog post I’ll follow a similar process to the one outlined in the fast.ai course which used the movielens dataset. I’ll aim to explain some nuances about embedding layers, since I found this concept pretty confusing at first. Now that I’ve got my head around them I’m pretty amazed at how elegant, powerful and useful embeddings can be, and I’m excited to start trying out creative uses for embeddings.</p>
+<p>Read more on embeddings in this paper: <a href="https://arxiv.org/pdf/1604.06737.pdf">Guo, Cheng et al.&nbsp;“Entity Embeddings of Categorical Variables”</a></p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:02.729122Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:02.728538Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:07.250591Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:07.249581Z&quot;}" data-papermill="{&quot;duration&quot;:4.543733,&quot;end_time&quot;:&quot;2023-07-19T01:32:07.253239&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:02.709506&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co"># linear algebra</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastai.collab <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastai.tabular.<span class="bu">all</span> <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:07.293634Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:07.291563Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:07.297822Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:07.296722Z&quot;}" data-papermill="{&quot;duration&quot;:0.027844,&quot;end_time&quot;:&quot;2023-07-19T01:32:07.299991&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:07.272147&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> display_all(df):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pd.set_option(<span class="st">'display.max_columns'</span>, <span class="dv">0</span>, <span class="st">'display.max_rows'</span>, <span class="dv">0</span>):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:07.338979Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:07.338131Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:07.342854Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:07.341998Z&quot;}" data-papermill="{&quot;duration&quot;:0.025938,&quot;end_time&quot;:&quot;2023-07-19T01:32:07.344931&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:07.318993&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> Path(<span class="st">'/kaggle/input/book-recommendation-dataset/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-the-data-into-pandas" class="level1">
+<h1>Loading the data into Pandas</h1>
+<p>It doesn’t look like much, but the Ratings.csv file contains all the data we need to train a collaborative filtering model: a user column, the ISBN of a book, and the rating a user gave for that book.</p>
+<p>It will be easier for us to understand if we can replace the book’s ISBN with its title, so the Books.csv file is used to find the titles.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:07.419002Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:07.418102Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:11.149606Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:11.148679Z&quot;}" data-papermill="{&quot;duration&quot;:3.753023,&quot;end_time&quot;:&quot;2023-07-19T01:32:11.151791&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:07.398768&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> pd.read_csv(path<span class="op">/</span><span class="st">'Ratings.csv'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>books <span class="op">=</span> pd.read_csv(path<span class="op">/</span><span class="st">'Books.csv'</span>, low_memory<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ratings.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>User-ID</th>
+      <th>ISBN</th>
+      <th>Book-Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>276725</td>
+      <td>034545104X</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>276726</td>
+      <td>0155061224</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>276727</td>
+      <td>0446520802</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>276729</td>
+      <td>052165615X</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>276729</td>
+      <td>0521795028</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="scaling" class="level1">
+<h1>Scaling</h1>
+<p>Here I’m dividing all the ratings by 10 so they all lie between 0 and 1 instead of 0 and 10. I wanted to see what effect this had on the loss during training. It reduced the loss by an order of magnitude. This isn’t a meaningful increase in accuracy - it just means that the size of the errors is correspondingly lower since we’re operating within a smaller target range. Regarless I decided to keep the ratings scaled between 0 and 1 since I think it’s just as easy to understand this scale, plus there might be some benefit to this for models with more features. <a href="https://developers.google.com/machine-learning/crash-course/representation/cleaning-data">Click here to read more about scaling.</a></p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:11.224567Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:11.224242Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:11.239683Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:11.238744Z&quot;}" data-papermill="{&quot;duration&quot;:0.036479,&quot;end_time&quot;:&quot;2023-07-19T01:32:11.241933&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:11.205454&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ratings[<span class="st">'Book-Rating'</span>]<span class="op">=</span>ratings[<span class="st">'Book-Rating'</span>].divide(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:11.279488Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:11.279171Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:12.364185Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:12.363194Z&quot;}" data-papermill="{&quot;duration&quot;:1.106685,&quot;end_time&quot;:&quot;2023-07-19T01:32:12.367070&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:11.260385&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> ratings.merge(books)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ratings.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>User-ID</th>
+      <th>ISBN</th>
+      <th>Book-Rating</th>
+      <th>Book-Title</th>
+      <th>Book-Author</th>
+      <th>Year-Of-Publication</th>
+      <th>Publisher</th>
+      <th>Image-URL-S</th>
+      <th>Image-URL-M</th>
+      <th>Image-URL-L</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>276725</td>
+      <td>034545104X</td>
+      <td>0.0</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>M. J. Rose</td>
+      <td>2002</td>
+      <td>Ballantine Books</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.THUMBZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.MZZZZZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.LZZZZZZZ.jpg</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2313</td>
+      <td>034545104X</td>
+      <td>0.5</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>M. J. Rose</td>
+      <td>2002</td>
+      <td>Ballantine Books</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.THUMBZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.MZZZZZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.LZZZZZZZ.jpg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6543</td>
+      <td>034545104X</td>
+      <td>0.0</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>M. J. Rose</td>
+      <td>2002</td>
+      <td>Ballantine Books</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.THUMBZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.MZZZZZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.LZZZZZZZ.jpg</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8680</td>
+      <td>034545104X</td>
+      <td>0.5</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>M. J. Rose</td>
+      <td>2002</td>
+      <td>Ballantine Books</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.THUMBZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.MZZZZZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.LZZZZZZZ.jpg</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10314</td>
+      <td>034545104X</td>
+      <td>0.9</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>M. J. Rose</td>
+      <td>2002</td>
+      <td>Ballantine Books</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.THUMBZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.MZZZZZZZ.jpg</td>
+      <td>http://images.amazon.com/images/P/034545104X.01.LZZZZZZZ.jpg</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:12.406678Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:12.406372Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:12.484371Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:12.483228Z&quot;}" data-papermill="{&quot;duration&quot;:0.100088,&quot;end_time&quot;:&quot;2023-07-19T01:32:12.487345&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:12.387257&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>keep_list <span class="op">=</span> [<span class="st">'User-ID'</span>, <span class="st">'Book-Title'</span>, <span class="st">'Book-Rating'</span>,]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>del_list <span class="op">=</span> ratings.columns.drop(keep_list)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>del_list</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> ratings.drop(del_list, axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> ratings[keep_list] <span class="co"># changes the order</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> ratings.rename(columns<span class="op">=</span>{<span class="st">'User-ID'</span>: <span class="st">'user'</span>, <span class="st">'Book-Title'</span>: <span class="st">'title'</span>, <span class="st">'Book-Rating'</span>: <span class="st">'rating'</span>})</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ratings.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>user</th>
+      <th>title</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>276725</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2313</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6543</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8680</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10314</td>
+      <td>Flesh Tones: A Novel</td>
+      <td>0.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="now-weve-got-a-table-of-book-titles-ratings-and-user-ids.-lets-make-a-fastai-dataloaders-object" class="level1">
+<h1>Now we’ve got a table of book titles, ratings and user IDs. Let’s make a fastai Dataloaders object</h1>
+<p>The dataloaders object specifies a way of getting a series of mini batches (training and validation) from a dataset. Here our model will be a collaborative filtering model, which is a little different to what we’ve seen before with image recognition problems. In this case we’ll be using the <strong>book rating</strong> as the label, and the <strong>book-title</strong> and <strong>user-id</strong> as the input features.</p>
+<section id="embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="embeddings">Embeddings</h2>
+<p>Since there are hundreds of thousands of individual user IDs, and many more book titles, it will be useful to <strong>compress this data</strong> in some way - <strong>in a way which keeps the relevant information about each user and book</strong>, but doesn’t require the model to learn each individual user ID or book title. This is where Embeddings come in handy.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:12.566513Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:12.566152Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:14.829100Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:14.828098Z&quot;}" data-papermill="{&quot;duration&quot;:2.285066,&quot;end_time&quot;:&quot;2023-07-19T01:32:14.831675&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:12.546609&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> CollabDataLoaders.from_df(ratings, item_name<span class="op">=</span><span class="st">'title'</span>, bs<span class="op">=</span><span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="now-lets-make-a-dataloaders-object" class="level1">
+<h1>Now let’s make a dataloaders object</h1>
+<p>The dataloaders object gives us a quick way of getting a batch of features and labels from separate training and validation datasets. Below we can see pairings of 16 input features- users with book titles- and the corresponding label for these features, which is the rating the user gave for the book. 16 is the batch size, which I’ve chosen to be a small number for displaying here - but I’ll change it to 64 later and experiment with different batch sizes.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:14.909212Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:14.908872Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:15.898569Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:15.897514Z&quot;}" data-papermill="{&quot;duration&quot;:1.012349,&quot;end_time&quot;:&quot;2023-07-19T01:32:15.901495&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:14.889146&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dls.one_batch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>(tensor([[ 47626, 124992],
+         [  3209, 208661],
+         [ 57702,  66456],
+         [ 53134, 126270],
+         [ 64848, 162789],
+         [ 30800, 217912],
+         [ 39640, 125673],
+         [ 77900, 174712],
+         [  3209, 182773],
+         [ 61918,  76457],
+         [ 67043,  68012],
+         [ 21495, 104256],
+         [ 37042,  49691],
+         [ 30890, 172413],
+         [ 37491, 126020],
+         [ 30687, 108804]]),
+ tensor([[0.0000],
+         [0.7000],
+         [0.0000],
+         [0.8000],
+         [0.0000],
+         [0.8000],
+         [1.0000],
+         [0.8000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.3000],
+         [0.8000]]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:15.941282Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:15.940962Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:16.279669Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:16.278600Z&quot;}" data-papermill="{&quot;duration&quot;:0.361965,&quot;end_time&quot;:&quot;2023-07-19T01:32:16.282485&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:15.920520&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dls.valid.show_batch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>user</th>
+      <th>title</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16488</td>
+      <td>Breathing Lessons</td>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>123790</td>
+      <td>Stitch 'N Bitch: The Knitter's Handbook</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>181176</td>
+      <td>Lightning (Henry Holt Mystery Series)</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>#na#</td>
+      <td>Au Bonheur Des Ogres</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>37712</td>
+      <td>The Da Vinci Code</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>61211</td>
+      <td>The Five People You Meet in Heaven</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>237856</td>
+      <td>365 Ways to Become a Millionaire: (Without Being Born One)</td>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>#na#</td>
+      <td>More Hours in My Day</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1733</td>
+      <td>It'S All In The Game (Harlequin Superromance No. 302)</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>171604</td>
+      <td>Twilight Ecstasy (Heartlines)</td>
+      <td>0.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<section id="take-a-sample" class="level2">
+<h2 class="anchored" data-anchor-id="take-a-sample">Take a sample</h2>
+<p>To speed up development and testing We’ll work with a random sample of 300,000 users from the dataset.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:16.360929Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:16.360569Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:17.340197Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:17.339235Z&quot;}" data-papermill="{&quot;duration&quot;:1.00227,&quot;end_time&quot;:&quot;2023-07-19T01:32:17.342896&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:16.340626&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>number_of_samples <span class="op">=</span> <span class="dv">300000</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>ratings.sample(number_of_samples)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> CollabDataLoaders.from_df(df, item_name<span class="op">=</span><span class="st">'title'</span>, bs<span class="op">=</span><span class="dv">64</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="crosstab" class="level1">
+<h1>Crosstab</h1>
+<p>Here’s a crosstab representation of the data. This is how we’ll think of the data, though in reality all the model will see is one batch from the dataloaders object at a time. Note that the table is very sparsely populated - this is because most users haven’t read many of the books in the table.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:17.422276Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:17.421933Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:17.477911Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:17.476878Z&quot;}" data-papermill="{&quot;duration&quot;:0.079509,&quot;end_time&quot;:&quot;2023-07-19T01:32:17.480912&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:17.401403&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="op">=</span> df.sample(<span class="dv">50</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pd.crosstab(sdf.user, sdf.title, values<span class="op">=</span>sdf.rating, aggfunc<span class="op">=</span><span class="st">'max'</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>A Savior Worth Having</th>
+      <th>Among men and beasts</th>
+      <th>Back Roads</th>
+      <th>Betrayals : Book Four of the Blending (The Blending, Book 4)</th>
+      <th>Beyond Chaos: One Man's Journey Alongside His Chronically Ill Wife</th>
+      <th>Big Shoe, Little Shoe</th>
+      <th>Chameleon</th>
+      <th>Clans of the Alphane Moon</th>
+      <th>Cowboy Feng's Space Bar and Grille</th>
+      <th>Dating Without Novocaine (Red Dress Ink)</th>
+      <th>...</th>
+      <th>The Lovely Bones: A Novel</th>
+      <th>The Magic School Bus Lost in the Solar System (Magic School Bus (Paperback))</th>
+      <th>The Magician's Nephew (rack) (Narnia)</th>
+      <th>The Reptile Room (A Series of Unfortunate Events, Book 2)</th>
+      <th>The Rock Says...</th>
+      <th>The Street Lawyer</th>
+      <th>The Wind Done Gone: A Novel</th>
+      <th>When We Were Orphans (Vintage International (Paperback))</th>
+      <th>While I Was Gone</th>
+      <th>Wild Rose of Ruby Canyon</th>
+    </tr>
+    <tr>
+      <th>user</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1249</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11630</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11676</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <th>17950</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21659</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 50 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-an-embedding-matrix" class="level1">
+<h1>Creating an embedding matrix</h1>
+<p>Since we have a very large number of categorical input features, we need some way of compressing this information. We’ll create two <strong>matrices of latent factors</strong> -one for the users and one for the books. Each of these matrices will have a vector containing factors, where each factor represents something about books, or something about users.</p>
+<p>For example - we’ll begin by creating 5 x 3058 matrix for the users, and a 5 * 4473 matrix for the books. conceptually you can imagine these slotting in to the right of the <strong>user</strong> column, and below the <strong>title</strong> colum in such a way that each book, and each user, will have its own unique set of 5 factors. These factors will initially be random numbers, but as the model trains, they will start to encode something meaningful about users’ preferences, and something about books’ qualities. We won’t decide what these factors mean; that will be learned by the model during training.</p>
+<p>Let’s go ahead and make these matrices.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:17.561161Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:17.560802Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:17.579776Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:17.578825Z&quot;}" data-papermill="{&quot;duration&quot;:0.04135,&quot;end_time&quot;:&quot;2023-07-19T01:32:17.581853&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:17.540503&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>n_users <span class="op">=</span> <span class="bu">len</span>(dls.classes[<span class="st">'user'</span>])</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>n_titles <span class="op">=</span> <span class="bu">len</span>(dls.classes[<span class="st">'title'</span>])</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>n_factors <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>user_factors <span class="op">=</span> torch.randn(n_users, n_factors)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>title_factors <span class="op">=</span> torch.randn(n_titles, n_factors)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>user_factors.size(), title_factors.size()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>(torch.Size([40705, 5]), torch.Size([116160, 5]))</code></pre>
+</div>
+</div>
+</section>
+<section id="looking-at-the-features" class="level1">
+<h1>Looking at the features</h1>
+<p>To make a forward pass through the model, we’ll take the <strong>dot product</strong> of some user factors with some title factors. If the vectors are similar, then it means that the user’s tastes are matched to the book’s qualities. Let’s take a look at this more closely:</p>
+<p>Suppose user A has the factors (0, 1, 0.5, 0, -1) ,</p>
+<p>and book N has the factors (0, 1, 0.6, 1, -1)</p>
+<p>Since most of these factors are similar, except at index 3, we’ll get an output which is more positive, indicating that the book is a good match for the user. If the factors were all opposite to one-another, we’d get a more negative output; perhaps not such a good match. The factors in this case might encode for something like this:</p>
+<ul>
+<li><p>‘written in english’</p></li>
+<li><p>‘short book’,</p></li>
+<li><p>‘written in the past 20 years’,</p></li>
+<li><p>‘written by terry pratchett’,</p></li>
+<li><p>‘contains dragons’</p></li>
+</ul>
+<p>But the factors are learned automatically as the model trains.</p>
+</section>
+<section id="dot-product-vectors-and-scalars" class="level1">
+<h1>Dot Product, Vectors and Scalars</h1>
+<p>https://www.mathsisfun.com/algebra/vectors-dot-product.html On this site you can get a quick refresher on vectors, scalars, and dot procucts.</p>
+<p>In short, if you imagine two vectors on a plane, the dot product returns a scalar value describing how much these vectors overlap, or more accurately, what’s the magnitude of the component shared by both the vectors.</p>
+<p>Let’s try this out.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:17.662683Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:17.661783Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:17.667003Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:17.666138Z&quot;}" data-papermill="{&quot;duration&quot;:0.027723,&quot;end_time&quot;:&quot;2023-07-19T01:32:17.669032&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:17.641309&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vector_a <span class="op">=</span> torch.tensor([<span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.5</span>])</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>vector_b <span class="op">=</span> torch.tensor([<span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <strong>dot product</strong> is just the sum of the products of all the features like so:</p>
+<p><code>a1b1 + a2b2 + a3b3</code>.</p>
+<p>So the dot product of these vectors would be</p>
+<p><code>1 + 0 + 0.05 = 1.05</code></p>
+<section id="this-is-just-the-sum-of-an-elementwise-multiplication-in-python-which-is-also-identical-to-a-matrix-multiplaction-of-two-vectors." class="level3">
+<h3 class="anchored" data-anchor-id="this-is-just-the-sum-of-an-elementwise-multiplication-in-python-which-is-also-identical-to-a-matrix-multiplaction-of-two-vectors.">This is just the sum of an elementwise multiplication in python, which is also identical to a matrix multiplaction of two vectors.</h3>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:17.748195Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:17.747249Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:17.755876Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:17.754872Z&quot;}" data-papermill="{&quot;duration&quot;:0.031127,&quot;end_time&quot;:&quot;2023-07-19T01:32:17.757934&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:17.726807&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum of elementwise multiplication</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>(vector_a<span class="op">*</span>vector_b).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>tensor(1.0500)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:17.799486Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:17.798886Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:17.836208Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:17.835123Z&quot;}" data-papermill="{&quot;duration&quot;:0.060782,&quot;end_time&quot;:&quot;2023-07-19T01:32:17.838595&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:17.777813&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix multiply</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>vector_a<span class="op">@</span>vector_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>tensor(1.0500)</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="whats-an-embedding-layer" class="level1">
+<h1>What’s an embedding layer?</h1>
+<p>The Embedding class here creates an embedding matrix, just like we did above. It also provides a way of indexing into the matrix to get the vector at a specific index.</p>
+<p>The input x in this case is one batch of user IDs and book titles, with the shape bs x 2. When we pass the input to the embedding layer, we’ll get back the vectors containing the factors for that batch of inputs.</p>
+<p>The matrix multiply way of doing this is to one-hot encode the input indices in a one dimensional matrix (or 2d vector, however you want to think of it), then do a matrix multiply of this one hot encoded vector with the embedding matrix. The result would be a 16x5 matrix of feature vectors- one for each of the inputs in the minibatch. An embedding layer provides a way to get the embedding vectors out of the embedding matrix using indexes, in a way which looks just like matrix multiplication, without the need to build the one-hot encoded matrix with all those redundant zeros.</p>
+<p><strong>There may be some relation between an embedding for a particular book, and an embedding for a particular user, which correlates with the rating that user gave to that book. When we train this model, we’re trying to learn the set of parameters for the embeddings for each book and user, such that the dot product of the book embeddings and the user embeddings is close to the actual ratings a user gave for a particular book</strong>.</p>
+<p>Our model’s forward method needs to make rating predictions by doing an elementwise multiplication of the user embedding and the book embedding, then sum over this to predict an overall rating. This predicted rating will be compared with the actual rating the user gave the book, then the initially random weights in the embedding matrix will be updated using stochastic gradient descent to create a better embedding.</p>
+<p>Through this process the embedding will come to represent some real world features about the data, which relate to the ratings which people gave to books. These features might not be named or explicitly stated by the user, but rather they’ll be discovered by the network as its parameters automatically adjust to minimise the output of the loss function.</p>
+</section>
+<section id="making-a-pytorch-dot-product-model" class="level1">
+<h1>Making a PyTorch dot product model</h1>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:17.959366Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:17.959024Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:17.965448Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:17.964452Z&quot;}" data-papermill="{&quot;duration&quot;:0.029214,&quot;end_time&quot;:&quot;2023-07-19T01:32:17.967441&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:17.938227&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DotProduct(Module):</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, n_users, n_titles, n_factors):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.user_factors <span class="op">=</span> Embedding(n_users, n_factors)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.title_factors <span class="op">=</span> Embedding(n_titles, n_factors)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        users <span class="op">=</span> <span class="va">self</span>.user_factors(x[:,<span class="dv">0</span>])</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        titles <span class="op">=</span> <span class="va">self</span>.title_factors(x[:,<span class="dv">1</span>])</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (users<span class="op">*</span>titles).<span class="bu">sum</span>(dim<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:18.008456Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:18.007612Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:18.267872Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:18.266739Z&quot;}" data-papermill="{&quot;duration&quot;:0.284084,&quot;end_time&quot;:&quot;2023-07-19T01:32:18.271115&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:17.987031&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> dls.one_batch()</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>x.shape, y.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>(torch.Size([64, 2]), torch.Size([64, 1]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:18.315300Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:18.314658Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:32:18.495233Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:32:18.494283Z&quot;}" data-papermill="{&quot;duration&quot;:0.204372,&quot;end_time&quot;:&quot;2023-07-19T01:32:18.497781&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:18.293409&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DotProduct(n_users, n_titles, n_factors<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> Learner(dls, model, loss_func<span class="op">=</span>MSELossFlat())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:32:18.539366Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:32:18.539026Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:34:40.218923Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:34:40.217874Z&quot;}" data-papermill="{&quot;duration&quot;:141.703668,&quot;end_time&quot;:&quot;2023-07-19T01:34:40.221606&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:32:18.517938&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>learn.fit_one_cycle(<span class="dv">5</span>, <span class="fl">5e-3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.230327</td>
+      <td>0.225140</td>
+      <td>00:28</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.182791</td>
+      <td>0.224386</td>
+      <td>00:27</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.089434</td>
+      <td>0.226122</td>
+      <td>00:28</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.046783</td>
+      <td>0.222329</td>
+      <td>00:27</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.024537</td>
+      <td>0.222625</td>
+      <td>00:27</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="making-the-training-process-more-efficient" class="level1">
+<h1>Making the training process more efficient</h1>
+<section id="training-on-the-entire-dataset-took-3-mins-per-epoch." class="level3">
+<h3 class="anchored" data-anchor-id="training-on-the-entire-dataset-took-3-mins-per-epoch.">Training on the entire dataset took 3 mins per epoch.</h3>
+<p>When I first ran this model it took 15 mins for 5 epochs. The model was still converging after 5 epochs but this is too slow for experimentation - we should find a sample size which allows some convergence, but which we don’t have to wait forever to train.</p>
+<p>For the next run, I took a random sample of 300,000 users from the database. This reduced the training time but reduced convergence - the loss measured on the validation set remained high. We need a way of reducing the size of the dataset but retaining most of the data.</p>
+</section>
+<section id="sample-only-popular-books-and-users-with-lots-of-entries." class="level2">
+<h2 class="anchored" data-anchor-id="sample-only-popular-books-and-users-with-lots-of-entries.">Sample only popular books and users with lots of entries.</h2>
+<p>Deliberately selecting from the most read titles, and the most active readers could be a way of getting the information density up a little. This is definitely a design decision which should be scrutinized, since it biases the system towards more popular items, but it could be a good way to jumpstart training.</p>
+<p>Plus it doesn’t make a lot of sense to be training a collaborative filtering model on users who have read only one book: there wouldn’t be any second item to lookup and recommend for another user who has read the same book.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:34:40.309025Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:34:40.308638Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:34:40.957149Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:34:40.956146Z&quot;}" data-papermill="{&quot;duration&quot;:0.673387,&quot;end_time&quot;:&quot;2023-07-19T01:34:40.959617&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:34:40.286230&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>book_count <span class="op">=</span> <span class="bu">len</span>(<span class="bu">set</span>(ratings.title))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>popular_books <span class="op">=</span> ratings.title.value_counts()[:<span class="dv">1000</span>].keys()</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>reader_count <span class="op">=</span> <span class="bu">len</span>(<span class="bu">set</span>(ratings.user))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>avid_readers <span class="op">=</span> ratings.user.value_counts()[:<span class="dv">1000</span>].keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:34:41.001115Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:34:41.000781Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:34:41.006602Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:34:41.005763Z&quot;}" data-papermill="{&quot;duration&quot;:0.028793,&quot;end_time&quot;:&quot;2023-07-19T01:34:41.008597&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:34:40.979804&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>1031136</code></pre>
+</div>
+</div>
+<p>Overwriting the variable <strong>dense_df</strong> with this new selection</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:34:41.090503Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:34:41.089012Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:34:41.168057Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:34:41.167078Z&quot;}" data-papermill="{&quot;duration&quot;:0.101917,&quot;end_time&quot;:&quot;2023-07-19T01:34:41.170114&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:34:41.068197&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>dense_df <span class="op">=</span> ratings[ratings.title.isin(popular_books)]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>dense_df <span class="op">=</span> (dense_df[dense_df.user.isin(avid_readers)])</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(dense_df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>76402</code></pre>
+</div>
+</div>
+<p>Now we’ve got the number of samples in the database down to 76402, and it only contains the top 1000 readers and the top 1000 books.</p>
+</section>
+<section id="make-a-new-dataloaders-object-to-draw-training-and-validation-samples-from-this-new-dataframe." class="level2">
+<h2 class="anchored" data-anchor-id="make-a-new-dataloaders-object-to-draw-training-and-validation-samples-from-this-new-dataframe.">Make a new dataloaders object to draw training and validation samples from this new dataframe.</h2>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:34:41.253534Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:34:41.251992Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:34:41.319498Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:34:41.318535Z&quot;}" data-papermill="{&quot;duration&quot;:0.091743,&quot;end_time&quot;:&quot;2023-07-19T01:34:41.322261&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:34:41.230518&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dense_dls <span class="op">=</span> CollabDataLoaders.from_df(dense_df, item_name<span class="op">=</span><span class="st">'title'</span>, bs<span class="op">=</span><span class="dv">64</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>n_users <span class="op">=</span> <span class="bu">len</span>(dense_dls.classes[<span class="st">'user'</span>])</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>n_titles <span class="op">=</span> <span class="bu">len</span>(dense_dls.classes[<span class="st">'title'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:34:41.365147Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:34:41.364823Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:34:41.372582Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:34:41.371742Z&quot;}" data-papermill="{&quot;duration&quot;:0.031425,&quot;end_time&quot;:&quot;2023-07-19T01:34:41.374558&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:34:41.343133&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DotProduct(n_users, n_titles, n_factors<span class="op">=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lets-see-how-the-model-trains-now" class="level2">
+<h2 class="anchored" data-anchor-id="lets-see-how-the-model-trains-now">Let’s see how the model trains now</h2>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:34:41.456866Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:34:41.456006Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:14.554684Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:14.553737Z&quot;}" data-papermill="{&quot;duration&quot;:33.122428,&quot;end_time&quot;:&quot;2023-07-19T01:35:14.556754&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:34:41.434326&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> Learner(dense_dls, model, loss_func<span class="op">=</span>MSELossFlat())</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>learn.fit_one_cycle(<span class="dv">5</span>, <span class="fl">1e-3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.175163</td>
+      <td>0.170583</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.129468</td>
+      <td>0.121618</td>
+      <td>00:07</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.106404</td>
+      <td>0.113181</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.098074</td>
+      <td>0.111734</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.094152</td>
+      <td>0.111598</td>
+      <td>00:06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<section id="great---the-training-only-takes-5s-per-epoch-and-were-still-seeing-convergence-after-5-epochs.-lets-try-to-improve-from-here" class="level3">
+<h3 class="anchored" data-anchor-id="great---the-training-only-takes-5s-per-epoch-and-were-still-seeing-convergence-after-5-epochs.-lets-try-to-improve-from-here">Great - the training only takes 5s per epoch, and we’re still seeing convergence after 5 epochs. Let’s try to improve from here</h3>
+</section>
+</section>
+</section>
+<section id="adding-intentional-bias" class="level1">
+<h1>Adding intentional Bias</h1>
+<p>So far our model only takes the dot procuct of two vectors then adds up these contributions. To improve the model we should add bias. This will allow us to represent the overall bias of a particular book or user. For example, a book might be extremely short and extremely sci-fi, but also be generally terrible. Even for a reader who also loves short sci-fi books, if the book is generally terrible they probably won’t enjoy it. Conversely there might be a book which is very sci-fi but also so good that even non-sci-fi fans enjoy it. We can represent this overall bias of the book by adding or subtracting a scalar to our embedding vector after the elementwise multiplication operation.</p>
+<p>The bias in for the user embedding factors lets us represent users who on average, give a higher or lower rating than other users across the board.</p>
+<p>Let’s give this a go below</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:14.685126Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:14.684746Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:14.692386Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:14.691470Z&quot;}" data-papermill="{&quot;duration&quot;:0.031495,&quot;end_time&quot;:&quot;2023-07-19T01:35:14.694413&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:14.662918&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DotProductBias(Module):</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, n_users, n_titles, n_factors):</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.user_factors <span class="op">=</span> Embedding(n_users, n_factors)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.user_bias <span class="op">=</span> Embedding(n_users, <span class="dv">1</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.title_factors <span class="op">=</span> Embedding(n_titles, n_factors)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.title_bias <span class="op">=</span> Embedding(n_titles, <span class="dv">1</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>        users <span class="op">=</span> <span class="va">self</span>.user_factors(x[:,<span class="dv">0</span>])</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>        titles <span class="op">=</span> <span class="va">self</span>.title_factors(x[:,<span class="dv">1</span>])</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> (users<span class="op">*</span>titles).<span class="bu">sum</span>(dim<span class="op">=</span><span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>        result <span class="op">+=</span> <span class="va">self</span>.user_bias(x[:,<span class="dv">0</span>]) <span class="op">+</span> <span class="va">self</span>.title_bias(x[:,<span class="dv">1</span>])</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(result) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here we’re just adding another embedding to represent the bias for each user and each book. This scalar value is added to the prediction for a user and book combination.</p>
+<p>Initially I added added a sigmoid to the output to keep the predictions between 0 and 1.1 Using an upper limit of 1.1 allows prediction of the number 1, which would be impossible to achieve with sigmoid otherwise, since the <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a> scales all inputs from -inf to inf to lie between 0 and 1.</p>
+<p>In practice what happened was that all the predicted ratings were between ~0.4 and ~0.5. Removing the sigmoid on the outputs fixed this and all predicted ratings now fall between 0 and 1, perhaps because I’ve pre-scaled the ratings to lie within this range.</p>
+<section id="weight-decay" class="level3">
+<h3 class="anchored" data-anchor-id="weight-decay">Weight decay</h3>
+<p><strong>L2_Regularization</strong> also called weight decay, is also used here. L2 regularization penalizes large weights in the model by adding to the loss function the sum of all the weights squared. This helps reduce overfitting by reducing the chance of any individual weight becoming very large. This will slow down the training of the model, but it will also produce a model which generalizes better - the model will find general patterns rather than producing an overly complex and overfit function which only represents items in the training set.</p>
+<p>I have left</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:14.778778Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:14.778423Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:54.624583Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:54.623478Z&quot;}" data-papermill="{&quot;duration&quot;:39.871403,&quot;end_time&quot;:&quot;2023-07-19T01:35:54.627480&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:14.756077&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DotProductBias(n_users, n_titles, n_factors<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> Learner(dense_dls, model, loss_func<span class="op">=</span>MSELossFlat()).to_fp16()</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>learn.fit_one_cycle(<span class="dv">5</span>, <span class="fl">1e-3</span>, wd<span class="op">=</span><span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.139426</td>
+      <td>0.142063</td>
+      <td>00:08</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.120957</td>
+      <td>0.115809</td>
+      <td>00:07</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.099875</td>
+      <td>0.111417</td>
+      <td>00:07</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.089681</td>
+      <td>0.110612</td>
+      <td>00:07</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.084803</td>
+      <td>0.110506</td>
+      <td>00:08</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<p>Now that we have the model trained, we can get predictions for any pairings of users an books. The model outputs will be the rating which the model predicts for that user - book combo. Here’s a demonstration which uses one batch of data, so it’s just a random pairing of users with books.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:54.714803Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:54.714451Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:54.782883Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:54.781845Z&quot;}" data-papermill="{&quot;duration&quot;:0.092911,&quot;end_time&quot;:&quot;2023-07-19T01:35:54.785385&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:54.692474&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>batch <span class="op">=</span> dense_dls.one_batch()[<span class="dv">0</span>].to(<span class="st">'cuda'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>get_device</code> to check that the tensor is on the GPU (-1 = cpum 0=cuda:0)</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:54.872903Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:54.872563Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:54.878822Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:54.877829Z&quot;}" data-papermill="{&quot;duration&quot;:0.031803,&quot;end_time&quot;:&quot;2023-07-19T01:35:54.881546&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:54.849743&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>batch.get_device()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>0</code></pre>
+</div>
+</div>
+<p>passing a batch of inputs (user/title pairs) gives us an output of predictions for that pairing.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:54.967297Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:54.966471Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:54.991413Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:54.990389Z&quot;}" data-papermill="{&quot;duration&quot;:0.049225,&quot;end_time&quot;:&quot;2023-07-19T01:35:54.993570&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:54.944345&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>model(batch)[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>tensor([[ 0.0823],
+        [ 0.1963],
+        [ 0.1214],
+        [ 0.1322],
+        [ 0.0816],
+        [ 0.2963],
+        [ 0.0160],
+        [ 0.2217],
+        [ 0.0436],
+        [-0.0102]], device='cuda:0', grad_fn=&lt;SliceBackward0&gt;)</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="looking-at-the-factors-for-a-batch-of-users" class="level1">
+<h1>looking at the factors for a batch of users</h1>
+<p>Here we can see the indices of a batch of users. Each one of these users has a corresponding set of factors which are accessed by passing these indices to the Embedding instance called <code>user_factors</code></p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:55.120193Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:55.119332Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:55.127401Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:55.126397Z&quot;}" data-papermill="{&quot;duration&quot;:0.032082,&quot;end_time&quot;:&quot;2023-07-19T01:35:55.129374&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:55.097292&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>batch[:,<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>tensor([748,  32, 929,   9, 481, 864, 243,  19, 357, 434, 564, 699, 361, 435,
+        326, 570, 497, 296, 659, 706, 722, 658,  64, 875, 324, 589,  73, 226,
+        660, 351, 861, 120, 703, 708, 662,  85,  49, 694, 297,  39,  83, 246,
+        657, 910, 782, 194, 174,  96, 265, 819, 140, 956, 804, 896, 805, 601,
+        697, 535, 256, 584, 984, 243, 489, 785], device='cuda:0')</code></pre>
+</div>
+</div>
+<section id="thinking-about-latent-factors-as-components-of-a-vector-in-an-n-dimensional-feature-space" class="level2">
+<h2 class="anchored" data-anchor-id="thinking-about-latent-factors-as-components-of-a-vector-in-an-n-dimensional-feature-space">Thinking about latent factors as components of a vector in an n-dimensional feature space</h2>
+<p>Here are the factors for each of the users in the batch:</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:55.215287Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:55.214383Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:55.228629Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:55.227658Z&quot;}" data-papermill="{&quot;duration&quot;:0.038375,&quot;end_time&quot;:&quot;2023-07-19T01:35:55.230672&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:55.192297&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>model.user_factors(batch[:,<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>tensor([[ 0.0817, -0.0264,  0.0331,  ..., -0.0489,  0.0411, -0.0605],
+        [ 0.2433,  0.1127,  0.0474,  ..., -0.0423, -0.0127,  0.0787],
+        [ 0.0681, -0.0004, -0.0345,  ..., -0.0058, -0.0629, -0.0205],
+        ...,
+        [-0.0815,  0.0103, -0.0141,  ...,  0.0457,  0.0288,  0.0169],
+        [-0.0230,  0.0015, -0.0673,  ..., -0.0892,  0.0012, -0.0144],
+        [-0.0735, -0.1434, -0.0621,  ...,  0.0003,  0.0648,  0.1412]],
+       device='cuda:0', grad_fn=&lt;EmbeddingBackward0&gt;)</code></pre>
+</div>
+</div>
+<p>Each of these numbers represents a learned latent factor for that user. The latent factors can can be thought of as the contribution / component to a vector in n-dimensional space, where each number is a different axis’s contribution. The factors are all orthoganal to oneanother. They can represent things like taste, genre, age etc.</p>
+<p>For example: if user A has 3 latent factors x, y, z, and these have values 1, 0.2, -0.9, then we can imagine a vector in 3d space which extends along the x dimension by 1, along y by 0.2, and extends negatively along the z dimension by 1.</p>
+<p>Another user, or book title, might point in a very similar direction. This would mean that their factors overlap a lot and tend not to cancel out.</p>
+<p>Each of these dimensions could code for something like ‘enjoys horror books’, ‘enjoys shorter books’, younger.</p>
+<p>If there was another user who’s factors were -1, 0.2, 1, we might say that they had the opposite taste for horror stories, that they have the same liking for shorter books, and that they are older.</p>
+<p>The latent factors encode for real world meaning, but the factors themselves aren’t chosen by the engineer when setting up the neural network - rather they emerge from the relationships between books, users and ratings as the model trains.</p>
+</section>
+</section>
+<section id="using-the-trained-model" class="level1">
+<h1>Using the trained model</h1>
+<section id="finding-the-books-with-the-highest-bias" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-books-with-the-highest-bias">Finding the books with the highest bias</h2>
+<p>Here’s a list of books with a high bias: they end up having a higher rating across the board, despite the specific features which were learned to describe the books. Intuitively this means that they’re high quality - since they get consistently high ratings despite their genre and the users’ tastes.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:55.446136Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:55.445195Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:55.460663Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:55.459657Z&quot;}" data-papermill="{&quot;duration&quot;:0.03968,&quot;end_time&quot;:&quot;2023-07-19T01:35:55.462796&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:55.423116&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>books_bias <span class="op">=</span> learn.model.title_bias.weight.squeeze()</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>idxs <span class="op">=</span> books_bias.argsort(descending<span class="op">=</span><span class="va">True</span>)[:<span class="dv">20</span>]</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>[dense_dls.classes[<span class="st">'title'</span>][i] <span class="cf">for</span> i <span class="kw">in</span> idxs]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>['Harry Potter and the Prisoner of Azkaban (Book 3)',
+ "Harry Potter and the Sorcerer's Stone (Book 1)",
+ 'Harry Potter and the Chamber of Secrets (Book 2)',
+ 'To Kill a Mockingbird',
+ 'Harry Potter and the Order of the Phoenix (Book 5)',
+ 'The Secret Garden',
+ 'A Wrinkle in Time',
+ "Harry Potter and the Sorcerer's Stone (Harry Potter (Paperback))",
+ 'Harry Potter and the Goblet of Fire (Book 4)',
+ 'The Fellowship of the Ring (The Lord of the Rings, Part 1)',
+ 'The Little Prince',
+ 'Fahrenheit 451',
+ "Where the Heart Is (Oprah's Book Club (Paperback))",
+ 'Lord of the Flies',
+ 'The Lovely Bones: A Novel',
+ 'Anne Frank: The Diary of a Young Girl',
+ 'The Color Purple',
+ "The Handmaid's Tale",
+ 'One for the Money (A Stephanie Plum Novel)',
+ 'The Da Vinci Code']</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="making-recommendations-for-a-single-user." class="level1">
+<h1>Making recommendations for a single user.</h1>
+<p>We know how to get rating predictions for a single batch: take the dot product of the user factors and title factors for each user/title pariring in the batch. To get predictions for a single user, we’d just need to replace all the user id’s with the id for that single user. Let’s try this:</p>
+<p>Now that we have a trained model, to make a recommendation we need to do 2 things:</p>
+<ol type="1">
+<li><p>Find out which books the user has read already. This is just so that we’re not recommending books they’ve already read.</p></li>
+<li><p>Create a tensor of tuples which contain user IDs and book titles. These will be passed to the <code>DotProductBias</code> <code>forward()</code> method - which takes the dot product of a user-id book-title combination. We need to make the user IDs all the same (11676), and calculate these dot products for every book the user hasn’t yet read. Once this calculation is performed, we’ll have a prediction of what rating this user might give if they were to read these books. Based on these predictions we can recommend the books which get the highest predicted rating.</p></li>
+</ol>
+<p>Let’s take a look at the user who has read the most books:</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:55.636293Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:55.635938Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:55.646225Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:55.645202Z&quot;}" data-papermill="{&quot;duration&quot;:0.035063,&quot;end_time&quot;:&quot;2023-07-19T01:35:55.648307&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:55.613244&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>dense_df.user.value_counts()[:<span class="dv">1000</span>].keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>Int64Index([ 11676,  35859,  76352,  16795, 153662, 102967, 238120,  23768,
+            230522,  55492,
+            ...
+             69808,   4385, 168464, 164465, 227250,  35433, 241198, 173632,
+            133868,  72352],
+           dtype='int64', length=997)</code></pre>
+</div>
+</div>
+<p>user <strong>11676</strong></p>
+<p>This is the ID of the user we’re trying to recommend books for.</p>
+<p>We made an embedding using a subset of the 1000 top users - so we need a way to find which index this ID is at:</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:55.738845Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:55.738505Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:55.745505Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:55.744651Z&quot;}" data-papermill="{&quot;duration&quot;:0.031496,&quot;end_time&quot;:&quot;2023-07-19T01:35:55.747575&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:55.716079&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_index(cat, dataloader):</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">'get the index of a category from a dataloader'</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, j <span class="kw">in</span> <span class="bu">enumerate</span>(dataloader):</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> j <span class="op">==</span> cat:</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> i</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>get_index(<span class="dv">11676</span>, dense_dls.classes[<span class="st">'user'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>32</code></pre>
+</div>
+</div>
+<p>Let’s confirm that this works by tesing it on a book title:</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:55.835781Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:55.835303Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:55.842371Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:55.841190Z&quot;}" data-papermill="{&quot;duration&quot;:0.032325,&quot;end_time&quot;:&quot;2023-07-19T01:35:55.844879&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:55.812554&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>get_index(<span class="st">'The Little Prince'</span>, dense_dls.classes[<span class="st">'title'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>793</code></pre>
+</div>
+</div>
+<p>We’re going to check for book recommendations for user 11676, who is at index <strong>32</strong> in our dense dataloaders object.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:55.933998Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:55.933637Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:55.948629Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:55.947648Z&quot;}" data-papermill="{&quot;duration&quot;:0.039655,&quot;end_time&quot;:&quot;2023-07-19T01:35:55.950599&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:55.910944&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>user_index <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>n_books <span class="op">=</span> <span class="bu">len</span>(dense_dls.cats[<span class="st">'title'</span>].unique())</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>user_idxs <span class="op">=</span> torch.full((n_books, <span class="dv">1</span>), user_index, dtype<span class="op">=</span><span class="bu">int</span>).cuda()</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>book_idxs <span class="op">=</span> torch.linspace(<span class="dv">1</span>, n_books, n_books, dtype<span class="op">=</span><span class="bu">int</span>).unsqueeze(<span class="dv">1</span>).cuda()</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>user_books_tensor <span class="op">=</span> torch.cat((user_idxs, book_idxs), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>user_books_tensor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>tensor([[  32,    1],
+        [  32,    2],
+        [  32,    3],
+        ...,
+        [  32,  998],
+        [  32,  999],
+        [  32, 1000]], device='cuda:0')</code></pre>
+</div>
+</div>
+<p>Now we have a tensor pairing the user at index 32 with each of the book indices from 1 to 1000. Passing this into our model’s forward() method will calculate the dot product of this user’s latent factors vector with the latent factors for each book in the dataset. This dot product is the rating prediction.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:56.039132Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:56.038513Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:56.047171Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:56.046231Z&quot;}" data-papermill="{&quot;duration&quot;:0.033343,&quot;end_time&quot;:&quot;2023-07-19T01:35:56.049176&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:56.015833&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>recommendations <span class="op">=</span> model(user_books_tensor)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>top_10 <span class="op">=</span> recommendations.argsort(<span class="dv">0</span>, descending<span class="op">=</span><span class="va">True</span>)[:<span class="dv">10</span>]</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>top_10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>tensor([[307],
+        [174],
+        [235],
+        [485],
+        [363],
+        [  1],
+        [ 41],
+        [861],
+        [597],
+        [125]], device='cuda:0')</code></pre>
+</div>
+</div>
+<p>Now we have the indices of the top 10 recommended books for this user. Finally we can look up these top indices in the dataloaders classes to get the titles.</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:56.139940Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:56.139099Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:56.146114Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:56.145185Z&quot;}" data-papermill="{&quot;duration&quot;:0.032779,&quot;end_time&quot;:&quot;2023-07-19T01:35:56.148136&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:56.115357&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>dense_dls.classes[<span class="st">'title'</span>][top_10]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>(#10) ['Harry Potter and the Chamber of Secrets (Book 2)','Crazy for You','Empire Falls','One True Thing','Isle of Dogs','1984','A Widow for One Year','The Secret','Sisterhood of the Traveling Pants','By the Light of the Moon']</code></pre>
+</div>
+</div>
+<p>Let’s take a look at all the books this user has read, ordered by rating:</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:56.237979Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:56.237636Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:56.254081Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:56.253159Z&quot;}" data-papermill="{&quot;duration&quot;:0.041934,&quot;end_time&quot;:&quot;2023-07-19T01:35:56.256248&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:56.214314&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>dense_df.loc[dense_df.user<span class="op">==</span><span class="dv">11676</span>].loc[dense_df.rating<span class="op">==</span><span class="dv">1</span>][:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>user</th>
+      <th>title</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>69</th>
+      <td>11676</td>
+      <td>The Notebook</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>11676</td>
+      <td>A Painted House</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>12730</th>
+      <td>11676</td>
+      <td>Harry Potter and the Chamber of Secrets (Book 2)</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>13401</th>
+      <td>11676</td>
+      <td>Harry Potter and the Sorcerer's Stone (Harry Potter (Paperback))</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>19165</th>
+      <td>11676</td>
+      <td>The Sweet Potato Queens' Book of Love</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>19881</th>
+      <td>11676</td>
+      <td>Dreamcatcher</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>20480</th>
+      <td>11676</td>
+      <td>Fight Club</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>26049</th>
+      <td>11676</td>
+      <td>1st to Die: A Novel</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>26691</th>
+      <td>11676</td>
+      <td>The Hot Zone</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>28195</th>
+      <td>11676</td>
+      <td>The Girl Who Loved Tom Gordon</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:56.304430Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:56.302936Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:56.311583Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:56.310567Z&quot;}" data-papermill="{&quot;duration&quot;:0.034183,&quot;end_time&quot;:&quot;2023-07-19T01:35:56.313616&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:56.279433&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>recommendations.<span class="bu">min</span>(), recommendations.<span class="bu">max</span>()</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>(tensor(0.1069, device='cuda:0', grad_fn=&lt;MinBackward1&gt;),
+ tensor(0.9967, device='cuda:0', grad_fn=&lt;MaxBackward1&gt;))</code></pre>
+</div>
+</div>
+</section>
+<section id="finding-book-buddies" class="level1">
+<h1>Finding ‘book buddies’</h1>
+<p>We can use the same approach to pair users with people they’re most similar to - If there are two readers in the model with the same set of latent factors as oneanother, then this means they have very similar tastes in books. I remember the Last.FM music recommendation software had a feature where you could see your ‘musical neighbours’ and see what music they’d been listening to. This likely uses a similar collaborative filtering system.</p>
+<p>To find two similar readers, we could use the following approach:</p>
+<ol type="1">
+<li>pick a user</li>
+<li>apply the same process as above but instead of calculating the dot product of this user with every book, calculate the dot product of the user with every other user. If their latent factors are similar they’re likely to have similar tastes in books.</li>
+</ol>
+<p>Let’s give this a go!</p>
+<div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-07-19T01:35:56.405564Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-07-19T01:35:56.404019Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-07-19T01:35:56.423471Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-07-19T01:35:56.422424Z&quot;}" data-papermill="{&quot;duration&quot;:0.044858,&quot;end_time&quot;:&quot;2023-07-19T01:35:56.425639&quot;,&quot;exception&quot;:false,&quot;start_time&quot;:&quot;2023-07-19T01:35:56.380781&quot;,&quot;status&quot;:&quot;completed&quot;}" data-tags="[]" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>n_users <span class="op">=</span> <span class="bu">len</span>(dense_dls.cats[<span class="st">'user'</span>].unique())</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>user_idxs <span class="op">=</span> torch.full((n_users, <span class="dv">1</span>), user_index, dtype<span class="op">=</span><span class="bu">int</span>).cuda()</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>all_users <span class="op">=</span> torch.tensor(dense_dls.cats[<span class="st">'user'</span>].values).unique().unsqueeze(<span class="dv">1</span>).cuda()</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> torch.cat((user_idxs, all_users), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>top_10_indices <span class="op">=</span> model(pairs).argsort(<span class="dv">0</span>)[:<span class="dv">10</span>]</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>top_10_buddies <span class="op">=</span> dense_dls.classes[<span class="st">'user'</span>][top_10_indices]</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>top_10_buddies</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>(#10) [173835,153662,191187,146230,104429,75860,108285,93047,146175,204591]</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>In this post I’ve covered:</p>
+<ul>
+<li>how to load a dataset into fastai</li>
+<li>how to take the dot product of two vectors</li>
+<li>building a custom PyTorch model which inherits from pytorch’s Module class and contains a forward() method and a couple of embedding layers for the input features</li>
+<li>training a model on a denser subset of the data to enable faster model training</li>
+<li>the role of bias and factors in the embedding matrices</li>
+<li>How to get a book reccomendation for a given user</li>
+<li>How to find users with similar tastes in the dataset.</li>
+</ul>
+<p>I was able to train a dot product based model with embedding layers on both the input features, and get book reccomendations for a given user.</p>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>http://fast.ai</p>
+<p><a href="https://arxiv.org/pdf/1604.06737.pdf">Guo, Cheng et al.&nbsp;“Entity Embeddings of Categorical Variables”</a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
