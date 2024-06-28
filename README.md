@@ -1,4 +1,4 @@
-
+# mlsquamish.ca
 
 1. To install Quarto, head to vscode and install the quarto extension. 
 
