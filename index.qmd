@@ -11,5 +11,5 @@ Typically we'll take a break for the summer and start up again during the fall.
 # [Check out our past events](past-events/past-events.qmd)
 
 # And join our Slack channel. 
-(shoot an email to mlsquamish@gmail.com for an invite) 
+Shoot us an email to get an invite
 
