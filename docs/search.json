@@ -224,6 +224,13 @@
     "text": "In this presentation, Guillaume described his process to becoming a senior chatbot engineer, the historic development of the field up until now, some chatbot terminology, and an overview of the technical challenges chatbot engineers face.\nClick here to see the presentation"
   },
   {
+    "objectID": "past-events/whale-health-hackday/index.html",
+    "href": "past-events/whale-health-hackday/index.html",
+    "title": "Whale Health Hackday",
+    "section": "",
+    "text": "We hosted a hackathon to try to find a way to measure and detect whales from drone footage. 7 people attended. We tried a few methods and everybody learnt something new. There was even pizza and beer!\nCheck out the writeup!\nGitHub for this event"
+  },
+  {
     "objectID": "past-events/from-scratch-model-mike/boats-example.html",
     "href": "past-events/from-scratch-model-mike/boats-example.html",
     "title": "From scratch model part 2: training an image recognition model using fastai",
@@ -298,7 +305,7 @@
     "href": "past-events/past-events.html",
     "title": "Past events",
     "section": "",
-    "text": "Numpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nIntro to machine learning\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nDeveloping Chatbots in an evolving AI landscape\n\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nGuillaumen Slevan-Tremblay\n\n\n\n\n\n\n  \n\n\n\n\nAI Alignment - why AI: might or might not kill us all\n\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nIlva Ravinska\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101\n\n\n\n\n\n\n\n\n\n\n\n\nJun 7, 2023\n\n\nMike Gallimore & Peter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nEagle Eyes Search\n\n\n\n\n\nComputer vision for drones for SAR\n\n\n\n\n\n\nJun 22, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nCollaborative Filtering (AKA recommender systems)\n\n\n\n\n\n\n\n\n\n\n\n\nOct 19, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\nNo matching items"
+    "text": "Whale Health Hackday\n\n\n\n\n\n\n\n\n\n\n\n\nJun 27, 2024\n\n\nML Squamish\n\n\n\n\n\n\n  \n\n\n\n\nCollaborative Filtering (AKA recommender systems)\n\n\n\n\n\n\n\n\n\n\n\n\nOct 19, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nEagle Eyes Search\n\n\n\n\n\nComputer vision for drones for SAR\n\n\n\n\n\n\nJun 22, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101\n\n\n\n\n\n\n\n\n\n\n\n\nJun 7, 2023\n\n\nMike Gallimore & Peter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nAI Alignment - why AI: might or might not kill us all\n\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nIlva Ravinska\n\n\n\n\n\n\n  \n\n\n\n\nDeveloping Chatbots in an evolving AI landscape\n\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nGuillaumen Slevan-Tremblay\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nIntro to machine learning\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "past-events/paperspace-setup-mike/paperspace.html",
@@ -319,13 +326,13 @@
     "href": "index.html",
     "title": "Welcome to our landing page",
     "section": "",
-    "text": "Our next event is the Whale Health Hackday\nWe’ll be meeting at the Easy Expense offices after 6pm on Wednesday 26th June.\nLooking forward to seeing you there!\n\n\nClick here to see past events"
+    "text": "We don’t have any planned events.\nTypically we’ll take a break for the summer and start up again during the fall.\n\n\nCheck out our past events\n\n\nAnd join our Slack channel.\n(shoot an email to mlsquamish@gmail.com for an invite)"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "We are a group of Squamish residents connected over a common interest in machine learning, data science and AI.\nWe aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.\nWe aim to provide a place for people to share knowledge in the domains of data science, machine learning and artificial intelligence. We try to structure our talks to be as participatory as possible - rather than just a lecture on a topic, we encourage input and material from our members, and encourage debate in the hope that this stimulates learning and growth of our members.\nTo get involved, come along on Wednesday evenings to meet the group!\nIf you’d like to join our Slack messenger channel, or if you have any questions, you can shoot us an email here: mlsquamish@gmail.com\nWe host our meets at The Common - a community workspace on Cleveland. Check out their website and definitely give them a try if you have a remote job and want an office space.\nYou can get 1/3 off your first 3 months of membership at The Common by obtaining a referral code from us.\nWe also host at the Easy Expense offices on 2nd Ave. They’re a Squamish based company who made an app to automate your expense tracking. Check them out!"
+    "text": "We are a group of Squamish residents connected over a common interest in machine learning, data science and AI.\nWe aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.\nWe aim to provide a place for people to share knowledge in the domains of data science, machine learning and artificial intelligence. We try to structure our talks to be as participatory as possible - rather than just a lecture on a topic, we encourage input and material from our members, and encourage debate in the hope that this stimulates learning and growth of our members.\nYou can check out our vision statement here\nTo get involved, come along on Wednesday evenings to meet the group!\nIf you’d like to join our Slack messenger channel, or if you have any questions, you can shoot us an email here: mlsquamish@gmail.com\nWe host our meets at The Common - a community workspace on Cleveland. Check out their website and definitely give them a try if you have a remote job and want an office space.\nYou can get 1/3 off your first 3 months of membership at The Common by obtaining a referral code from us.\nWe also host at the Easy Expense offices on 2nd Ave. They’re a Squamish based company who made an app to automate your expense tracking. Check them out!"
   }
 ]

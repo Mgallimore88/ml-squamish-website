@@ -2,18 +2,19 @@
   {
     "listing": "/past-events/past-events.html",
     "items": [
-      "/past-events/numpy-peter/numpy-tutorial.html",
-      "/past-events/chat-GPT-peter/index.html",
-      "/past-events/intro-to-ml-mike/index.html",
-      "/past-events/paperspace-setup-mike/paperspace.html",
-      "/past-events/from-scratch-model-mike/boats-example.html",
-      "/past-events/eric-quantum-ml/index.html",
-      "/past-events/elliot-geospatial/index.html",
-      "/past-events/chatbots-guil/index.html",
-      "/past-events/alignment/index.html",
-      "/past-events/git-walkthrough/git-walkthrough.html",
+      "/past-events/whale-health-hackday/index.html",
+      "/past-events/collaborative-filtering/embeddings.html",
       "/past-events/eagle-eyes-search/index.html",
-      "/past-events/collaborative-filtering/embeddings.html"
+      "/past-events/git-walkthrough/git-walkthrough.html",
+      "/past-events/alignment/index.html",
+      "/past-events/chatbots-guil/index.html",
+      "/past-events/elliot-geospatial/index.html",
+      "/past-events/eric-quantum-ml/index.html",
+      "/past-events/from-scratch-model-mike/boats-example.html",
+      "/past-events/paperspace-setup-mike/paperspace.html",
+      "/past-events/intro-to-ml-mike/index.html",
+      "/past-events/chat-GPT-peter/index.html",
+      "/past-events/numpy-peter/numpy-tutorial.html"
     ]
   }
 ]

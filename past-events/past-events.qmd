@@ -4,8 +4,8 @@ listing:
   - id: past-events
     type: default
     sort: 
-      - "date asc"
-      - "title asc"
+      - "date des"
+      - "title des"
 ---
 
 

@@ -8,6 +8,8 @@ We aim to grow skills and knowledge, and make connections through a series of ta
 
 We aim to provide a place for people to share knowledge in the domains of data science, machine learning and artificial intelligence. We try to structure our talks to be as participatory as possible - rather than just a lecture on a topic, we encourage input and material from our members, and encourage debate in the hope that this stimulates learning and growth of our members.
 
+Take a look at our [vision statement](https://docs.google.com/document/d/1cQ-9EJJ3YpFvz5qRgnmhSTopMyAwF2qu9y8hHny2kJk/edit?usp=sharing)
+
 To get involved, come along on Wednesday evenings to meet the group!
 
 If you'd like to join our Slack messenger channel, or if you have any questions, you can shoot us an email here: [mlsquamish@gmail.com](mlsquamish@gmail.com)

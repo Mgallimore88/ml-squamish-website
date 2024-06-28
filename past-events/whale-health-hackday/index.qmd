@@ -1,0 +1,14 @@
+---
+title: "Whale Health Hackday"
+author: "ML Squamish"
+date: "2024-06-27"
+image: "image2.png"
+categories: [Hackday, Hackathon, Conservation, Whales, Drones, Image recognition]
+
+---
+
+We hosted a hackathon to try to find a way to measure and detect whales from drone footage. 7 people attended. We tried a few methods and everybody learnt something new. There was even pizza and beer!
+
+[Check out the writeup!](https://docs.google.com/document/d/1iK7FTo5sNgIzZDyECNJrIM-9n1ozFkF-Y8enOxQR5KE/edit?usp=sharing)
+
+[GitHub for this event](https://github.com/MLSquamish/whale-health-hackday)

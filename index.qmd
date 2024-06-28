@@ -4,13 +4,12 @@ title: "Welcome to our landing page"
 
 ![](logo-mls.png)
 
-# Our next event is the [Whale Health Hackday](https://www.eventbrite.com/e/measure-whale-health-hackday-tickets-923157598227?aff=oddtdtcreator)
+# We don't have any planned events.
 
-We'll be meeting at the Easy Expense offices after 6pm on Wednesday 26th June. 
+Typically we'll take a break for the summer and start up again during the fall.
 
-Looking forward to seeing you there!
+# [Check out our past events](past-events/past-events.qmd)
 
- 
-# [Click here to see past events](past-events/past-events.qmd)
-
+# And join our Slack channel. 
+(shoot an email to mlsquamish@gmail.com for an invite) 
 
