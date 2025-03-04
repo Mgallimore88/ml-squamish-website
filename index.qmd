@@ -8,6 +8,8 @@ title: "Welcome to our landing page"
 
 We'll be hosting a talk on CNN classifiers for birdsong recognition, walking through some of the considerations when building a suitable training set, and how to evaluate binary classifers. 
 
+Event is at 7pm at the Easy Expense offices on 2nd ave.
+
 # [Check out our past events](past-events/past-events.qmd)
 
 # And join our Slack channel. 
