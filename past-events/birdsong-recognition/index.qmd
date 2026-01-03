@@ -1,5 +1,6 @@
 ---
 title: "Building a Birdsong Recognizer: AI Meets Ornithology"
+description: "Presentation and reading on training a CNN model to detect birdsong"
 author: "Michael Gallimore"
 date: "2024-05-03"
 categories: [CNN, Ornithology, Presentation, Discussion, Precision, Recall, Accuracy, F1 Score, Dataset separation, Spectrogram generation]
