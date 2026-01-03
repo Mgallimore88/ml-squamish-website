@@ -1,0 +1,23 @@
+---
+title: "Lightning Talks"
+author: "Elliot Salisbury, Guillaume Slevan-Tremblay, Elliot Salisbury "
+date: "2025-01-07"
+categories: [Marimo, FastHTML]
+image: "lightning.jpg"
+
+---
+
+# We hosted a lightning talks session. 
+The goal was to see what technologies people in the community had been workign with since our last meetup. 
+
+
+
+### Marimo
+![marimo](marimo.svg)
+
+Elliot had recently attended a conference, during which he learned about [Marimo](https://marimo.io/features/vs-jupyter-alternative), a [Jupyter Notebooks](https://jupyter.org/) alternative which runs pure python under the hood, making live updates to the entire notebook rather than the usual cell by cell execution we're used to when working with notebooks. 
+
+### FastHTML
+![](fasthtml.jpeg)
+
+Mike had been working on a web app using [FastHTML](https://fastht.ml/) - a python interface for building websites. It uses HTMX under the hood, and abstracts away all the HTML, CSS and JavaScript normally needed when building interactive websites. He gave a demo of a riddle generating app, which prompted the user with an LLM generated riddle, and berated the user in a Monty Python-esque manner for incorrect answers. [Riddle me this](https://riddle-generator-tawny.vercel.app/)

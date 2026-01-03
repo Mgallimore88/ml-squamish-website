@@ -348,5 +348,12 @@
     "title": "Let’s chat about Deep Seek",
     "section": "",
     "text": "Image: DeepSeek logo\n\n\nThis event was attended by just Mike and Peter, so we went to the pub and read the whitepaper for two of their recently released models. In particular, Pete helped Mike to understand the math on pages 7-9 of the Deepseek V3 technical report\nAdditionally, Mike prepared a presentation to communicate the differences between the DeepSeek models and other flagship LLMs. The presentation is available here"
+  },
+  {
+    "objectID": "past-events/lightning-talks/index.html",
+    "href": "past-events/lightning-talks/index.html",
+    "title": "Lightning Talks",
+    "section": "",
+    "text": "We hosted a lightning talks session.\nThe goal was to see what technologies people in the community had been workign with since our last meetup.\n\nMarimo\n\n\n\nmarimo\n\n\nElliot had recently attended a conference, during which he learned about Marimo, a Jupyter Notebooks alternative which runs pure python under the hood, making live updates to the entire notebook rather than the usual cell by cell execution we’re used to when working with notebooks.\n\n\nFastHTML\n\nMike had been working on a web app using FastHTML - a python interface for building websites. It uses HTMX under the hood, and abstracts away all the HTML, CSS and JavaScript normally needed when building interactive websites. He gave a demo of a riddle generating app, which prompted the user with an LLM generated riddle, and berated the user in a Monty Python-esque manner for incorrect answers. Riddle me this"
   }
 ]
