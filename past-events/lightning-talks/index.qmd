@@ -1,14 +1,14 @@
 ---
 title: "Lightning Talks"
 author: "Elliot Salisbury, Guillaume Slevan-Tremblay, Elliot Salisbury "
-date: "2025-01-07"
+date: "2024-01-07"
 categories: [Marimo, FastHTML]
 image: "lightning.jpg"
 
 ---
 
 # We hosted a lightning talks session. 
-The goal was to see what technologies people in the community had been workign with since our last meetup. 
+The goal was to see what technologies people in the community had been working with since our last meetup. 
 
 
 
