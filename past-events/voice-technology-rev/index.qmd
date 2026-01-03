@@ -1,0 +1,12 @@
+---
+title: "Building meaningful voice technology with hybrid AI+Human solutions"
+author: "Miguel Jette"
+date: "2023-11-16"
+categories: [Rev, Automatic Speech Recognition]
+image: "rev.svg"
+
+---
+
+Miguel from Rev gave a talk on cutting edge ASR. 
+
+More details coming soon!

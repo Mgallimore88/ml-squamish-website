@@ -2,9 +2,11 @@
   {
     "listing": "/past-events/past-events.html",
     "items": [
+      "/past-events/lightning-talks/index.html",
       "/past-events/whale-health-hackday/index.html",
       "/past-events/birdsong-recognition/index.html",
       "/past-events/deepseek-talk/index.html",
+      "/past-events/voice-technology-rev/index.html",
       "/past-events/collaborative-filtering/embeddings.html",
       "/past-events/eagle-eyes-search/index.html",
       "/past-events/git-walkthrough/git-walkthrough.html",
