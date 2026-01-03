@@ -1,0 +1,26 @@
+---
+title: "Building a Birdsong Recognizer: AI Meets Ornithology"
+author: "Michael Gallimore"
+date: "2024-05-03"
+categories: [CNN, Ornithology, Presentation, Discussion, Precision, Recall, Accuracy, F1 Score, Dataset separation, Spectrogram generation]
+image: "osfl-dataset-creation-pipeline.png"
+---
+
+![Image: Dataset design schematic from [blog post](https://mgallimore88.github.io/blog/posts/osfl-project-description/B-project-description.html)](osfl-dataset-creation-pipeline.png)
+
+
+This presentation brought together 19 people from backgrounds in conservation, ornithology, education, machine learning and data science. Mike introduced the topic for people unfamiliar with the field, and took us step by step through some of the challenges he overcame whilst building a machine learning model trained on bioacoustic data. 
+
+The model trained was capabale of detecting the song of an Olive Sided Flycatcher from field recordings with high precision and higher recall than pre existing models.
+
+Topics included dataset design, suitable choice of metrics, example mining, finetuning a pretrained image recognition model for audio classification. 
+
+There was a discussion after the talk, which connected people from a range of backgrounds, and led to a greater overall understanding for everbody present.
+
+There is a slideshow accompanying this section.
+
+[Slideshow](https://docs.google.com/presentation/d/13LQ1ldfLJsHMJwQrXihnarlO1gzv1qyulwUkGXOq7WA/edit?pli=1&slide=id.gc6f90357f_0_0#slide=id.gc6f90357f_0_0)
+
+And a blog post outlining the approach taken to build the detector:
+
+[Blog Post](https://mgallimore88.github.io/blog/posts/osfl-project-description/B-project-description.html)

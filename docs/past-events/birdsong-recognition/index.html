@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Michael Gallimore">
+<meta name="dcterms.date" content="2024-05-03">
 
-<title>ML Squamish - Welcome to our landing page</title>
+<title>ML Squamish - Building a Birdsong Recognizer: AI Meets Ornithology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,7 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -70,10 +72,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ML Squamish</span>
     </a>
   </div>
@@ -83,15 +85,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./past-events/past-events.html">
+    <a class="nav-link" href="../../past-events/past-events.html">
  <span class="menu-text">Past events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -105,29 +107,45 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#next-meetup-wednesday-5th-march-2025" id="toc-next-meetup-wednesday-5th-march-2025" class="nav-link active" data-scroll-target="#next-meetup-wednesday-5th-march-2025">Next meetup Wednesday 5th March 2025!</a></li>
-  <li><a href="#check-out-our-past-events" id="toc-check-out-our-past-events" class="nav-link" data-scroll-target="#check-out-our-past-events">Check out our past events</a></li>
-  <li><a href="#and-join-our-slack-channel." id="toc-and-join-our-slack-channel." class="nav-link" data-scroll-target="#and-join-our-slack-channel.">And join our Slack channel.</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome to our landing page</h1>
-</div>
+<h1 class="title">Building a Birdsong Recognizer: AI Meets Ornithology</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">CNN</div>
+    <div class="quarto-category">Ornithology</div>
+    <div class="quarto-category">Presentation</div>
+    <div class="quarto-category">Discussion</div>
+    <div class="quarto-category">Precision</div>
+    <div class="quarto-category">Recall</div>
+    <div class="quarto-category">Accuracy</div>
+    <div class="quarto-category">F1 Score</div>
+    <div class="quarto-category">Dataset separation</div>
+    <div class="quarto-category">Spectrogram generation</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Michael Gallimore </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 3, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -135,21 +153,22 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><img src="logo-mls.png" class="img-fluid"></p>
-<section id="next-meetup-wednesday-5th-march-2025" class="level1">
-<h1>Next meetup Wednesday 5th March 2025!</h1>
-<p>We’ll be hosting a talk on CNN classifiers for birdsong recognition, walking through some of the considerations when building a suitable training set, and how to evaluate binary classifers.</p>
-<p>Event is at 7pm at the Easy Expense offices on 2nd ave.</p>
-</section>
-<section id="check-out-our-past-events" class="level1">
-<h1><a href="./past-events/past-events.html">Check out our past events</a></h1>
-</section>
-<section id="and-join-our-slack-channel." class="level1">
-<h1>And join our Slack channel.</h1>
-<p>Shoot us an email to get an invite</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="osfl-dataset-creation-pipeline.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image: Dataset design schematic from <a href="https://mgallimore88.github.io/blog/posts/osfl-project-description/B-project-description.html">blog post</a></figcaption><p></p>
+</figure>
+</div>
+<p>This presentation brought together 19 people from backgrounds in conservation, ornithology, education, machine learning and data science. Mike introduced the topic for people unfamiliar with the field, and took us step by step through some of the challenges he overcame whilst building a machine learning model trained on bioacoustic data.</p>
+<p>The model trained was capabale of detecting the song of an Olive Sided Flycatcher from field recordings with high precision and higher recall than pre existing models.</p>
+<p>Topics included dataset design, suitable choice of metrics, example mining, finetuning a pretrained image recognition model for audio classification.</p>
+<p>There was a discussion after the talk, which connected people from a range of backgrounds, and led to a greater overall understanding for everbody present.</p>
+<p>There is a slideshow accompanying this section.</p>
+<p><a href="https://docs.google.com/presentation/d/13LQ1ldfLJsHMJwQrXihnarlO1gzv1qyulwUkGXOq7WA/edit?pli=1&amp;slide=id.gc6f90357f_0_0#slide=id.gc6f90357f_0_0">Slideshow</a></p>
+<p>And a blog post outlining the approach taken to build the detector:</p>
+<p><a href="https://mgallimore88.github.io/blog/posts/osfl-project-description/B-project-description.html">Blog Post</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
