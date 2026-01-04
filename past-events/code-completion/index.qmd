@@ -4,7 +4,7 @@ description: "How has your workflow changed over the past year"
 author: "ML Squamish"
 date: "2025-12-11"
 categories: [Discussion, AI code completion, Cursor, Claude Code, GitHub Copilot, Sovle It]
-image: "../docs/logo-mls.png"
+image: "logo-mls.png"
 ---
 
 This event was attended by 9 people all working in tech or using ML/AI systems in some form. 
@@ -25,6 +25,4 @@ __Other points discussed:__
 
 - A common experience when using code completions is that they're distracting when trying to think, but useful when writing boilerplate code. Furthermore, when going back to coding without completions, it took time to remember how to code. Turn completions off and on at the right times to maintain coding and thinking skills. 
 
-- Elliot pointed out how working with teams who use LLMs as part of their code review can be frustrating, because the tendency to pick up on small insignificant style errors rather than focussing on the big picture like a human would. 
-
-- 
+- Elliot pointed out how working with teams who use LLMs as part of their code review can be frustrating, because of the tendency to pick up on small insignificant style errors rather than focussing on the big picture like a human would. 
