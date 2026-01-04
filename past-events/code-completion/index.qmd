@@ -1,0 +1,30 @@
+---
+title: "Welcome Back / AI tooling"
+description: "How has your workflow changed over the past year"
+author: "ML Squamish"
+date: "2024-12-11"
+categories: [Discussion, AI code completion, Cursor, Claude Code, GitHub Copilot, Sovle It]
+image: "../docs/logo-mls.png"
+---
+
+This event was attended by 9 people all working in tech or using ML sysytems in some form. 
+
+We opened up discussion around peoples' experience using AI tooling in their work. What new workflows have people found, and are they more productive as a result of it?
+
+There was a diverse set of points of view and experiences.
+
+One thing that stood out as a common theme was the need to stay on top of context management when using an LLM for language or code generation. Once the context window starts to get polluted with bad ideas or code, it'll continue to deteriorate, and it's hard to get the LLM back on track. To counter this, there is context editing functionality available in Cursor. Also the Solve-It platform allows users to edit LLM outputs to make sure context improves throughout the dialogue, rather than degrading.
+
+__Other points discussed:__
+
+- Daniel talked about how much more time he spends building the relevant context into Cursor before commencing on work. I (Mike) have found the same patterns in my workflow-  blank slate starting points are rarely as productive as ones with large amounts of context. 
+
+- Step by step iterations with vigalent code review works well across platforms. 
+
+- Lazy coding still yields bad results, so don't just switch off and hope the LLM will be able to solve all your coding problems. 
+
+- A common experience when using code completions is that they're distracting when trying to think, but useful when writing boilerplate code. Furthermore, when going back to coding without completions, it took time to remember how to code. Turn completions off and on at the right times to maintain coding and thinking skills. 
+
+- Elliot pointed out how working with teams who use LLMs as part of their code review can be frustrating, because the tendency to pick up on small insignificant style errors rather than focussing on the big picture like a human would. 
+
+- 
