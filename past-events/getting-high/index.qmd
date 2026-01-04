@@ -10,7 +10,10 @@ image: "whale-small.png"
 ![](whale-large.jpg)
 
 
-David Gaspard gave a talk about his upcoming masters project, in which he will use the size of whales as measured from fixed height drone footage as a proxy for whale health. 
+_David Gaspard, a marine biologist living in Squamish, is using drones to capture footage of whales off the coast of eastern Canada. He asked the ML group for a brainstorming session. The aim of David's research is to develop a non-invasive method of assessing the health of individual whales. The process would involve large amounts of image processing_
+
+
+David gave a talk about his upcoming masters project, in which he will use the size of whales as measured from fixed height drone footage as a proxy for whale health. 
 
 12 people attended, including one new member who's expertise in photogrophy, light and lenses contributed some ideas to David's approach. 
 
