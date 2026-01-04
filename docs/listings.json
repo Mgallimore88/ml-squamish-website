@@ -2,9 +2,11 @@
   {
     "listing": "/past-events/past-events.html",
     "items": [
+      "/past-events/code-completion/index.html",
       "/past-events/whale-health-hackday/index.html",
       "/past-events/birdsong-recognition/index.html",
       "/past-events/lightning-talks/index.html",
+      "/past-events/getting-high/index.html",
       "/past-events/deepseek-talk/index.html",
       "/past-events/lightning-talks-2/index.html",
       "/past-events/voice-technology-rev/index.html",
@@ -14,7 +16,6 @@
       "/past-events/alignment/index.html",
       "/past-events/chatbots-guil/index.html",
       "/past-events/elliot-geospatial/index.html",
-      "/past-events/getting-high/index.html",
       "/past-events/eric-quantum-ml/index.html",
       "/past-events/from-scratch-model-mike/boats-example.html",
       "/past-events/paperspace-setup-mike/paperspace.html",

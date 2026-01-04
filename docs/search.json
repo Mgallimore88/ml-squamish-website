@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "past-events/birdsong-recognition/index.html",
+    "href": "past-events/birdsong-recognition/index.html",
+    "title": "Building a Birdsong Recognizer: AI Meets Ornithology",
+    "section": "",
+    "text": "Image: Dataset design schematic from blog post\n\n\nThis presentation brought together 19 people from backgrounds in conservation, ornithology, education, machine learning and data science. Mike introduced the topic for people unfamiliar with the field, and took us step by step through some of the challenges he overcame whilst building a machine learning model trained on bioacoustic data.\nThe model trained was capabale of detecting the song of an Olive Sided Flycatcher from field recordings with high precision and higher recall than pre existing models.\nTopics included dataset design, suitable choice of metrics, example mining, finetuning a pretrained image recognition model for audio classification.\nThere was a discussion after the talk, which connected people from a range of backgrounds, and led to a greater overall understanding for everbody present.\nThere is a slideshow accompanying this section.\nSlideshow\nAnd a blog post outlining the approach taken to build the detector:\nBlog Post"
+  },
+  {
+    "objectID": "past-events/code-completion/index.html",
+    "href": "past-events/code-completion/index.html",
+    "title": "Welcome Back / AI tooling",
+    "section": "",
+    "text": "This event was attended by 9 people all working in tech or using ML/AI systems in some form.\nWe opened up discussion around peoples’ experience using AI tooling in their work. What new workflows have people found, and are they more productive as a result of it?\nThere was a diverse set of points of view and experiences.\nOne thing that stood out as a common theme was the need to stay on top of context management when using an LLM for image, language or code generation. Once the context window starts to get polluted with bad ideas or code, it’ll continue to deteriorate, and it’s hard to get the LLM back on track. To counter this, there is context editing functionality available in Cursor. Also the Solve-It platform allows users to edit LLM outputs to make sure context improves throughout the dialogue, rather than degrading.\nOther points discussed:\n\nDaniel talked about how much more time he spends building the relevant context into Cursor before commencing on work. I (Mike) have found the same patterns in my workflow- blank slate starting points are rarely as productive as ones with large amounts of context.\nStep by step iterations with vigalent code review works well across platforms.\nLazy coding still yields bad results, so don’t just switch off and hope the LLM will be able to solve all your coding problems.\nA common experience when using code completions is that they’re distracting when trying to think, but useful when writing boilerplate code. Furthermore, when going back to coding without completions, it took time to remember how to code. Turn completions off and on at the right times to maintain coding and thinking skills.\nElliot pointed out how working with teams who use LLMs as part of their code review can be frustrating, because the tendency to pick up on small insignificant style errors rather than focussing on the big picture like a human would."
+  },
+  {
     "objectID": "past-events/eagle-eyes-search/index.html",
     "href": "past-events/eagle-eyes-search/index.html",
     "title": "Eagle Eyes Search",
@@ -231,6 +245,13 @@
     "text": "We hosted a hackathon to try to find a way to measure and detect whales from drone footage. 7 people attended. We tried a few methods and everybody learnt something new. There was even pizza and beer!\nCheck out the writeup!\nGitHub for this event"
   },
   {
+    "objectID": "past-events/lightning-talks/index.html",
+    "href": "past-events/lightning-talks/index.html",
+    "title": "Lightning Talks",
+    "section": "",
+    "text": "We hosted our first lightning talks session.\nThe goal was to provid a space for people to present a problem they’re working on, and get input and ideas from the community.\nWe were kindly hosted by The Squamish Welcome Centre\nWe had 9 people in attendance. Some highlights:\n\nJacqui got some help setting up a python programming environment on her laptop.\nElliot presented his new project which searches conference videos in a youtube like interface, allowing effective searching of technical conference videos such as PyCon.\nDavid got some advice on running his first focus group - in particular from Christy who had prior experience in this area. The aim of the focus group was to gain insight for his parkinsons communication aid project, which he later presented at one of our meetups.\nMike was troubleshooting part of the data processing for his birdsong recognition project.\n\nThe event went really smoothly. Everybody learned something new, and got a chance to get help from the community.\nAfter the lightning talks, we all went to the Copper Coil for a social."
+  },
+  {
     "objectID": "past-events/from-scratch-model-mike/boats-example.html",
     "href": "past-events/from-scratch-model-mike/boats-example.html",
     "title": "From scratch model part 2: training an image recognition model using fastai",
@@ -273,6 +294,13 @@
     "text": "Train a model\n\nlearn = vision_learner(dataloaders, resnet18, metrics=error_rate)\nlearn.fine_tune(4)\nlearn.recorder.plot_loss()\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      1.512921\n      0.358238\n      0.145455\n      00:13\n    \n  \n\n\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      0.609499\n      0.233965\n      0.100000\n      00:13\n    \n    \n      1\n      0.459157\n      0.267047\n      0.118182\n      00:13\n    \n    \n      2\n      0.373013\n      0.286165\n      0.118182\n      00:13\n    \n    \n      3\n      0.338020\n      0.260390\n      0.109091\n      00:13"
   },
   {
+    "objectID": "past-events/voice-technology-rev/index.html",
+    "href": "past-events/voice-technology-rev/index.html",
+    "title": "Building meaningful voice technology with hybrid AI+Human solutions",
+    "section": "",
+    "text": "Miguel from Rev gave a talk on cutting edge ASR.\nMore details coming soon!"
+  },
+  {
     "objectID": "past-events/alignment/index.html",
     "href": "past-events/alignment/index.html",
     "title": "AI Alignment - why AI: might or might not kill us all",
@@ -301,11 +329,32 @@
     "text": "AI Risk: Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeover\nResearch analyst Ajeya Cotra contends that misalignment is our default trajectory."
   },
   {
+    "objectID": "past-events/getting-high/index.html",
+    "href": "past-events/getting-high/index.html",
+    "title": "Getting High for Marine Conservation",
+    "section": "",
+    "text": "David Gaspard, a marine biologist living in Squamish, is using drones to capture footage of whales off the coast of eastern Canada. He asked the ML group for a brainstorming session. The aim of David’s research is to develop a non-invasive method of assessing the health of individual whales. The process would involve large amounts of image processing\nDavid gave a talk about his upcoming masters project, in which he will use the size of whales as measured from fixed height drone footage as a proxy for whale health.\n12 people attended, including one new member who’s expertise in photogrophy, light and lenses contributed some ideas to David’s approach.\nAt the time, David was manually measuring the size of the whales, from footage taken by drones at fixed heights.\nWe explored ideas on how to use machine learning to help reduce the labour involved during this step.\nWe discussed using this idea as the basis for a hackathon."
+  },
+  {
+    "objectID": "past-events/deepseek-talk/index.html",
+    "href": "past-events/deepseek-talk/index.html",
+    "title": "Let’s chat about Deep Seek",
+    "section": "",
+    "text": "Image: DeepSeek logo\n\n\nThis event was attended by just Mike and Peter, so we went to the pub and read the whitepaper for two of their recently released models. In particular, Pete helped Mike to understand the math on pages 7-9 of the Deepseek V3 technical report\nAdditionally, Mike prepared a presentation to communicate the differences between the DeepSeek models and other flagship LLMs. The presentation is available here"
+  },
+  {
     "objectID": "past-events/past-events.html",
     "href": "past-events/past-events.html",
     "title": "Past events",
     "section": "",
-    "text": "Whale Health Hackday\n\n\n\n\n\nWe hosted a hackathon based on David’s whale health presentation\n\n\n\n\n\n\nJun 27, 2024\n\n\nML Squamish\n\n\n\n\n\n\n  \n\n\n\n\nBuilding a Birdsong Recognizer: AI Meets Ornithology\n\n\n\n\n\nTraining a CNN model to detect birdsong\n\n\n\n\n\n\nMay 3, 2024\n\n\nMichael Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nLightning Talks\n\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2024\n\n\nML Squamish\n\n\n\n\n\n\n  \n\n\n\n\nLet’s chat about Deep Seek\n\n\n\n\n\nPresentation and reading of DeepSeek whitepapers\n\n\n\n\n\n\nFeb 12, 2024\n\n\nPeter O’Connor, Mike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nLightning Talks 2\n\n\n\n\n\n\n\n\n\n\n\n\nJan 7, 2024\n\n\nElliot Salisbury, Guillaume Slevan-Tremblay, Elliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nBuilding meaningful voice technology with hybrid AI+Human solutions\n\n\n\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nMiguel Jette\n\n\n\n\n\n\n  \n\n\n\n\nCollaborative Filtering (AKA recommender systems)\n\n\n\n\n\n\n\n\n\n\n\n\nOct 19, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nEagle Eyes Search\n\n\n\n\n\nComputer vision for drones for SAR\n\n\n\n\n\n\nJun 22, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101\n\n\n\n\n\n\n\n\n\n\n\n\nJun 7, 2023\n\n\nMike Gallimore & Peter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nAI Alignment - why AI: might or might not kill us all\n\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nIlva Ravinska\n\n\n\n\n\n\n  \n\n\n\n\nDeveloping Chatbots in an evolving AI landscape\n\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nGuillaumen Slevan-Tremblay\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nIntro to machine learning\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\nNo matching items"
+    "text": "Welcome Back / AI tooling\n\n\n\n\n\nHow has your workflow changed over the past year\n\n\n\n\n\n\nDec 11, 2025\n\n\nML Squamish\n\n\n\n\n\n\n  \n\n\n\n\nWhale Health Hackday\n\n\n\n\n\nWe hosted a hackathon based on David’s whale health presentation\n\n\n\n\n\n\nJun 27, 2024\n\n\nML Squamish\n\n\n\n\n\n\n  \n\n\n\n\nBuilding a Birdsong Recognizer: AI Meets Ornithology\n\n\n\n\n\nTraining a CNN model to detect birdsong\n\n\n\n\n\n\nMay 3, 2024\n\n\nMichael Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nLightning Talks\n\n\n\n\n\n\n\n\n\n\n\n\nMar 14, 2024\n\n\nML Squamish\n\n\n\n\n\n\n  \n\n\n\n\nGetting High for Marine Conservation\n\n\n\n\n\nUsing drone footage to measure the health of whales\n\n\n\n\n\n\nMar 2, 2024\n\n\nDavid Gaspard\n\n\n\n\n\n\n  \n\n\n\n\nLet’s chat about Deep Seek\n\n\n\n\n\nPresentation and reading of DeepSeek whitepapers\n\n\n\n\n\n\nFeb 12, 2024\n\n\nPeter O’Connor, Mike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nLightning Talks 2\n\n\n\n\n\n\n\n\n\n\n\n\nJan 7, 2024\n\n\nElliot Salisbury, Guillaume Slevan-Tremblay, Elliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nBuilding meaningful voice technology with hybrid AI+Human solutions\n\n\n\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nMiguel Jette\n\n\n\n\n\n\n  \n\n\n\n\nCollaborative Filtering (AKA recommender systems)\n\n\n\n\n\n\n\n\n\n\n\n\nOct 19, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nEagle Eyes Search\n\n\n\n\n\nComputer vision for drones for SAR\n\n\n\n\n\n\nJun 22, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nVersion Control 101\n\n\n\n\n\n\n\n\n\n\n\n\nJun 7, 2023\n\n\nMike Gallimore & Peter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nAI Alignment - why AI: might or might not kill us all\n\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nIlva Ravinska\n\n\n\n\n\n\n  \n\n\n\n\nDeveloping Chatbots in an evolving AI landscape\n\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nGuillaumen Slevan-Tremblay\n\n\n\n\n\n\n  \n\n\n\n\nGeospatial 101\n\n\n\n\n\n\n\n\n\n\n\n\nMar 22, 2023\n\n\nElliot Salisbury\n\n\n\n\n\n\n  \n\n\n\n\nEric’s talk on Quantum ML\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\nEric Drechsler\n\n\n\n\n\n\n  \n\n\n\n\nFrom scratch model part 2: training an image recognition model using fastai\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nFrom Scratch Model part 1: Getting set up with a free cloud machine learning environment in six easy steps\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 8, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nIntro to machine learning\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nMike Gallimore\n\n\n\n\n\n\n  \n\n\n\n\nChat-GPT: The architecture behind the model\n\n\n\n\n\n\n\n\n\n\n\n\nJan 11, 2023\n\n\nPeter O’Connor\n\n\n\n\n\n\n  \n\n\n\n\nNumpy deep dive\n\n\n\n\n\n\n\n\n\n\n\n\nDec 21, 2022\n\n\nPeter O’Connor\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "past-events/lightning-talks-2/index.html",
+    "href": "past-events/lightning-talks-2/index.html",
+    "title": "Lightning Talks 2",
+    "section": "",
+    "text": "We hosted a lightning talks session.\nThe goal was to see what technologies people in the community had been working with since our last meetup.\n\nMarimo\n\n\n\nmarimo\n\n\nElliot had recently attended a conference, during which he learned about Marimo, a Jupyter Notebooks alternative which runs pure python under the hood, making live updates to the entire notebook rather than the usual cell by cell execution we’re used to when working with notebooks.\n\n\nFastHTML\n\nMike had been working on a web app using FastHTML - a python interface for building websites. It uses HTMX under the hood, and abstracts away all the HTML, CSS and JavaScript normally needed when building interactive websites. He gave a demo of a riddle generating app, which prompted the user with an LLM generated riddle, and berated the user in a Monty Python-esque manner for incorrect answers. Riddle me this"
   },
   {
     "objectID": "past-events/paperspace-setup-mike/paperspace.html",
@@ -326,7 +375,7 @@
     "href": "index.html",
     "title": "Welcome to our landing page",
     "section": "",
-    "text": "Next meetup Wednesday 5th March 2025!\nWe’ll be hosting a talk on CNN classifiers for birdsong recognition, walking through some of the considerations when building a suitable training set, and how to evaluate binary classifers.\nEvent is at 7pm at the Easy Expense offices on 2nd ave.\n\n\nCheck out our past events\n\n\nAnd join our Slack channel.\nShoot us an email to get an invite"
+    "text": "Next meetup Wedneday 14th January 2026\nThor will be presenting on AI for Salmonids Conservation\nEvent will be at 7pm at the Easy Expense offices on 2nd ave.\nMore details to be posted here soon- wach this space!\nMake sure to get your ticket at the eventbrite page once it’s up and running.\n\n\nCheck out our past events\n\n\nAnd join our Slack channel.\nShoot us an email to get an invite"
   },
   {
     "objectID": "about.html",
@@ -334,47 +383,5 @@
     "title": "About",
     "section": "",
     "text": "We are a group of Squamish residents connected over a common interest in machine learning, data science and AI.\nWe aim to grow skills and knowledge, and make connections through a series of talks, group coding events, pair programming and hackathons.\nWe aim to provide a place for people to share knowledge in the domains of data science, machine learning and artificial intelligence. We try to structure our talks to be as participatory as possible - rather than just a lecture on a topic, we encourage input and material from our members, and encourage debate in the hope that this stimulates learning and growth of our members.\nTake a look at our vision statement\nTo get involved, come along on Wednesday evenings to meet the group!\nIf you’d like to join our Slack messenger channel, or if you have any questions, you can shoot us an email here: mlsquamish@gmail.com\nWe host our meets at the offices of Easy Expense - a local tech company with an amazing expense tracking app. Check out their website and download their app on IOS or Android."
-  },
-  {
-    "objectID": "past-events/birdsong-recognition/index.html",
-    "href": "past-events/birdsong-recognition/index.html",
-    "title": "Building a Birdsong Recognizer: AI Meets Ornithology",
-    "section": "",
-    "text": "Image: Dataset design schematic from blog post\n\n\nThis presentation brought together 19 people from backgrounds in conservation, ornithology, education, machine learning and data science. Mike introduced the topic for people unfamiliar with the field, and took us step by step through some of the challenges he overcame whilst building a machine learning model trained on bioacoustic data.\nThe model trained was capabale of detecting the song of an Olive Sided Flycatcher from field recordings with high precision and higher recall than pre existing models.\nTopics included dataset design, suitable choice of metrics, example mining, finetuning a pretrained image recognition model for audio classification.\nThere was a discussion after the talk, which connected people from a range of backgrounds, and led to a greater overall understanding for everbody present.\nThere is a slideshow accompanying this section.\nSlideshow\nAnd a blog post outlining the approach taken to build the detector:\nBlog Post"
-  },
-  {
-    "objectID": "past-events/deepseek-talk/index.html",
-    "href": "past-events/deepseek-talk/index.html",
-    "title": "Let’s chat about Deep Seek",
-    "section": "",
-    "text": "Image: DeepSeek logo\n\n\nThis event was attended by just Mike and Peter, so we went to the pub and read the whitepaper for two of their recently released models. In particular, Pete helped Mike to understand the math on pages 7-9 of the Deepseek V3 technical report\nAdditionally, Mike prepared a presentation to communicate the differences between the DeepSeek models and other flagship LLMs. The presentation is available here"
-  },
-  {
-    "objectID": "past-events/lightning-talks/index.html",
-    "href": "past-events/lightning-talks/index.html",
-    "title": "Lightning Talks",
-    "section": "",
-    "text": "We hosted our first lightning talks session.\nThe goal was to provid a space for people to present a problem they’re working on, and get input and ideas from the community.\nWe were kindly hosted by The Squamish Welcome Centre\nWe had 9 people in attendance. Some highlights:\n\nJacqui got some help setting up a python programming environment on her laptop.\nElliot presented his new project which searches conference videos in a youtube like interface, allowing effective searching of technical conference videos such as PyCon.\nDavid got some advice on running his first focus group - in particular from Christy who had prior experience in this area. The aim of the focus group was to gain insight for his parkinsons communication aid project, which he later presented at one of our meetups.\nMike was troubleshooting part of the data processing for his birdsong recognition project.\n\nThe event went really smoothly. Everybody learned something new, and got a chance to get help from the community.\nAfter the lightning talks, we all went to the Copper Coil for a social."
-  },
-  {
-    "objectID": "past-events/voice-technology-rev/index.html",
-    "href": "past-events/voice-technology-rev/index.html",
-    "title": "Building meaningful voice technology with hybrid AI+Human solutions",
-    "section": "",
-    "text": "Miguel from Rev gave a talk on cutting edge ASR.\nMore details coming soon!"
-  },
-  {
-    "objectID": "past-events/lightning-talks-2/index.html",
-    "href": "past-events/lightning-talks-2/index.html",
-    "title": "Lightning Talks 2",
-    "section": "",
-    "text": "We hosted a lightning talks session.\nThe goal was to see what technologies people in the community had been working with since our last meetup.\n\nMarimo\n\n\n\nmarimo\n\n\nElliot had recently attended a conference, during which he learned about Marimo, a Jupyter Notebooks alternative which runs pure python under the hood, making live updates to the entire notebook rather than the usual cell by cell execution we’re used to when working with notebooks.\n\n\nFastHTML\n\nMike had been working on a web app using FastHTML - a python interface for building websites. It uses HTMX under the hood, and abstracts away all the HTML, CSS and JavaScript normally needed when building interactive websites. He gave a demo of a riddle generating app, which prompted the user with an LLM generated riddle, and berated the user in a Monty Python-esque manner for incorrect answers. Riddle me this"
-  },
-  {
-    "objectID": "past-events/getting-high/index.html",
-    "href": "past-events/getting-high/index.html",
-    "title": "Getting High for Marine Conservation",
-    "section": "",
-    "text": "David Gaspard, a marine biologist living in Squamish, is using drones to capture footage of whales off the coast of eastern Canada. He asked the ML group for a brainstorming session. The aim of David’s research is to develop a non-invasive method of assessing the health of individual whales. The process would involve large amounts of image processing\nDavid Gaspard gave a talk about his upcoming masters project, in which he will use the size of whales as measured from fixed height drone footage as a proxy for whale health.\n12 people attended, including one new member who’s expertise in photogrophy, light and lenses contributed some ideas to David’s approach.\nAt the time, David was manually measuring the size of the whales, from footage taken by drones at fixed heights.\nWe explored ideas on how to use machine learning to help reduce the labour involved during this step.\nWe discussed using this idea as the basis for a hackathon."
   }
 ]
