@@ -7,6 +7,12 @@ image: "ed-first-page.png"
 
 ---
 
-This was a fascinating talk on quantum physics, quantum computing and some applications of machine learning within all of this. Check out the slideshow here:
+This was a fascinating talk on quantum physics, quantum computing and some applications of machine learning within all of this. 
+
+The talk was really well attended - by over 20 people, from a wide range of backgrounds. 
+
+The Q&A afterwards was great fun, and went on a lot longer than scheduled. Thanks so much Eric for this fun evening.
+
+Check out the slideshow here:
 
 [pdf slides](quantum-ml.pdf)

@@ -1,0 +1,21 @@
+---
+title: "Getting High for Marine Conservation"
+description: "Using drone footage to measure the health of whales"
+author: "David Gaspard"
+date: "2024-03-02"
+categories: [Conservation, Drones, Presentation, Computer Vision]
+image: "whale-small.png"
+
+---
+![](whale-large.jpg)
+
+
+David Gaspard gave a talk about his upcoming masters project, in which he will use the size of whales as measured from fixed height drone footage as a proxy for whale health. 
+
+12 people attended, including one new member who's expertise in photogrophy, light and lenses contributed some ideas to David's approach. 
+
+At the time, David was manually measuring the size of the whales, from footage taken by drones at fixed heights. 
+
+We explored ideas on how to use machine learning to help reduce the labour involved during this step. 
+
+We discussed using this idea as the basis for a hackathon. 

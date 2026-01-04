@@ -1,5 +1,6 @@
 ---
 title: "Whale Health Hackday"
+description: "We hosted a hackathon based on David's whale health presentation"
 author: "ML Squamish"
 date: "2024-06-27"
 image: "image2.png"
