@@ -7,7 +7,7 @@ categories: [Discussion, AI code completion, Cursor, Claude Code, GitHub Copilot
 image: "../docs/logo-mls.png"
 ---
 
-This event was attended by 9 people all working in tech or using ML sysytems in some form. 
+This event was attended by 9 people all working in tech or using ML/AI systems in some form. 
 
 We opened up discussion around peoples' experience using AI tooling in their work. What new workflows have people found, and are they more productive as a result of it?
 
