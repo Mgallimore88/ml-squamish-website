@@ -13,7 +13,7 @@ We opened up discussion around peoples' experience using AI tooling in their wor
 
 There was a diverse set of points of view and experiences.
 
-One thing that stood out as a common theme was the need to stay on top of context management when using an LLM for language or code generation. Once the context window starts to get polluted with bad ideas or code, it'll continue to deteriorate, and it's hard to get the LLM back on track. To counter this, there is context editing functionality available in Cursor. Also the Solve-It platform allows users to edit LLM outputs to make sure context improves throughout the dialogue, rather than degrading.
+One thing that stood out as a common theme was the need to stay on top of context management when using an LLM for image, language or code generation. Once the context window starts to get polluted with bad ideas or code, it'll continue to deteriorate, and it's hard to get the LLM back on track. To counter this, there is context editing functionality available in Cursor. Also the Solve-It platform allows users to edit LLM outputs to make sure context improves throughout the dialogue, rather than degrading.
 
 __Other points discussed:__
 
