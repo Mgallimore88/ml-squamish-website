@@ -2,7 +2,7 @@
 title: "Welcome Back / AI tooling"
 description: "How has your workflow changed over the past year"
 author: "ML Squamish"
-date: "2024-12-11"
+date: "2025-12-11"
 categories: [Discussion, AI code completion, Cursor, Claude Code, GitHub Copilot, Sovle It]
 image: "../docs/logo-mls.png"
 ---
