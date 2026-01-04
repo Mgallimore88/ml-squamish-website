@@ -1,23 +1,33 @@
 ---
 title: "Lightning Talks"
-author: "Elliot Salisbury, Guillaume Slevan-Tremblay, Elliot Salisbury "
-date: "2024-01-07"
-categories: [Marimo, FastHTML]
+author: "ML Squamish"
+date: "2024-03-14"
+categories: [Lightning talks, Brainstorming, Consulting]
 image: "lightning.jpg"
 
 ---
 
-# We hosted a lightning talks session. 
-The goal was to see what technologies people in the community had been working with since our last meetup. 
+![](lightning.jpg)
+
+# We hosted our first lightning talks session. 
+The goal was to provid a space for people to present a problem they're working on, and get input and ideas from the community. 
+
+We were kindly hosted by The Squamish Welcome Centre
+
+
+We had 9 people in attendance. Some highlights:
+
+- Jacqui got some help setting up a python programming environment on her laptop.
+
+- Elliot presented his new project which searches conference videos in a youtube like interface, allowing effective searching of technical conference videos such as PyCon.
+
+- David got some advice on running his first focus group - in particular from Christy who had prior experience in this area. The aim of the focus group was to gain insight for his parkinsons communication aid project, which he later presented at one of our meetups.  
+
+- Mike was troubleshooting part of the data processing for his birdsong recognition project. 
 
 
 
-### Marimo
-![marimo](marimo.svg)
+The event went really smoothly. Everybody learned something new, and got a chance to get help from the community. 
 
-Elliot had recently attended a conference, during which he learned about [Marimo](https://marimo.io/features/vs-jupyter-alternative), a [Jupyter Notebooks](https://jupyter.org/) alternative which runs pure python under the hood, making live updates to the entire notebook rather than the usual cell by cell execution we're used to when working with notebooks. 
 
-### FastHTML
-![](fasthtml.jpeg)
-
-Mike had been working on a web app using [FastHTML](https://fastht.ml/) - a python interface for building websites. It uses HTMX under the hood, and abstracts away all the HTML, CSS and JavaScript normally needed when building interactive websites. He gave a demo of a riddle generating app, which prompted the user with an LLM generated riddle, and berated the user in a Monty Python-esque manner for incorrect answers. [Riddle me this](https://riddle-generator-tawny.vercel.app/)
+After the lightning talks, we all went to the Copper Coil for a social. 

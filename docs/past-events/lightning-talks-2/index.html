@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="ML Squamish">
-<meta name="dcterms.date" content="2024-03-14">
+<meta name="author" content="Elliot Salisbury, Guillaume Slevan-Tremblay, Elliot Salisbury">
+<meta name="dcterms.date" content="2024-01-07">
 
-<title>ML Squamish - Lightning Talks</title>
+<title>ML Squamish - Lightning Talks 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#we-hosted-our-first-lightning-talks-session." id="toc-we-hosted-our-first-lightning-talks-session." class="nav-link active" data-scroll-target="#we-hosted-our-first-lightning-talks-session.">We hosted our first lightning talks session.</a></li>
+  <li><a href="#we-hosted-a-lightning-talks-session." id="toc-we-hosted-a-lightning-talks-session." class="nav-link active" data-scroll-target="#we-hosted-a-lightning-talks-session.">We hosted a lightning talks session.</a>
+  <ul class="collapse">
+  <li><a href="#marimo" id="toc-marimo" class="nav-link" data-scroll-target="#marimo">Marimo</a></li>
+  <li><a href="#fasthtml" id="toc-fasthtml" class="nav-link" data-scroll-target="#fasthtml">FastHTML</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -120,11 +124,10 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lightning Talks</h1>
+<h1 class="title">Lightning Talks 2</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Lightning talks</div>
-    <div class="quarto-category">Brainstorming</div>
-    <div class="quarto-category">Consulting</div>
+    <div class="quarto-category">Marimo</div>
+    <div class="quarto-category">FastHTML</div>
   </div>
   </div>
 
@@ -135,14 +138,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>ML Squamish </p>
+             <p>Elliot Salisbury, Guillaume Slevan-Tremblay, Elliot Salisbury </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 14, 2024</p>
+      <p class="date">January 7, 2024</p>
     </div>
   </div>
   
@@ -152,22 +155,26 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><img src="lightning.jpg" class="img-fluid"></p>
-<section id="we-hosted-our-first-lightning-talks-session." class="level1">
-<h1>We hosted our first lightning talks session.</h1>
-<p>The goal was to provid a space for people to present a problem they’re working on, and get input and ideas from the community.</p>
-<p>We were kindly hosted by The Squamish Welcome Centre</p>
-<p>We had 9 people in attendance. Some highlights:</p>
-<ul>
-<li><p>Jacqui got some help setting up a python programming environment on her laptop.</p></li>
-<li><p>Elliot presented his new project which searches conference videos in a youtube like interface, allowing effective searching of technical conference videos such as PyCon.</p></li>
-<li><p>David got some advice on running his first focus group - in particular from Christy who had prior experience in this area. The aim of the focus group was to gain insight for his parkinsons communication aid project, which he later presented at one of our meetups.</p></li>
-<li><p>Mike was troubleshooting part of the data processing for his birdsong recognition project.</p></li>
-</ul>
-<p>The event went really smoothly. Everybody learned something new, and got a chance to get help from the community.</p>
-<p>After the lightning talks, we all went to the pub for a social.</p>
+<section id="we-hosted-a-lightning-talks-session." class="level1">
+<h1>We hosted a lightning talks session.</h1>
+<p>The goal was to see what technologies people in the community had been working with since our last meetup.</p>
+<section id="marimo" class="level3">
+<h3 class="anchored" data-anchor-id="marimo">Marimo</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="marimo.svg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">marimo</figcaption><p></p>
+</figure>
+</div>
+<p>Elliot had recently attended a conference, during which he learned about <a href="https://marimo.io/features/vs-jupyter-alternative">Marimo</a>, a <a href="https://jupyter.org/">Jupyter Notebooks</a> alternative which runs pure python under the hood, making live updates to the entire notebook rather than the usual cell by cell execution we’re used to when working with notebooks.</p>
+</section>
+<section id="fasthtml" class="level3">
+<h3 class="anchored" data-anchor-id="fasthtml">FastHTML</h3>
+<p><img src="fasthtml.jpeg" class="img-fluid"></p>
+<p>Mike had been working on a web app using <a href="https://fastht.ml/">FastHTML</a> - a python interface for building websites. It uses HTMX under the hood, and abstracts away all the HTML, CSS and JavaScript normally needed when building interactive websites. He gave a demo of a riddle generating app, which prompted the user with an LLM generated riddle, and berated the user in a Monty Python-esque manner for incorrect answers. <a href="https://riddle-generator-tawny.vercel.app/">Riddle me this</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

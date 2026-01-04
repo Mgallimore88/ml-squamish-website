@@ -354,7 +354,7 @@
     "href": "past-events/lightning-talks/index.html",
     "title": "Lightning Talks",
     "section": "",
-    "text": "We hosted a lightning talks session.\nThe goal was to see what technologies people in the community had been workign with since our last meetup.\n\nMarimo\n\n\n\nmarimo\n\n\nElliot had recently attended a conference, during which he learned about Marimo, a Jupyter Notebooks alternative which runs pure python under the hood, making live updates to the entire notebook rather than the usual cell by cell execution we’re used to when working with notebooks.\n\n\nFastHTML\n\nMike had been working on a web app using FastHTML - a python interface for building websites. It uses HTMX under the hood, and abstracts away all the HTML, CSS and JavaScript normally needed when building interactive websites. He gave a demo of a riddle generating app, which prompted the user with an LLM generated riddle, and berated the user in a Monty Python-esque manner for incorrect answers. Riddle me this"
+    "text": "We hosted our first lightning talks session.\nThe goal was to provid a space for people to present a problem they’re working on, and get input and ideas from the community.\nWe were kindly hosted by The Squamish Welcome Centre\nWe had 9 people in attendance. Some highlights:\n\nJacqui got some help setting up a python programming environment on her laptop.\nElliot presented his new project which searches conference videos in a youtube like interface, allowing effective searching of technical conference videos such as PyCon.\nDavid got some advice on running his first focus group - in particular from Christy who had prior experience in this area. The aim of the focus group was to gain insight for his parkinsons communication aid project, which he later presented at one of our meetups.\nMike was troubleshooting part of the data processing for his birdsong recognition project.\n\nThe event went really smoothly. Everybody learned something new, and got a chance to get help from the community.\nAfter the lightning talks, we all went to the pub for a social."
   },
   {
     "objectID": "past-events/voice-technology-rev/index.html",
@@ -362,5 +362,12 @@
     "title": "Building meaningful voice technology with hybrid AI+Human solutions",
     "section": "",
     "text": "Miguel from Rev gave a talk on cutting edge ASR.\nMore details coming soon!"
+  },
+  {
+    "objectID": "past-events/lightning-talks-2/index.html",
+    "href": "past-events/lightning-talks-2/index.html",
+    "title": "Lightning Talks 2",
+    "section": "",
+    "text": "We hosted a lightning talks session.\nThe goal was to see what technologies people in the community had been working with since our last meetup.\n\nMarimo\n\n\n\nmarimo\n\n\nElliot had recently attended a conference, during which he learned about Marimo, a Jupyter Notebooks alternative which runs pure python under the hood, making live updates to the entire notebook rather than the usual cell by cell execution we’re used to when working with notebooks.\n\n\nFastHTML\n\nMike had been working on a web app using FastHTML - a python interface for building websites. It uses HTMX under the hood, and abstracts away all the HTML, CSS and JavaScript normally needed when building interactive websites. He gave a demo of a riddle generating app, which prompted the user with an LLM generated riddle, and berated the user in a Monty Python-esque manner for incorrect answers. Riddle me this"
   }
 ]
