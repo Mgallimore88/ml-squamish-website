@@ -8,7 +8,7 @@ title: "Welcome to our landing page"
 
 __Thor Veen__ will be presenting on AI for Salmonids Conservation.
 
-![salmon_jump](salmon-data.png)
+![](salmon-data.png)
 
 #### Abstract:
 
@@ -24,7 +24,7 @@ Event will be at 7pm at the Easy Expense offices on 2nd ave.
 
 
 #### Tickets
-Make sure to get your (free) ticket at the [eventbrite page here.](https://www.eventbrite.ca/e/machine-learning-for-salmonids-conservation-tickets-1979951371852?aff=oddtdtcreator), so we know how many people to expect. 
+Make sure to get your (free) ticket at the [eventbrite page here](https://www.eventbrite.ca/e/machine-learning-for-salmonids-conservation-tickets-1979951371852?aff=oddtdtcreator), so we know how many people to expect. 
 
 # [Check out our past events](past-events/past-events.qmd)
 
