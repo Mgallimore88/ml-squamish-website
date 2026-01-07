@@ -10,6 +10,6 @@ image: "Deepseek.png"
 
 ![Image: DeepSeek logo](./Deepseek.png)
 
-This event was attended by just Mike and Peter, so we went to the pub and read the whitepaper for two of their recently released models. In particular, Pete helped Mike to understand the math on pages 7-9 of the [Deepseek V3 technical report](https://arxiv.org/pdf/2412.19437v1)
+This event was attended by just Mike and Peter, so we went to the pub and read the whitepaper for two of their recently released models. In particular, Peter helped Mike to understand the math on pages 7-9 of the [Deepseek V3 technical report](https://arxiv.org/pdf/2412.19437v1)
 
 Additionally, Mike prepared a presentation to communicate the differences between the DeepSeek models and other flagship LLMs. [The presentation is available here](https://www.canva.com/design/DAGevWgu06Q/JblQYC3z9djYSPlHwI1EqQ/edit)
