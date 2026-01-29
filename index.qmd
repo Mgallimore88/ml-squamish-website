@@ -4,9 +4,20 @@ title: "Welcome to our landing page"
 
 ![](logo-mls.png)
 
-# Next meetup Wedneday 14th January 2026
 
-__Thor Veen__ will be presenting on AI for Salmonids Conservation.
+# Next meetup TBD: 
+- we're looking at Feb 19th and 26th as possible dates depending on speaker availability. 
+- If no speaker is available, we'll host a book swap and AI Ethics discussion. 
+
+Watch this space for updates!
+
+
+
+# Our last meetup was Wedneday 14th January 2026
+
+__Thor Veen__ will be presented on AI for Salmonids Conservation.
+
+
 
 ![](salmon-data.png)
 
@@ -30,3 +41,5 @@ Make sure to get your (free) ticket at the [eventbrite page here](https://www.ev
 
 # And join our Slack channel. 
 Shoot us an email to get an invite.
+
+
