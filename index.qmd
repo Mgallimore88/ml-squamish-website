@@ -43,3 +43,5 @@ Make sure to get your (free) ticket at the [eventbrite page here](https://www.ev
 Shoot us an email to get an invite.
 
 
+<script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+<zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmkn6qe790008zxf4984a0vmg'></zapier-interfaces-chatbot-embed>
